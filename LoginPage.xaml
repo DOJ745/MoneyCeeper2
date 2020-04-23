@@ -10,30 +10,30 @@
 
     <Grid Background="White" Margin="-10,-56,10,56">
 
-        <Label x:Name="UsernameLabel" 
+        <Label x:Name="LogUsernameLabel" 
                Content="Имя пользователя" 
                Margin="0,170,0,400" Height="30" Width="120"/>
 
-        <TextBox x:Name="UsernameTextBox" Margin="340,200,340,375" 
+        <TextBox x:Name="LogUsernameTextBox" Margin="340,200,340,375" 
                  TextWrapping="Wrap" 
                  Width="120" BorderBrush="Black" 
                  Background="#FFE2E2E2" Height="25" />
         
-        <Label x:Name="PasswordLabel" 
+        <Label x:Name="LogPasswordLabel" 
             Content="Пароль" 
             Margin="374,230,374,340" Height="30"/>
         
-        <PasswordBox x:Name="PasswordBox" 
+        <PasswordBox x:Name="LogPasswordBox" 
                      Margin="340,265,340,310"
                      Width="120" Height="25" 
                      BorderBrush="Black" Background="#FFE2E2E2"/>
         
-        <Button x:Name="EnterButton" 
+        <Button x:Name="LogEnterButton" 
                 Content="Войти" 
                 Margin="340,306,340,269" 
                 Width="120" Height="25"/>
         
-        <Button x:Name="RegistrationButton" 
+        <Button x:Name="LogRegistrationButton" 
                 Content="Регистрация" 
                 Margin="340,336,340,239" 
                 Width="120" Height="25"/>
