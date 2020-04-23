@@ -9,8 +9,8 @@
         Height="600" Width="800">
 
     <Window.DataContext>
-        <local:ApplicationViewModel />
-    </Window.DataContext>
+        <local:ApplicationViewModel/>
+    </Window.DataContext> 
 
     <Grid>
         <Button x:Name="MainLoginButton" 

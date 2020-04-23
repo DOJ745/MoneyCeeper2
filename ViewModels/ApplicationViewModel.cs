@@ -17,7 +17,7 @@ namespace MoneyCeeper
                 return showTextCommand ?? 
                 (showTextCommand = new RelayCommand(obj =>
                    {
-                       ShowText("12345");
+                       ShowText("123");
                    })
                 );
             }

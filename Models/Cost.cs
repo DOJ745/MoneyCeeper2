@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace MoneyCeeper
 {
-    class Cost : INotifyPropertyChanged
+    class Cost : ViewModelBase
     {
         #region Private Fields
         private string description;
@@ -64,12 +64,5 @@ namespace MoneyCeeper
             }
         }
 #endregion
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
     }
 }

@@ -4,7 +4,7 @@ using System.Runtime.CompilerServices;
 
 namespace MoneyCeeper
 {
-    class User : INotifyPropertyChanged
+    class User : ViewModelBase
     {
         private string password;
         private string login;
@@ -26,12 +26,6 @@ namespace MoneyCeeper
                 password = value;
                 OnPropertyChanged("Password");
             }
-        }
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
