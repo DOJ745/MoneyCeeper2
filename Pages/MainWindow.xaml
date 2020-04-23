@@ -12,7 +12,7 @@
         <local:ApplicationViewModel />
     </Window.DataContext>
 
-    <Grid Margin="0,3,-8,1">
+    <Grid>
         <Button x:Name="MainLoginButton" 
                 Content="Войти под своей учёной записью" 
                 Margin="288,265,0,261" 

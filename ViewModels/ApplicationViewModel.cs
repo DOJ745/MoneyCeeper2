@@ -6,7 +6,7 @@ using System;
 
 namespace MoneyCeeper
 {
-    public class ApplicationViewModel : ViewModelBase
+    public class ApplicationViewModel : INotifyPropertyChanged
     {
         #region Commands
         private RelayCommand showTextCommand;
@@ -31,6 +31,13 @@ namespace MoneyCeeper
         public void Update()
         {
  
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
