@@ -2,27 +2,29 @@
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
+using System;
 
 namespace MoneyCeeper
 {
     public partial class ApplicationViewModel : INotifyPropertyChanged
     {
-        private ICommand showTextCommand;
-        public ICommand ShowTextCommand
+        private RelayCommand showTextCommand;
+        public RelayCommand ShowTextCommand
         {
             get
             {
-                return showTextCommand ?? (showTextCommand = new RelayCommand(
-                   obj =>
+                return showTextCommand ?? 
+                (showTextCommand = new RelayCommand(obj =>
                    {
-                       ShowText();
-                   }));
+                       ShowText("12345");
+                   })
+                );
             }
         }
 
-        public void ShowText()
+        public void ShowText(object parametr)
         {
-            MessageBox.Show("This is text!");
+            MessageBox.Show("This is text! And argument: " + Convert.ToString(parametr));
         }
 
         public void Update()

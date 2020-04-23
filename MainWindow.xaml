@@ -12,10 +12,10 @@
         <local:ApplicationViewModel />
     </Window.DataContext>
 
-    <Grid Margin="0,0,-8,2" Height="561">
+    <Grid Margin="0,3,-8,1">
         <Button x:Name="MainLoginButton" 
                 Content="Войти под своей учёной записью" 
-                Margin="0,407,0,125" 
+                Margin="288,265,0,261" 
                 Width="213" Height="35" 
                 Command="{Binding ShowTextCommand}" 
                 HorizontalAlignment="Left"/>
@@ -23,11 +23,11 @@
         <Frame x:Name="MainFrame" 
                BorderBrush="Black" 
                Background="#FFF0E506" 
-               Margin="0,0,0,301"/>
+               Margin="0,0,10,301"/>
         
         <TextBox x:Name="MainTextBox" 
                  HorizontalAlignment="Left" 
-                 Height="23" Margin="299,509,0,0" TextWrapping="Wrap" 
+                 Height="23" Margin="331,305,0,0" TextWrapping="Wrap" 
                  Text="Simple text" 
                  VerticalAlignment="Top" Width="120"/>
 
