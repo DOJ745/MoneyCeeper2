@@ -14,7 +14,7 @@ namespace MoneyCeeper
             InitializeComponent();
         }
 
-        public ICommand DoCommand;
+        /*public ICommand DoCommand;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -23,12 +23,12 @@ namespace MoneyCeeper
 
         private void CommandExecute(object parameter)
         {
-            MessageBox.Show("Привет. " + Convert.ToString(parameter));
+            MessageBox.Show("Привет");
         }
 
         private bool CanCommandExecute(object parameter)
         {
-            return TextBox1.Text != string.Empty;
-        }
+            return MainTextBox.Text != string.Empty;
+        }*/
     }
 }
