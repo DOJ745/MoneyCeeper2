@@ -7,21 +7,13 @@ namespace MoneyCeeper
     class User : INotifyPropertyChanged
     {
         private string password;
-        public int[] Cost_Id
-        {
-            get { return Cost_Id; }
-            set
-            {
-                Cost_Id = value;
-                OnPropertyChanged("Cost_Id");
-            }
-        }
+        private string login;
         public string Login
         {
-            get { return Login; }
+            get { return login; }
             set
             {
-                Login = value;
+                login = value;
                 OnPropertyChanged("Login");
             }
         }

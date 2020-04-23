@@ -10,7 +10,6 @@ namespace MoneyCeeper
         public MainWindow()
         {
             InitializeComponent();
-
         }
     }
 }

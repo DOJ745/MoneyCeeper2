@@ -25,6 +25,8 @@ namespace MoneyCeeper
                 OnPropertyChanged("Price");
             }
         }
+
+        public string User_Name { get; set; }
         public string Comment
         {
             get { return comment; }
