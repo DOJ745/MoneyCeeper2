@@ -6,8 +6,9 @@ using System;
 
 namespace MoneyCeeper
 {
-    public partial class ApplicationViewModel : INotifyPropertyChanged
+    public class ApplicationViewModel : ViewModelBase
     {
+        #region Commands
         private RelayCommand showTextCommand;
         public RelayCommand ShowTextCommand
         {
@@ -26,17 +27,10 @@ namespace MoneyCeeper
         {
             MessageBox.Show("This is text! And argument: " + Convert.ToString(parametr));
         }
-
+        #endregion
         public void Update()
         {
  
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
