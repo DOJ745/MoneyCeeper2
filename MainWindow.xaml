@@ -5,10 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper"
         mc:Ignorable="d"
-        Title="Куда деваются мои деньги?" Height="600" Width="800">
-    
+        Title="Куда деваются мои деньги?" Height="600" Width="800"
+        Loaded="Window_Loaded">
+
     <Grid>
+        <Button x:Name="MainLoginButton" 
+                Content="Войти под своей учёной записью" 
+                Margin="287,450,292,94" 
+                Width="213" Height="25"
+                Command="{Binding Path=DoCommand}"/>
         
+        <Frame x:Name="MainFrame" 
+               BorderBrush="Black" 
+               Background="#FFF0E506" 
+               Margin="0,0,0,138"/>
+        
+        <TextBox x:Name="TextBox1" 
+                 HorizontalAlignment="Left" 
+                 Height="23" Margin="333,480,0,0" TextWrapping="Wrap" 
+                 Text="TextBox" 
+                 VerticalAlignment="Top" Width="120"/>
+
     </Grid>
-    
+
 </Window>
