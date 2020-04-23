@@ -13,22 +13,5 @@ namespace MoneyCeeper
         {
             InitializeComponent();
         }
-
-        /*public ICommand DoCommand;
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            DoCommand = new RelayCommand(CommandExecute, CanCommandExecute);
-        }
-
-        private void CommandExecute(object parameter)
-        {
-            MessageBox.Show("Привет");
-        }
-
-        private bool CanCommandExecute(object parameter)
-        {
-            return MainTextBox.Text != string.Empty;
-        }*/
     }
 }

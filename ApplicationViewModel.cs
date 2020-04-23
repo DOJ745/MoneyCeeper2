@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace MoneyCeeper
 {
-    partial class ApplicationViewModel : INotifyPropertyChanged
+    public partial class ApplicationViewModel : INotifyPropertyChanged
     {
         private ICommand showTextCommand;
         public ICommand ShowTextCommand
