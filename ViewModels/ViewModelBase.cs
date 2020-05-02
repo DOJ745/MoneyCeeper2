@@ -5,11 +5,13 @@ namespace MoneyCeeper
 {
     public abstract class ViewModelBase : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        [Magic]
+        protected virtual void RaisePropertyChanged(string propName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            var e = PropertyChanged;
+            if (e != null)
+                e(this, new PropertyChangedEventArgs(propName));
         }
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 }
