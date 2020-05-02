@@ -8,9 +8,7 @@ namespace MoneyCeeper
         [Magic]
         protected virtual void RaisePropertyChanged(string propName)
         {
-            var e = PropertyChanged;
-            if (e != null)
-                e(this, new PropertyChangedEventArgs(propName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
         public event PropertyChangedEventHandler PropertyChanged;
     }
