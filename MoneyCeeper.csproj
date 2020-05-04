@@ -66,6 +66,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MagicAttribute.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
     <Compile Include="Pages\LoginPage.xaml.cs">
