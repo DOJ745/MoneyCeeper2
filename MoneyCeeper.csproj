@@ -158,15 +158,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model%28EDM%29\Category.cs">
+      <DependentUpon>TestModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model%28EDM%29\Cost.cs">
+      <DependentUpon>TestModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model%28EDM%29\TestModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TestModel.Context.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model%28EDM%29\TestModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model%28EDM%29\TestModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>TestModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model%28EDM%29\User.cs">
+      <DependentUpon>TestModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Password Hash\SaltedHash.cs" />
@@ -256,6 +270,12 @@
     <Content Include="Model%28EDM%29\TestModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>TestModel.Context.cs</LastGenOutput>
+      <DependentUpon>TestModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Model%28EDM%29\TestModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TestModel.cs</LastGenOutput>
+      <DependentUpon>TestModel.edmx</DependentUpon>
     </Content>
   </ItemGroup>
   <ItemGroup>
