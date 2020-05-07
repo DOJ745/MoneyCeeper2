@@ -9,7 +9,7 @@ namespace MoneyCeeper
     public class ApplicationViewModel : ViewModelBase
     {
         #region Commands
-        private RelayCommand showTextCommand;
+       /* private RelayCommand showTextCommand;
         public RelayCommand ShowTextCommand
         {
             get
@@ -26,7 +26,7 @@ namespace MoneyCeeper
         public void ShowText(object parametr)
         {
             MessageBox.Show("This is text! And argument: " + Convert.ToString(parametr));
-        }
+        }*/
         #endregion
         public void Update()
         {

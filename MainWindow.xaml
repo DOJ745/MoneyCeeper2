@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MoneyCeeper"
         mc:Ignorable="d"
         Title="Куда деваются мои деньги?" 
-        Height="600" Width="800">
+        MinHeight="600" MinWidth="800">
 
     <Window.Resources>
         <ResourceDictionary Source="Styles\MainWindowStyle.xaml"/>
@@ -36,17 +36,17 @@
                  Text="Simple text" 
                  VerticalAlignment="Top" Width="120"/> -->
 
-            <Button Command="{Binding LoadMainUCCommand, Mode=OneTime}"
+            <Button Command="{Binding LoadLoginUCCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Login Page</TextBlock>
             </Button>
             
-            <Button Command="{Binding LoadFirstUCCommand, Mode=OneTime}"
+            <Button Command="{Binding LoadRegisterUCCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Registration page</TextBlock>
             </Button>
             
-            <Button Command="{Binding LoadSecondUCCommand, Mode=OneTime}"
+            <Button Command="{Binding CloseWindowCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Exit</TextBlock>
             </Button>
