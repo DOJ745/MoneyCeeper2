@@ -15,6 +15,6 @@ namespace MoneyCeeper
         public string Description { get; set; }
         public DateTime Date_Time { get; set; }
         public Category Category_Type { get; set; }
-#endregion
+        #endregion
     }
 }
