@@ -12,5 +12,10 @@ namespace MoneyCeeper
         public string Password { get; set; }
 
         public ICollection<Cost> User_Costs { get; set; }
+
+        public User()
+        {
+            User_Costs = new List<Cost>();
+        }
     }
 }

@@ -2,9 +2,9 @@
 
 namespace MoneyCeeper
 {
-    class CostContext : DbContext
+    class AppContext : DbContext
     {
-        public CostContext()
+        public AppContext()
             : base("DefaultConnection")
         {
 
