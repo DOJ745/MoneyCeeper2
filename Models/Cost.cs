@@ -9,8 +9,6 @@ namespace MoneyCeeper
         #region Fields
         public int Cost_Id { get; set; }
         public double Price { get; set; }
-
-        //public string User_Name { get; set; }
         public string Comment { get; set; }
         public string Description { get; set; }
         public DateTime Date_Time { get; set; }
