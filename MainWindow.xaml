@@ -28,17 +28,6 @@
 
         <StackPanel x:Name="CentralStackPanel" Grid.Column="1" Margin="5">
 
-            <!-- <Button x:Name="MainLoginButton" 
-                Content="Войти под своей учёной записью" 
-                Width="200" Height="35" 
-                Command="{Binding ShowTextCommand}" 
-                HorizontalAlignment="Left"/>
-
-            <TextBox x:Name="MainTextBox" 
-                 HorizontalAlignment="Left" 
-                 Text="Simple text" 
-                 VerticalAlignment="Top" Width="120"/> -->
-
             <Button Command="{Binding LoadLoginUCCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Login Page</TextBlock>
