@@ -23,7 +23,10 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="1" Margin="5">
+        <StackPanel x:Name="LeftStackPanel" Grid.Column="0" Margin="5"></StackPanel>
+        <StackPanel x:Name="RightStackPanel" Grid.Column="2" Margin="5"></StackPanel>
+
+        <StackPanel x:Name="CentralStackPanel" Grid.Column="1" Margin="5">
 
             <!-- <Button x:Name="MainLoginButton" 
                 Content="Войти под своей учёной записью" 
@@ -40,19 +43,19 @@
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Login Page</TextBlock>
             </Button>
-            
+
             <Button Command="{Binding LoadRegisterUCCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Registration page</TextBlock>
             </Button>
-            
+
             <Button Command="{Binding CloseWindowCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Exit</TextBlock>
             </Button>
 
         </StackPanel>
-        
+
 
     </Grid>
 

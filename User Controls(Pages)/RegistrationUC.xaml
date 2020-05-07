@@ -42,6 +42,10 @@
                     Style="{StaticResource ResourceKey=ButtonStyle}"
                     Content="Зарегестрироваться"/>
 
+            <Button x:Name="ToMainButton"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Content="На главную"/>
+
         </StackPanel>
     </Grid>
     
