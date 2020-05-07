@@ -6,63 +6,15 @@ namespace MoneyCeeper
 {
     class Cost : ViewModelBase
     {
-        #region Private Fields
-        private string description;
-        private string comment;
-        private DateTime date_time;
-        private string category;
-        private double price;
-        #endregion
-
-        #region Public Fields
+        #region Fields
         public int Cost_Id { get; set; }
-        public double Price
-        {
-            get { return price; }
-            set
-            {
-                price = value;
-                OnPropertyChanged("Price");
-            }
-        }
+        public double Price { get; set; }
 
         public string User_Name { get; set; }
-        public string Comment
-        {
-            get { return comment; }
-            set
-            {
-                comment = value;
-                OnPropertyChanged("Comment");
-            }
-        }
-        public string Description
-        {
-            get { return description; }
-            set
-            {
-                description = value;
-                OnPropertyChanged("Description");
-            }
-        }
-        public DateTime Date_Time
-        {
-            get { return date_time; }
-            set
-            {
-                date_time = value;
-                OnPropertyChanged("Date_Time");
-            }
-        }
-        public string Category
-        {
-            get { return category; }
-            set
-            {
-                category = value;
-                OnPropertyChanged("Category");
-            }
-        }
+        public string Comment { get; set; }
+        public string Description { get; set; }
+        public DateTime Date_Time { get; set; }
+        public Category Category_Type { get; set; }
 #endregion
     }
 }

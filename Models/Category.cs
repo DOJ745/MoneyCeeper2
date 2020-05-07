@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneyCeeper.Models
+namespace MoneyCeeper
 {
-    public enum Categoty
+    public enum Category
     {
         Food, Cloth, Prezents, Kids, 
         Care, Heatlh, Cafe, Education,
@@ -14,5 +14,6 @@ namespace MoneyCeeper.Models
 
         // Care - забота о себе
         // Entertainment - развлечения различного рода
+        // Comission - комунальные услуги
     }
 }
