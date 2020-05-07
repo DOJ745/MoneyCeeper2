@@ -6,26 +6,8 @@ namespace MoneyCeeper
 {
     class User : ViewModelBase
     {
-        private string password;
-        private string login;
-        public string Login
-        {
-            get { return login; }
-            set
-            {
-                login = value;
-                OnPropertyChanged("Login");
-            }
-        }
+        public string Login { get; set; }
 
-        public string Password
-        {
-            get { return password; }
-            set
-            {
-                password = value;
-                OnPropertyChanged("Password");
-            }
-        }
+        public string Password { get; set; }
     }
 }
