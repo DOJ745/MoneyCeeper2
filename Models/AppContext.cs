@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace MoneyCeeper
 {
@@ -10,12 +11,12 @@ namespace MoneyCeeper
 
         }
 
-        public virtual DbSet<Cost> Costs { get; set; }
-        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Cost> CostsSet { get; set; }
+        public virtual DbSet<User> UsersSet { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-
+            throw new UnintentionalCodeFirstException();
         }
     }
 }
