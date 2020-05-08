@@ -8,9 +8,9 @@ namespace MoneyCeeper
 {
     class User : ViewModelBase
     {
+        [Key]
         public int Id { get; set; }
 
-        [Key]
         [MaxLength(32)]
         public string Login { get; set; }
 

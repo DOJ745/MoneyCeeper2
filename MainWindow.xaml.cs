@@ -42,9 +42,9 @@ namespace MoneyCeeper
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            // загрузка ViewModel для кнопок меню
+            // Загрузка ViewModel для кнопок меню
             MenuViewModel vm = new MenuViewModel();
-            // даем доступ к этому кодбихайнд
+            // Даем доступ к этому кодбихайнд
             vm.CodeBehind = this;
             // Делаем текущий ViedModel контекстом данных
             this.DataContext = vm;

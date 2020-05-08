@@ -47,7 +47,6 @@ namespace MoneyCeeper.ViewModels
                 User newUser = new User(Login, crypt.Hash as string);
                 MessageBox.Show("Password - " + PasswordTwo + "\nPassword Hash - " + crypt.Hash);
 
-
                 using (AppContext DB = new AppContext())
                 {
                     DB.UsersSet.Add(newUser);
@@ -62,12 +61,6 @@ namespace MoneyCeeper.ViewModels
             {
                 MessageBox.Show("Check all!");
             }
-
-            /*MessageBox.Show("You pressed button!");
-            _MainCodeBehind.ShowMessage("This is your password - " + Password);
-            MessageBox.Show("Hash thing - " + crypt.Hash + "\nHash length - " + crypt.Hash.Length
-                +"\nSalt bytes - " + crypt.Salt + 
-                "\nVerify result - " + SaltedHash.Verify(crypt.Salt, crypt.Hash, Password));*/
         }
 
         private bool CanRegisterCommand()
