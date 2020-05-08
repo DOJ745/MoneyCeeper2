@@ -40,23 +40,19 @@ namespace MoneyCeeper.ViewModels
 
         private void OnRegisterCommand()
         {
-            //AppContext DB = new AppContext();
-            //DB.UsersSet.Load();
-
             if (PasswordOne == PasswordTwo && Login != null)
             {
                 MessageBox.Show("Successful registration!");
                 SaltedHash crypt = new SaltedHash(PasswordTwo);
-                User newUser = new User(Login, crypt.Hash);
+                User newUser = new User(Login, crypt.Hash as string);
                 MessageBox.Show("Password - " + PasswordTwo + "\nPassword Hash - " + crypt.Hash);
-                /*
+
+
                 using (AppContext DB = new AppContext())
                 {
                     DB.UsersSet.Add(newUser);
                     DB.SaveChanges();
-                }*/
-                //DB.UsersSet.Add(newUser);
-                //DB.SaveChanges();
+                }
             }
             else if(!(PasswordOne == PasswordTwo))
             {

@@ -8,6 +8,8 @@ namespace MoneyCeeper
 {
     class User : ViewModelBase
     {
+        public int Id { get; set; }
+
         [Key]
         [MaxLength(32)]
         public string Login { get; set; }

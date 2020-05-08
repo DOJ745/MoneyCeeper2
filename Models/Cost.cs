@@ -9,7 +9,7 @@ namespace MoneyCeeper
     {
         #region Fields
         [Key]
-        public int Cost_Id { get; set; }
+        public int Id { get; set; }
 
         [Required]
         public double Price { get; set; }
