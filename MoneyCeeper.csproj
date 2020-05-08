@@ -159,6 +159,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Password Hash\PasswordBoxAssistant.cs" />
     <Compile Include="Password Hash\SaltedHash.cs" />
     <Compile Include="User Controls%28Pages%29\LoginUC.xaml.cs">
       <DependentUpon>LoginUC.xaml</DependentUpon>

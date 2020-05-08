@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MoneyCeeper.User_Controls_Pages_"
+             xmlns:pba="clr-namespace:MoneyCeeper.Password_Hash"
              mc:Ignorable="d" 
              MinHeight="550" 
              MinWidth="330">
-    
+
     <UserControl.Resources>
         <ResourceDictionary Source="..\Styles\RegistrationUCStyle.xaml"/>
     </UserControl.Resources>
-    
+
     <Grid>
         <StackPanel Margin="10" 
                     HorizontalAlignment="Center" 
@@ -22,22 +23,31 @@
                    Content="Имя пользователя"/>
 
             <TextBox x:Name="UsernameTextBox" 
-                Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+                Style="{StaticResource ResourceKey=TextBoxStyle}"
+                Text="{Binding Login}"/>
 
             <Label x:Name="PasswordLabel1"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Пароль"/>
-
-            <TextBox x:Name="PasswordTextBox1"
-                     Style="{StaticResource ResourceKey=TextBoxStyle}"
-                     Text="{Binding Password}"/>
+            <PasswordBox x:Name="PasswordBox1" Style="{StaticResource ResourceKey=PasswordBoxStyle}"
+                         pba:PasswordBoxAssistant.BindPassword="true"  
+                         pba:PasswordBoxAssistant.BoundPassword=
+                         "{Binding Path=PasswordOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MaxLength="16">
+                
+            </PasswordBox>
 
             <Label x:Name="PasswordLabel2"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Повторите пароль"/>
 
-            <TextBox x:Name="PasswordTextBox2"
-                     Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+            <PasswordBox x:Name="PasswordBox2" Style="{StaticResource ResourceKey=PasswordBoxStyle}"
+                         pba:PasswordBoxAssistant.BindPassword="true"  
+                         pba:PasswordBoxAssistant.BoundPassword=
+                         "{Binding Path=PasswordTwo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MaxLength="16">
+                
+            </PasswordBox>
 
             <Button x:Name="RegisterButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
@@ -50,5 +60,5 @@
 
         </StackPanel>
     </Grid>
-    
+
 </UserControl>

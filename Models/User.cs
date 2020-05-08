@@ -13,7 +13,6 @@ namespace MoneyCeeper
         public string Login { get; set; }
 
         [Required]
-        [MaxLength(16)]
         public string Password { get; set; }
 
         public ICollection<Cost> User_Costs { get; set; }

@@ -32,18 +32,34 @@ namespace MoneyCeeper.ViewModels
              
         }
 
-        public string Password { get; set; }
+        public string Login { get; set; }
+        public string PasswordOne { get; set; }
+        public string PasswordTwo { get; set; }
 
 
         private void OnRegisterCommand()
         {
-            SaltedHash crypt = new SaltedHash(Password);
+            PasswordOne = 
+            if(PasswordOne == PasswordTwo && Login != null)
+            {
+                MessageBox.Show("Successful registration!");
+                SaltedHash crypt = new SaltedHash(PasswordTwo);
 
-            MessageBox.Show("You pressed button!");
+            }
+            else if(!(PasswordOne == PasswordTwo))
+            {
+                MessageBox.Show("Check password!");
+            }
+            else
+            {
+                MessageBox.Show("Check all!");
+            }
+
+            /*MessageBox.Show("You pressed button!");
             _MainCodeBehind.ShowMessage("This is your password - " + Password);
             MessageBox.Show("Hash thing - " + crypt.Hash + "\nHash length - " + crypt.Hash.Length
                 +"\nSalt bytes - " + crypt.Salt + 
-                "\nVerify result - " + SaltedHash.Verify(crypt.Salt, crypt.Hash, Password));
+                "\nVerify result - " + SaltedHash.Verify(crypt.Salt, crypt.Hash, Password));*/
         }
 
         private bool CanRegisterCommand()
