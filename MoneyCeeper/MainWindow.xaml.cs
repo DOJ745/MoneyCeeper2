@@ -23,11 +23,11 @@ namespace MoneyCeeper
         public MainWindow()
         {
             InitializeComponent();
-            using (MoneyCeeperEntities MCE = new MoneyCeeperEntities())
+            using (NewModel MCE = new NewModel())
             {
-                /*Users tempUser = new Users { Login = "123", Password = "228" };
+                Users tempUser = new Users { Login = "123", Password = "228" };
                 MCE.Users.Add(tempUser);
-                MCE.SaveChanges();*/
+                MCE.SaveChanges();
                 foreach (var elem in MCE.Users)
                     MessageBox.Show(elem.Login);
             }
