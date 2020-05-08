@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="MainModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="MainModelStoreContainer">
+    <EntitySet Name="UserSet" EntityType="MainModel.Store.UserSet" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CostSet" EntityType="MainModel.Store.CostSet" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="UserCost" Association="MainModel.Store.UserCost">
+      <End Role="User" EntitySet="UserSet" />
+      <End Role="Cost" EntitySet="CostSet" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="UserSet">
+    <Key>
+      <PropertyRef Name="Login" />
+    </Key>
+    <Property Name="Login" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CostSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="float" Nullable="false" />
+    <Property Name="Date_Time" Type="datetime" Nullable="false" />
+    <Property Name="Comment" Type="nvarchar" Nullable="false" MaxLength="300" />
+    <Property Name="Description" Type="nvarchar" Nullable="true" MaxLength="300" />
+    <Property Name="Category" Type="int" Nullable="false" />
+    <Property Name="UserLogin" Type="nvarchar" Nullable="false" MaxLength="32" />
+  </EntityType>
+  <Association Name="UserCost">
+    <End Role="User" Type="MainModel.Store.UserSet" Multiplicity="1" />
+    <End Role="Cost" Type="MainModel.Store.CostSet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="Login" />
+      </Principal>
+      <Dependent Role="Cost">
+        <PropertyRef Name="UserLogin" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="MainModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="MainModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserSet" EntityType="MainModel.User" />
+          <EntitySet Name="CostSet" EntityType="MainModel.Cost" />
+          <AssociationSet Name="UserCost" Association="MainModel.UserCost">
+            <End Role="User" EntitySet="UserSet" />
+            <End Role="Cost" EntitySet="CostSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="Login" />
+          </Key>
+          <Property Name="Login" Type="String" Nullable="false" annotation:StoreGeneratedPattern="None" MaxLength="32" />
+          <Property Name="Password" Type="String" Nullable="false" />
+          <NavigationProperty Name="Costs" Relationship="MainModel.UserCost" FromRole="User" ToRole="Cost" />
+        </EntityType>
+        <EntityType Name="Cost">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Price" Type="Double" Nullable="false" />
+          <Property Name="Date_Time" Type="DateTime" Nullable="false" />
+          <Property Name="Comment" Type="String" Nullable="false" MaxLength="300" />
+          <Property Name="Description" Type="String" Nullable="true" MaxLength="300" />
+          <Property Name="Category" Type="MainModel.Category" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="MainModel.UserCost" FromRole="Cost" ToRole="User" />
+          <Property Name="UserLogin" Type="String" Nullable="false" MaxLength="32" />
+        </EntityType>
+        <EnumType Name="Category">
+          <Member Name="Food" Value="1" />
+          <Member Name="Cloth" Value="2" />
+          <Member Name="Prezents" Value="3" />
+          <Member Name="Kids" Value="4" />
+          <Member Name="Care" Value="5" />
+          <Member Name="Health" Value="6" />
+          <Member Name="Cafe" Value="7" />
+          <Member Name="Education" Value="8" />
+          <Member Name="Enterntainment" Value="9" />
+          <Member Name="Transport" Value="10" />
+          <Member Name="Commission" Value="11" />
+        </EnumType>
+        <Association Name="UserCost">
+          <End Type="MainModel.User" Role="User" Multiplicity="1" />
+          <End Type="MainModel.Cost" Role="Cost" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="Login" />
+            </Principal>
+            <Dependent Role="Cost">
+              <PropertyRef Name="UserLogin" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MainModelStoreContainer" CdmEntityContainer="MainModelContainer">
+    <EntitySetMapping Name="UserSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MainModel.User)">
+        <MappingFragment StoreEntitySet="UserSet">
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CostSet">
+      <EntityTypeMapping TypeName="IsTypeOf(MainModel.Cost)">
+        <MappingFragment StoreEntitySet="CostSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Date_Time" ColumnName="Date_Time" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Category" ColumnName="Category" />
+          <ScalarProperty Name="UserLogin" ColumnName="UserLogin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
