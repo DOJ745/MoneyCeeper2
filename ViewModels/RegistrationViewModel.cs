@@ -39,7 +39,6 @@ namespace MoneyCeeper.ViewModels
 
         private void OnRegisterCommand()
         {
-            PasswordOne = 
             if(PasswordOne == PasswordTwo && Login != null)
             {
                 MessageBox.Show("Successful registration!");
