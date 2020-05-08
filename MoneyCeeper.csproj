@@ -158,30 +158,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model%28EDM%29\Category.cs">
-      <DependentUpon>TestModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model%28EDM%29\Cost.cs">
-      <DependentUpon>TestModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model%28EDM%29\TestModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model%28EDM%29\TestModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model%28EDM%29\TestModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TestModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Model%28EDM%29\User.cs">
-      <DependentUpon>TestModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Category.cs" />
     <Compile Include="Password Hash\SaltedHash.cs" />
     <Compile Include="User Controls%28Pages%29\LoginUC.xaml.cs">
@@ -192,6 +168,7 @@
     </Compile>
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MagicAttribute.cs" />
+    <Compile Include="ViewModels\MenuViewModel.cs" />
     <Compile Include="ViewModels\RegistrationViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewModels\ApplicationViewModel.cs" />
@@ -250,13 +227,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Model%28EDM%29\TestModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TestModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Model%28EDM%29\TestModel.edmx.diagram">
-      <DependentUpon>TestModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -265,18 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Model%28EDM%29\TestModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TestModel.Context.cs</LastGenOutput>
-      <DependentUpon>TestModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Model%28EDM%29\TestModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TestModel.cs</LastGenOutput>
-      <DependentUpon>TestModel.edmx</DependentUpon>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

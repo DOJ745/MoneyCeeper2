@@ -33,7 +33,7 @@
                 <TextBlock>Login Page</TextBlock>
             </Button>
 
-            <Button Command="{Binding LoadRegisterUCCommand, Mode=OneTime}"
+            <Button Command="{Binding LoadRegistrationUCCommand, Mode=OneTime}"
                     Style="{StaticResource ResourceKey=ButtonStyle}">
                 <TextBlock>Registration page</TextBlock>
             </Button>
@@ -45,6 +45,7 @@
 
         </StackPanel>
 
+        <ContentPresenter Grid.Column="1" x:Name="OutputView"/>
 
     </Grid>
 
