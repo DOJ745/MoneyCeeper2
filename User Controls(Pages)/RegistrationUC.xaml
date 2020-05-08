@@ -29,7 +29,8 @@
                    Content="Пароль"/>
 
             <TextBox x:Name="PasswordTextBox1"
-                     Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+                     Style="{StaticResource ResourceKey=TextBoxStyle}"
+                     Text="{Binding Password}"/>
 
             <Label x:Name="PasswordLabel2"
                    Style="{StaticResource ResourceKey=LabelStyle}"
@@ -40,6 +41,7 @@
 
             <Button x:Name="RegisterButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Command="{Binding RegisterUserCommand, Mode=OneTime}"
                     Content="Зарегестрироваться"/>
 
             <Button x:Name="ToMainButton"

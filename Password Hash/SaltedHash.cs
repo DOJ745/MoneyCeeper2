@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoneyCeeper //.Password_Hash
+namespace MoneyCeeper.Password_Hash
 {
     public class SaltedHash
     {
@@ -23,7 +23,7 @@ namespace MoneyCeeper //.Password_Hash
             Hash = ComputeHash(passwordAndSaltBytes);
         }
 
-        static string ComputeHash(byte[] bytes)
+        public static string ComputeHash(byte[] bytes)
         {
             using (var sha256 = SHA256.Create())
             {
@@ -31,7 +31,7 @@ namespace MoneyCeeper //.Password_Hash
             }
         }
 
-        static byte[] Concat(string password, byte[] saltBytes)
+        public static byte[] Concat(string password, byte[] saltBytes)
         {
             var passwordBytes = Encoding.UTF8.GetBytes(password);
             return passwordBytes.Concat(saltBytes).ToArray();
