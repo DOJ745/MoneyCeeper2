@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using MoneyCeeper.ViewModels;
 using MoneyCeeper.User_Controls_Pages_;
+using System.Reflection.Emit;
 
 namespace MoneyCeeper
 {
@@ -45,10 +46,9 @@ namespace MoneyCeeper
             MenuViewModel vm = new MenuViewModel();
             // даем доступ к этому кодбихайнд
             vm.CodeBehind = this;
-            // делаем эту вьюмодел контекстом данных
+            // Делаем текущий ViedModel контекстом данных
             this.DataContext = vm;
-
-            //загрузка стартовой View
+            // Стартовый View
             LoadView(ViewType.Login);
         }
 
@@ -57,17 +57,17 @@ namespace MoneyCeeper
             switch (typeView)
             {
                 case ViewType.Login:
-                    LoginUC viewF = new LoginUC();
-                    LoginViewModel vmF = new LoginViewModel(this);
-                    viewF.DataContext = vmF;
-                    this.OutputView.Content = viewF;
+                    LoginUC viewLog = new LoginUC();
+                    LoginViewModel vmLog = new LoginViewModel(this);
+                    viewLog.DataContext = vmLog;
+                    this.OutputView.Content = viewLog;
                     break;
 
                 case ViewType.Register:
-                    RegistrationUCStyle viewS = new RegistrationUCStyle();
-                    RegistrationViewModel vmS = new RegistrationViewModel(this);
-                    viewS.DataContext = vmS;
-                    this.OutputView.Content = viewS;
+                    RegistrationUCStyle viewReg = new RegistrationUCStyle();
+                    RegistrationViewModel vmReg = new RegistrationViewModel(this);
+                    viewReg.DataContext = vmReg;
+                    this.OutputView.Content = viewReg;
                     break;
             }
         }

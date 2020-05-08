@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,16 +40,22 @@ namespace MoneyCeeper.ViewModels
 
         private void OnRegisterCommand()
         {
-            AppContext DB = new AppContext();
-            if(PasswordOne == PasswordTwo && Login != null)
+            //AppContext DB = new AppContext();
+            //DB.UsersSet.Load();
+
+            if (PasswordOne == PasswordTwo && Login != null)
             {
                 MessageBox.Show("Successful registration!");
 
                 SaltedHash crypt = new SaltedHash(PasswordTwo);
-                User newUser = new User(Login, PasswordTwo);
-
-                DB.UsersSet.Add(newUser);
-                DB.SaveChanges();
+                User newUser = new User(Login, crypt.Hash);
+                using (AppContext DB = new AppContext())
+                {
+                    DB.UsersSet.Add(newUser);
+                    DB.SaveChanges();
+                }
+                //DB.UsersSet.Add(newUser);
+                //DB.SaveChanges();
             }
             else if(!(PasswordOne == PasswordTwo))
             {
