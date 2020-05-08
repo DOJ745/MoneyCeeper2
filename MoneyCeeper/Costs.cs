@@ -7,22 +7,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MoneyCeeper.Models
+namespace MoneyCeeper
 {
     using System;
+    using System.Collections.Generic;
     
-    public enum Category : int
+    public partial class Costs
     {
-        Food = 1,
-        Cloth = 2,
-        Prezents = 3,
-        Kids = 4,
-        Care = 5,
-        Health = 6,
-        Cafe = 7,
-        Education = 8,
-        Enterntainment = 9,
-        Transport = 10,
-        Commission = 11
+        public int Cost_Id { get; set; }
+        public System.DateTime Date_time { get; set; }
+        public string Categoty { get; set; }
+        public string Description { get; set; }
+        public string Comment { get; set; }
+        public decimal Price { get; set; }
+        public string User_name { get; set; }
+    
+        public virtual Users Users { get; set; }
     }
 }

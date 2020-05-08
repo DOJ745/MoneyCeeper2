@@ -7,16 +7,16 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MoneyCeeper.Models
+namespace MoneyCeeper
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class MainModelContainer : DbContext
+    public partial class MoneyCeeperEntities : DbContext
     {
-        public MainModelContainer()
-            : base("name=MainModelContainer")
+        public MoneyCeeperEntities()
+            : base("name=MoneyCeeperEntities")
         {
         }
     
@@ -25,7 +25,7 @@ namespace MoneyCeeper.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> UserSet { get; set; }
-        public virtual DbSet<Cost> CostSet { get; set; }
+        public virtual DbSet<Costs> Costs { get; set; }
+        public virtual DbSet<Users> Users { get; set; }
     }
 }

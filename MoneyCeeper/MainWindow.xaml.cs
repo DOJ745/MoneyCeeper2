@@ -1,5 +1,4 @@
-﻿using MoneyCeeper.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,11 +23,13 @@ namespace MoneyCeeper
         public MainWindow()
         {
             InitializeComponent();
-            using (MainModelContainer MMC = new MainModelContainer())
+            using (MoneyCeeperEntities MCE = new MoneyCeeperEntities())
             {
-                User tempUser = new User { Login = "123", Password = "228"};
-                MMC.UserSet.Add(tempUser);
-                MMC.SaveChanges();
+                /*Users tempUser = new Users { Login = "123", Password = "228" };
+                MCE.Users.Add(tempUser);
+                MCE.SaveChanges();*/
+                foreach (var elem in MCE.Users)
+                    MessageBox.Show(elem.Login);
             }
         }
     }
