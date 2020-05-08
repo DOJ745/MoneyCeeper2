@@ -21,5 +21,11 @@ namespace MoneyCeeper
         {
             User_Costs = new List<Cost>();
         }
+
+        public User(string login, string password)
+        {
+            Login = login;
+            Password = password;
+        }
     }
 }
