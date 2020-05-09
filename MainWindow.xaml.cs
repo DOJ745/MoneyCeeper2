@@ -35,7 +35,7 @@ namespace MoneyCeeper
     }
 
     /// <summary>
-    /// Типы вьюшек для загрузки
+    /// Типы View для загрузки
     /// </summary>
     public enum ViewType
     {
@@ -52,6 +52,11 @@ namespace MoneyCeeper
         {
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
+            MenuUC menu = new MenuUC();
+            MenuViewModel vmMenu = new MenuViewModel();
+            vmMenu.CodeBehind = this;
+            this.DataContext = vmMenu;
+            this.OutputView.Content = menu;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -65,17 +70,17 @@ namespace MoneyCeeper
             switch (typeView)
             {
                 case ViewType.Login:
-                    LoginUC viewLog = new LoginUC();
+                    LoginUC log = new LoginUC();
                     LoginViewModel vmLog = new LoginViewModel(this);
-                    viewLog.DataContext = vmLog;
-                    this.OutputView.Content = viewLog;
+                    this.DataContext = vmLog;
+                    this.OutputView.Content = log;
                     break;
 
                 case ViewType.Register:
-                    RegistrationUCStyle viewReg = new RegistrationUCStyle();
+                    RegistrationUCStyle reg = new RegistrationUCStyle();
                     RegistrationViewModel vmReg = new RegistrationViewModel(this);
-                    viewReg.DataContext = vmReg;
-                    this.OutputView.Content = viewReg;
+                    this.DataContext = vmReg;
+                    this.OutputView.Content = reg;
                     break;
 
                 case ViewType.Menu:

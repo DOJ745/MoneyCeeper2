@@ -56,7 +56,8 @@
 
             <Button x:Name="ToMainButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
-                    Content="На главную"/>
+                    Content="На главную"
+                    Command="{Binding OpenMenuUCCommand}"/>
 
         </StackPanel>
     </Grid>

@@ -2,10 +2,11 @@
 using System.Windows;
 using MoneyCeeper.Password_Hash;
 using MoneyCeeper.Model;
+using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
-    class RegistrationViewModel : ViewModelBase, IMainWindowsCodeBehind
+    class RegistrationViewModel : ViewModelBase //, IMainWindowsCodeBehind
     {
         // Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
@@ -16,6 +17,11 @@ namespace MoneyCeeper.ViewModels
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
+        }
+
+        public RegistrationViewModel(Action<object> navigate)
+        {
+
         }
 
         #region Commands
