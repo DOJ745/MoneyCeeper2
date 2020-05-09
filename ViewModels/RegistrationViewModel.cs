@@ -18,6 +18,7 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
         }
 
+        #region Commands
         private RelayCommand _RegisterUserCommand;
         public RelayCommand RegisterUserCommand
         {
@@ -29,11 +30,24 @@ namespace MoneyCeeper.ViewModels
              
         }
 
+        private RelayCommand _OpenMenuUCCommand;
+        public RelayCommand OpenMenuUCCommand
+        {
+            get
+            {
+                return _OpenMenuUCCommand = _OpenMenuUCCommand ??
+                    new RelayCommand(OnMenuUCCommand, CanMenuUCCommand);
+            }
+        }
+        #endregion
+
+        #region Properties
         public string Login { get; set; }
         public string PasswordOne { get; set; }
         public string PasswordTwo { get; set; }
+        #endregion
 
-
+        #region Command Methods
         private void OnRegisterCommand()
         {
             if (PasswordOne == PasswordTwo && Login != null)
@@ -63,6 +77,17 @@ namespace MoneyCeeper.ViewModels
         {
             return true;
         }
+
+        private void OnMenuUCCommand()
+        {
+            _MainCodeBehind.LoadView(ViewType.Menu);
+        }
+
+        private bool CanMenuUCCommand()
+        {
+            return true;
+        }
+        #endregion
 
         public void LoadView(ViewType typeView)
         {

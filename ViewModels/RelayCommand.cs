@@ -37,6 +37,7 @@ namespace MoneyCeeper.ViewModels
         public void Execute(object parameter) => _onExecute?.Invoke(parameter);*/
 
         Action _TargetExecuteMethod;
+        Action<object> _TargetExecuteMethodObj;
         Func<bool> _TargetCanExecuteMethod;
 
         public RelayCommand(Action executeMethod)
@@ -47,6 +48,12 @@ namespace MoneyCeeper.ViewModels
         public RelayCommand(Action executeMethod, Func<bool> canExecuteMethod)
         {
             _TargetExecuteMethod = executeMethod;
+            _TargetCanExecuteMethod = canExecuteMethod;
+        }
+
+        public RelayCommand(Action<object> executeMethodObj, Func<bool> canExecuteMethod)
+        {
+            _TargetExecuteMethodObj = executeMethodObj;
             _TargetCanExecuteMethod = canExecuteMethod;
         }
 
