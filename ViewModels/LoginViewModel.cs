@@ -62,6 +62,7 @@ namespace MoneyCeeper.ViewModels
                     (context.User.Find(Login).Salt, 
                     context.User.Find(Login).Password, 
                     Password);
+
                 if(verify)
                 {
                     _MainCodeBehind.LoadView(ViewType.COSTLIST);

@@ -32,6 +32,7 @@ namespace MoneyCeeper
         /// </summary>
         /// <param name="view">экземпляр UserControl</param>
         void LoadView(ViewType typeView);
+        //void LoadView(ViewType typeView, string currentUser);
     }
 
     /// <summary>

@@ -10,6 +10,7 @@ namespace MoneyCeeper.ViewModels
     {
         //Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
+        public string CurrentUser;
 
         //ctor
         public CostListViewModel(IMainWindowsCodeBehind codeBehind)
@@ -18,6 +19,23 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
         }
+
+        public CostListViewModel(IMainWindowsCodeBehind codeBehind, string currentUser)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+
+            _MainCodeBehind = codeBehind;
+            CurrentUser = currentUser;
+        }
+
+        #region Properties
+        public float Price { get; set; }
+        public DateTime Date_Time { get; set; }
+        public string Comment { get; set; }
+        public string Description { get; set; }
+        public int Category { get; set; }
+        public string Username { get; set; }
+        #endregion
 
         public void LoadView(ViewType typeView)
         {
