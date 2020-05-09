@@ -62,8 +62,14 @@ namespace MoneyCeeper.ViewModels
                     (context.User.Find(Login).Salt, 
                     context.User.Find(Login).Password, 
                     Password);
-                MessageBox.Show($"Login - {Login}; Password - {Password};" +
-                    $"Result - {verify}");
+                if(verify)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Неправильный логин или пароль!");
+                }
             }
         }
 

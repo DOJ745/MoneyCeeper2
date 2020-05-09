@@ -1,0 +1,37 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MoneyCeeper.Styles">
+    
+    <Style x:Key="ListBoxStyle" TargetType="ListBox">
+        <Setter Property="Background" Value="#FF5F8AFB"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+    </Style>
+
+    <Style x:Key="ListBoxBorderStyle" TargetType="Border">
+        <Setter Property="Control.BorderThickness" Value="10,2,2,2"/>
+        <Setter Property="Control.BorderBrush" Value="#FF000000"/>
+        <Setter Property="Background" Value="#FFF3AF7F"/>
+    </Style>
+    
+    <Style x:Key="SimpleListBoxItem" TargetType="ListBoxItem">
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+
+                    <Border Name="Border" Padding="4" SnapsToDevicePixels="true">
+                        <ContentPresenter/>
+                    </Border>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter TargetName="Border" Property="Background" Value="White"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+    </Style>
+</ResourceDictionary>

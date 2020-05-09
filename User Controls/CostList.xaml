@@ -1,0 +1,113 @@
+﻿<UserControl x:Class="MoneyCeeper.User_Controls.CostList"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneyCeeper.User_Controls"
+             mc:Ignorable="d" 
+             MinHeight="550" 
+             MinWidth="350">
+
+    <UserControl.Resources>
+        <ResourceDictionary Source="..\Styles\CostListStyle.xaml"/>
+    </UserControl.Resources>
+    
+    <Grid>
+            
+        
+        <!--List things(Watch LB9)
+        
+        Was in ListBox - ItemContainerStyle="{DynamicResource SimpleListBoxItem}"
+                 Style="{DynamicResource ListBoxStyle}"
+        Border - Style="{DynamicResource ListBoxBorderStyle}"
+        TextBlock/Text - {x:Static res:Resources.TaskCategory}
+        TextBlockStyle="{DynamicResource ResourceKey=BoldNewRoman}"
+        Text="{x:Static res:Resources.TaskBegin}" 
+        Style="{DynamicResource ResourceKey=BoldNewRoman}"
+        
+        <TextBlock Grid.Row="2" Grid.Column="1" 
+        Text="{Binding Path=Time.Start, StringFormat=d}">
+        
+        <TextBlock Grid.Row="3" Grid.Column="1" 
+        Text="{Binding Path=Time.End, StringFormat=d}">
+        -->
+        <ListBox HorizontalContentAlignment="Stretch" 
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+                 ScrollViewer.VerticalScrollBarVisibility="Visible"
+                 x:Name="CostList" 
+                 Grid.Column="1" 
+                 Grid.ColumnSpan="1"
+                 Style="{StaticResource ResourceKey=ListBoxStyle}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+
+                    <Grid>
+                        <Border Margin="0,0,0,0" Padding="5,5,5,5"
+                                Style="{StaticResource ResourceKey=ListBoxBorderStyle}">
+                            <Grid>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" 
+                                        Grid.Column="0" 
+                                        Grid.ColumnSpan="4" 
+                                        BorderThickness="0,0,0,1" 
+                                        BorderBrush="Black">
+                                    <TextBlock  Text="123" FontSize="24"/>
+                                </Border>
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="123" />
+                                <TextBlock Grid.Row="2" Grid.Column="0" Text="1234"/>
+                                <TextBlock Grid.Row="3" Grid.Column="0" Text="12345"/>
+                                <TextBlock Grid.Row="4" Grid.Column="0" Text="1234512"/>
+                                
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="5555"/>
+                                <TextBlock Grid.Row="2" Grid.Column="1" Text="hello"/>
+                                <TextBlock Grid.Row="3" Grid.Column="1" Text="boom"/>
+                                <TextBlock Grid.Row="4" Grid.Column="1" Text="hola"/>
+                                
+                                <TextBlock Grid.Row="1" Grid.Column="2" Text="kily"/>
+                                
+                                <TextBlock TextWrapping="Wrap" 
+                                           Grid.Row="2" Grid.Column="2" 
+                                           Grid.RowSpan="3" Grid.ColumnSpan="2" 
+                                           VerticalAlignment="Top" 
+                                           Text="boom"/>
+                                
+                                <TextBlock TextWrapping="Wrap" 
+                                           Grid.Row="3" Grid.Column="2" 
+                                           Text="lkjn"/>
+                                
+                                <TextBlock TextWrapping="Wrap" 
+                                           Grid.Row="4" Grid.Column="2" 
+                                           VerticalAlignment="Top" 
+                                           Text="mnbvxcz"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel x:Name="ControlButtons">
+            <Button Content="Добавить"></Button>
+            <Button Content="Изменить"></Button>
+            <Button Content="Удалить"></Button>
+        </StackPanel>
+
+    </Grid>
+</UserControl>
