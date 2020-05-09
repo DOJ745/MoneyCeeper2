@@ -1,4 +1,7 @@
-﻿using System;
+﻿using MoneyCeeper.Model;
+using MoneyCeeper.Password_Hash;
+using System;
+using System.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -14,6 +17,22 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
         }
+
+        public string Login { get; set; }
+        public string Password { get; set; }
+
+
+        private RelayCommand _LoginCommand;
+
+        public RelayCommand LoginCommand
+        {
+            get
+            {
+                return _LoginCommand = _LoginCommand ??
+                    new RelayCommand(OnLoginCommand, CanLoginCommand);
+            }
+        }
+
 
         private RelayCommand _OpenMenuUCCommand;
         public RelayCommand OpenMenuUCCommand
@@ -31,6 +50,22 @@ namespace MoneyCeeper.ViewModels
         }
 
         private bool CanMenuUCCommand()
+        {
+            return true;
+        }
+
+        private void OnLoginCommand()
+        {
+            using(MainModel context = new MainModel())
+            {
+                SaltedHash crypt = new SaltedHash(Password);
+                MessageBox.Show($"Login - {Login}; Password - {crypt.Hash}");
+                /*if(Login == context.User.Find(Login).Login
+                    &&)*/
+            }
+        }
+
+        private bool CanLoginCommand()
         {
             return true;
         }

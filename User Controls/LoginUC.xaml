@@ -22,18 +22,25 @@
                    Content="Имя пользователя"/>
             
             <TextBox x:Name="UsernameTextBox" 
-                Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+                Style="{StaticResource ResourceKey=TextBoxStyle}"
+                Text="{Binding Login}"/>
             
             <Label x:Name="PasswordLabel"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Пароль"/>
-            
-            <TextBox x:Name="PasswordTextBox"
-                     Style="{StaticResource ResourceKey=TextBoxStyle}"/>
-            
+
+            <PasswordBox x:Name="PasswordBox" Style="{StaticResource ResourceKey=PasswordBoxStyle}"
+                         pba:PasswordBoxAssistant.BindPassword="true"  
+                         pba:PasswordBoxAssistant.BoundPassword=
+                         "{Binding Path=Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         MaxLength="16">
+
+            </PasswordBox>
+
             <Button x:Name="LoginButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
-                    Content="Войти"/>
+                    Content="Войти"
+                    Command="{Binding LoginCommand}"/>
             
             <Button x:Name="ToMainButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"

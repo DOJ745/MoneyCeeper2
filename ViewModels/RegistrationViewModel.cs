@@ -58,9 +58,9 @@ namespace MoneyCeeper.ViewModels
         {
             if (PasswordOne == PasswordTwo && Login != null)
             {
-                MessageBox.Show("Successful registration!");
                 SaltedHash crypt = new SaltedHash(PasswordTwo);
-                User newUser = new User { Login = Login,Password = crypt.Hash as string };
+                User newUser = new User { Login = Login, Password = crypt.Hash as string };
+                MessageBox.Show("Successful registration!");
                 MessageBox.Show("Password - " + PasswordTwo + "\nPassword Hash - " + crypt.Hash);
 
                 using (MainModel context = new MainModel())
