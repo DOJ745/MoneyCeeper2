@@ -34,7 +34,7 @@
         <ListBox HorizontalContentAlignment="Stretch" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                  ScrollViewer.VerticalScrollBarVisibility="Visible"
-                 x:Name="CostList" 
+                 x:Name="COSTLIST" 
                  Grid.Column="1" 
                  Grid.ColumnSpan="1"
                  Style="{StaticResource ResourceKey=ListBoxStyle}">

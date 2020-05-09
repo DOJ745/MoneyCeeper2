@@ -64,7 +64,7 @@ namespace MoneyCeeper.ViewModels
                     Password);
                 if(verify)
                 {
-
+                    _MainCodeBehind.LoadView(ViewType.COSTLIST);
                 }
                 else
                 {
