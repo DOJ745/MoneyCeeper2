@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using MoneyCeeper.Model;
 using MoneyCeeper.ViewModels;
 using MoneyCeeper.User_Controls_Pages_;
+using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper
 {
@@ -39,7 +40,8 @@ namespace MoneyCeeper
     public enum ViewType
     {
         Login,
-        Register
+        Register,
+        Menu
     }
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -54,15 +56,8 @@ namespace MoneyCeeper
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-
-            // Загрузка ViewModel для кнопок меню
-            MenuViewModel vm = new MenuViewModel();
-            // Даем доступ к этому CodeBegind
-            vm.CodeBehind = this;
-            // Делаем текущий ViedModel контекстом данных
-            this.DataContext = vm;
             // Стартовый View
-            LoadView(ViewType.Register);
+            LoadView(ViewType.Menu);
         }
 
         public void LoadView(ViewType typeView)
@@ -81,6 +76,14 @@ namespace MoneyCeeper
                     RegistrationViewModel vmReg = new RegistrationViewModel(this);
                     viewReg.DataContext = vmReg;
                     this.OutputView.Content = viewReg;
+                    break;
+
+                case ViewType.Menu:
+                    MenuUC menu = new MenuUC();
+                    MenuViewModel vmMenu = new MenuViewModel();
+                    vmMenu.CodeBehind = this;
+                    this.DataContext = vmMenu;
+                    this.OutputView.Content = menu;
                     break;
             }
         }

@@ -14,9 +14,15 @@
     
     <Grid>
 
-        <StackPanel x:Name="MenuStackPanel" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <Button Style="{StaticResource ResourceKey=ButtonStyle}"/>
-            <Button Style="{StaticResource ResourceKey=ButtonStyle}"/>
+        <StackPanel x:Name="MenuStackPanel" Margin="5" 
+                    HorizontalAlignment="Center" 
+                    VerticalAlignment="Center">
+            <Button Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Content="Войти"
+                    Command="{Binding LoadLoginUCCommand}"/>
+            <Button Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Content="Зарегестрироваться"
+                    Command="{Binding LoadRegistrationUCCommand}"/>
         </StackPanel>
             
     </Grid>
