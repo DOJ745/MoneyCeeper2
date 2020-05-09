@@ -59,9 +59,9 @@ namespace MoneyCeeper.ViewModels
             using(MainModel context = new MainModel())
             {
                 SaltedHash crypt = new SaltedHash(Password);
-                MessageBox.Show($"Login - {Login}; Password - {crypt.Hash}");
-                /*if(Login == context.User.Find(Login).Login
-                    &&)*/
+                bool verify = SaltedHash.Verify(crypt.Salt, context.User.Find(Login).Password, crypt.Hash);
+                MessageBox.Show($"Login - {Login}; Password - {crypt.Hash};" +
+                    $"Result - {verify}");
             }
         }
 
