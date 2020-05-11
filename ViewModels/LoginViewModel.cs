@@ -59,8 +59,8 @@ namespace MoneyCeeper.ViewModels
             using(MainModel context = new MainModel())
             {
                 bool verify = SaltedHash.Verify
-                    (context.User.Find(Login).Salt, 
-                    context.User.Find(Login).Password, 
+                    (context.User.Find(Login).Salt,
+                    context.User.Find(Login).Password,
                     Password);
 
                 if(verify)

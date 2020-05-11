@@ -67,6 +67,9 @@ namespace MoneyCeeper.ViewModels
                 {
                     context.User.Add(newUser);
                     context.SaveChanges();
+
+                    User currentUser = context.User.Find(Login);
+                    MessageBox.Show($"Проверка: Login - {currentUser.Login}; Password - {currentUser.Password}");
                 }
             }
             else if(!(PasswordOne == PasswordTwo))
