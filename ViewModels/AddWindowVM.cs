@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using MoneyCeeper.Model;
+using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -34,10 +35,11 @@ namespace MoneyCeeper.ViewModels
         public DateTime Date_Time { get; set; }
         public string Comment { get; set; }
         public string Description { get; set; }
-        public int Category { get; set; }
+        public int Category_Type { get; set; }
         public string Username { get; set; }
         #endregion
 
+        #region Commands
         private RelayCommand _AddCostCommand;
         public RelayCommand AddCostCommand
         {
@@ -48,14 +50,44 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
+        private RelayCommand _CloseWindowCommand;
+        public RelayCommand CloseWindowCommand
+        {
+            get
+            {
+                return _CloseWindowCommand = _CloseWindowCommand ??
+                    new RelayCommand(() => (_MainCodeBehind as AddWindow).Close(), () => true);
+            }
+        }
+
+        #endregion Commands
+
+        #region Commands Parameters
         private void OnAddCommand()
         {
             MessageBox.Show($"currentUser Login: - {CurrentUser.Login}");
+            Cost newCost = new Cost();
+
+            newCost.Price = Price;
+            newCost.Date_Time = Date_Time;
+            newCost.Description = Description;
+            newCost.Comment = Comment;
+            newCost.Category = Category_Type;
+            newCost.Username = CurrentUser.Login;
+
+            newCost.User = CurrentUser;
+
+            using (MainModel context = new MainModel())
+            {
+                context.Cost.Add(newCost);
+                context.SaveChanges();
+            }
         }
 
         private bool CanAddCommand()
         {
             return true;
         }
+        #endregion Commands Parameters
     }
 }

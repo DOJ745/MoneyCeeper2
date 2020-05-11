@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Data;
 using MoneyCeeper.Model;
-using MoneyCeeper.User_Controls;
 using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
@@ -54,7 +48,6 @@ namespace MoneyCeeper.ViewModels
 
         private void OnAddCommand()
         {
-            MessageBox.Show($"currentUser login: - {CurrentUser.Login}");
             AddWindow addWindow = new AddWindow();
             AddWindowVM addVM = new AddWindowVM(addWindow, CurrentUser);
             addWindow.DataContext = addVM;

@@ -6,7 +6,12 @@
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
         Title="Добавление расхода" 
-        MinHeight="600" MinWidth="290">
+        MinHeight="600" MinWidth="290"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary Source="..\Styles\AddWindowStyle.xaml"/>
+    </Window.Resources>
     
     <Grid>
         <Grid.RowDefinitions>
@@ -22,12 +27,34 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
+        <Label Content="Стоимость"
+               Grid.Row="0"></Label>
+        <TextBlock Grid.Row="0" Grid.Column="1">123</TextBlock>
+        
+        <Label Content="Комментарий"
+               Grid.Row="1"></Label>
+        <TextBlock Grid.Row="1" Grid.Column="1">123</TextBlock>
+        
+        <Label Content="Описание"
+               Grid.Row="2"></Label>
+        <TextBlock Grid.Row="2" Grid.Column="1">123</TextBlock>
+
+        <Label Content="Категория"
+               Grid.Row="3"></Label>
+        <ComboBox Grid.Row="3" Grid.Column="1">
+        </ComboBox>
+        
+        <Label Content="Дата"
+               Grid.Row="4"></Label>
+        <TextBlock Grid.Row="4" Grid.Column="1">123</TextBlock>
 
         <Button Content="Добавить" 
                 Grid.Column="0" Grid.Row="5"
                 Command="{Binding AddCostCommand}"/>
         <Button Content="Закрыть" 
-                Grid.Column="1" Grid.Row="5"/>
+                Grid.Column="1" Grid.Row="5"
+                Command="{Binding CloseWindowCommand}"/>
     </Grid>
     
 </Window>
