@@ -34,4 +34,9 @@
         </Setter>
 
     </Style>
+
+    <Style x:Key="ButtonPannelStyle" TargetType="StackPanel">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Height" Value="75"/>
+    </Style>
 </ResourceDictionary>

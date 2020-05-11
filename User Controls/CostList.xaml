@@ -31,12 +31,20 @@
         <TextBlock Grid.Row="3" Grid.Column="1" 
         Text="{Binding Path=Time.End, StringFormat=d}">
         -->
+        <StackPanel x:Name="ListPanel">
+            <Grid Height="500">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                
         <ListBox HorizontalContentAlignment="Stretch" 
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
                  ScrollViewer.VerticalScrollBarVisibility="Visible"
                  x:Name="COSTLIST" 
-                 Grid.Column="1" 
-                 Grid.ColumnSpan="1"
                  Style="{StaticResource ResourceKey=ListBoxStyle}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -102,11 +110,35 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+            </Grid>
+        </StackPanel>
 
-        <StackPanel x:Name="ControlButtons">
-            <Button Content="Добавить"></Button>
-            <Button Content="Изменить"></Button>
-            <Button Content="Удалить"></Button>
+        <StackPanel x:Name="ControlButtons" 
+                    VerticalAlignment="Bottom"
+                    Margin="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Button Content="Добавить" 
+                        Grid.Row="0" Grid.Column="0"
+                        Margin="5"></Button>
+                
+                <Button Content="Изменить" 
+                        Grid.Row="0" Grid.Column="1"
+                        Margin="5"></Button>
+                
+                <Button Content="Удалить" 
+                        Grid.Row="0" Grid.Column="2"
+                        Margin="5"></Button>
+            </Grid>
         </StackPanel>
 
     </Grid>
