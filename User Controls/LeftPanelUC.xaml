@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              MinHeight="490" 
              MinWidth="150">
+    
     <Grid Background="Bisque">
         <StackPanel x:Name="ButtonPanel">
             <Label Content="Фильтры"></Label>
