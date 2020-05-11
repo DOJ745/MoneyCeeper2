@@ -13,7 +13,7 @@
         MinHeight="440" 
         MinWidth="250"
         Width="500"
-        Height="470"
+        Height="770"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
