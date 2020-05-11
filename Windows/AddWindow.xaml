@@ -5,8 +5,29 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
-        Title="AddWindow" Height="450" Width="800">
+        Title="Добавление расхода" 
+        MinHeight="600" MinWidth="290">
+    
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Content="Добавить" 
+                Grid.Column="0" Grid.Row="5"
+                Command="{Binding AddCostCommand}"/>
+        <Button Content="Закрыть" 
+                Grid.Column="1" Grid.Row="5"/>
     </Grid>
+    
 </Window>

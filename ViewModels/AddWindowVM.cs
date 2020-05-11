@@ -4,28 +4,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Data;
 using MoneyCeeper.Model;
-using MoneyCeeper.User_Controls;
-using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
-    class CostListViewModel : ViewModelBase, IMainWindowsCodeBehind
+    class AddWindowVM
     {
-        //Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
 
         //ctor
-        public CostListViewModel(IMainWindowsCodeBehind codeBehind)
+        public AddWindowVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
         }
 
-        public CostListViewModel(IMainWindowsCodeBehind codeBehind, User currentUser)
+        public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -54,26 +50,12 @@ namespace MoneyCeeper.ViewModels
 
         private void OnAddCommand()
         {
-            MessageBox.Show($"currentUser login: - {CurrentUser.Login}");
-            AddWindow addWindow = new AddWindow();
-            AddWindowVM addVM = new AddWindowVM(addWindow, CurrentUser);
-            addWindow.DataContext = addVM;
-            addWindow.Show();
+            MessageBox.Show($"currentUser Login: - {CurrentUser.Login}");
         }
 
         private bool CanAddCommand()
         {
             return true;
-        }
-
-        public void LoadView(ViewType typeView)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void ShowMessage(string message)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
