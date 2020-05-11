@@ -5,6 +5,8 @@
     <Style x:Key="ListBoxStyle" TargetType="ListBox">
         <Setter Property="Background" Value="#FF5F8AFB"/>
         <Setter Property="BorderBrush" Value="Black"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
     </Style>
 
     <Style x:Key="ListBoxBorderStyle" TargetType="Border">
@@ -39,4 +41,10 @@
         <Setter Property="Width" Value="150"/>
         <Setter Property="Height" Value="75"/>
     </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="50"/>
+    </Style>
+    
 </ResourceDictionary>

@@ -58,10 +58,6 @@ namespace MoneyCeeper
             vmMenu.CodeBehind = this;
             this.DataContext = vmMenu;
             this.OutputView.Content = menu;
-
-            
-            RightPanelUC rightPanel = new RightPanelUC();
-            this.RightPanel.Content = rightPanel;
         }
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)

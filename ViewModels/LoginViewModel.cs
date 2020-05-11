@@ -73,6 +73,9 @@ namespace MoneyCeeper.ViewModels
                     currentWindow.DataContext = vmCost;
                     currentWindow.OutputView.Content = costList;
 
+                    RightPanelUC rightPanel = new RightPanelUC();
+                    currentWindow.RightPanel.Content = rightPanel;
+
                     LeftPanelUC leftPanel = new LeftPanelUC();
                     LeftPanelVM leftVM = new LeftPanelVM(context.User.Find(Login));
                     leftPanel.DataContext = leftVM;
