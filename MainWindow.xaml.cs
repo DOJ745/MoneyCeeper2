@@ -42,8 +42,7 @@ namespace MoneyCeeper
     {
         Login,
         Register,
-        Menu,
-        COSTLIST
+        Menu
     }
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -60,9 +59,8 @@ namespace MoneyCeeper
             this.DataContext = vmMenu;
             this.OutputView.Content = menu;
 
-            LeftPanelUC leftPanel = new LeftPanelUC();
+            
             RightPanelUC rightPanel = new RightPanelUC();
-            this.LeftPanel.Content = leftPanel;
             this.RightPanel.Content = rightPanel;
         }
 
@@ -97,13 +95,6 @@ namespace MoneyCeeper
                     this.DataContext = vmMenu;
                     this.OutputView.Content = menu;
                     break;
-
-                /*case ViewType.COSTLIST:
-                    CostList costList = new CostList();
-                    CostListViewModel vmCost = new CostListViewModel(this);
-                    this.DataContext = vmCost;
-                    this.OutputView.Content = costList;
-                    break;*/
             }
         }
 

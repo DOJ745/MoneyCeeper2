@@ -72,6 +72,11 @@ namespace MoneyCeeper.ViewModels
                         context.User.Find(Login));
                     currentWindow.DataContext = vmCost;
                     currentWindow.OutputView.Content = costList;
+
+                    LeftPanelUC leftPanel = new LeftPanelUC();
+                    LeftPanelVM leftVM = new LeftPanelVM(context.User.Find(Login));
+                    leftPanel.DataContext = leftVM;
+                    currentWindow.LeftPanel.Content = leftPanel;
                 }
                 else
                 {

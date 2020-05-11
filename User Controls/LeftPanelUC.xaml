@@ -11,6 +11,8 @@
     <Grid Background="Bisque">
         <StackPanel x:Name="ButtonPanel">
             <Label Content="Фильтры"></Label>
+            <Button Content="Description"
+                    Command="{Binding FilterDescriptionCommand}"></Button>
         </StackPanel>
     </Grid>
     
