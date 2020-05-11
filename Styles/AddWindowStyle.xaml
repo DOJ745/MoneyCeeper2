@@ -6,11 +6,73 @@
         <Setter Property="Margin" Value="10"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Width" Value="100"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
 
     <Style TargetType="Label">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Height" Value="30"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
-    
+
+    <Style x:Key="SimpleTextBox" TargetType="TextBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="130"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style x:Key="DataBox" TargetType="DatePicker">
+        <Setter Property="ItemsControl.Height" Value="55"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style x:Key="DescriptionTextBox" TargetType="TextBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style x:Key="CommentTextBox" TargetType="TextBox">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="Auto"/>
+        <Setter Property="Background" Value="Red"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="Width" Value="185"/>
+        <Setter Property="Height" Value="25"/>
+    </Style>
+
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="Width" Value="165"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <ControlTemplate x:Key="validationFailed">
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Aqua" BorderThickness="2">
+                <AdornedElementPlaceholder />
+            </Border>
+            <TextBlock Foreground="Red" FontSize="26" FontWeight="Bold">!</TextBlock>
+        </StackPanel>
+    </ControlTemplate>
+
 </ResourceDictionary>

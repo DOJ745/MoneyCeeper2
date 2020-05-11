@@ -4,11 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
+        
         xmlns:enum="clr-namespace:MoneyCeeper.Model"
         xmlns:App="clr-namespace:MoneyCeeper"
+        
         mc:Ignorable="d"
         Title="Добавление расхода" 
-        MinHeight="600" MinWidth="290"
+        MinHeight="440" 
+        MinWidth="250"
+        Width="500"
+        Height="470"
         WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -32,15 +37,30 @@
         
         <Label Content="Стоимость"
                Grid.Row="0"></Label>
-        <TextBlock Grid.Row="0" Grid.Column="1">123</TextBlock>
-        
+        <TextBox Grid.Row="0" Grid.Column="1"
+                   Style="{StaticResource ResourceKey=SimpleTextBox}"
+                   TextAlignment="Center"
+                 Validation.ErrorTemplate="{StaticResource validationFailed}">
+            <TextBox.Text>
+                <Binding Path="Price">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
         <Label Content="Комментарий"
                Grid.Row="1"></Label>
-        <TextBlock Grid.Row="1" Grid.Column="1">123</TextBlock>
-        
+        <TextBox Grid.Row="1" Grid.Column="1"
+                   Style="{StaticResource ResourceKey=CommentTextBox}"
+                 Text="{Binding Comment}"/>
+
         <Label Content="Описание"
                Grid.Row="2"></Label>
-        <TextBlock Grid.Row="2" Grid.Column="1">123</TextBlock>
+        <TextBox Grid.Row="2" Grid.Column="1"
+                   Style="{StaticResource ResourceKey=DescriptionTextBox}"
+                 Text="{Binding Description}"/>
 
         <Label Content="Категория"
                Grid.Row="3"></Label>
@@ -53,7 +73,9 @@
         
         <Label Content="Дата"
                Grid.Row="4"></Label>
-        <TextBlock Grid.Row="4" Grid.Column="1">123</TextBlock>
+        <DatePicker Grid.Column="1" Grid.Row="4"
+                    Style="{StaticResource ResourceKey=DataBox}"
+                    SelectedDate="{Binding Date_Time}"/>
 
         <Button Content="Добавить" 
                 Grid.Column="0" Grid.Row="5"
