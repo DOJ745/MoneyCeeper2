@@ -82,8 +82,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\CategoryEnum.cs" />
     <Compile Include="Model\Cost.cs" />
+    <Compile Include="Model\EnumBindingSourceExtension.cs" />
+    <Compile Include="Model\EnumDescriptionTypeConverter.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\User.cs" />
     <Compile Include="User Controls\CostList.xaml.cs">

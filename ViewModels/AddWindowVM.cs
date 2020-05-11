@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Markup;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 
@@ -35,7 +36,7 @@ namespace MoneyCeeper.ViewModels
         public DateTime Date_Time { get; set; }
         public string Comment { get; set; }
         public string Description { get; set; }
-        public int Category_Type { get; set; }
+        public CategoryEnum Category_Type { get; set; }
         public string Username { get; set; }
         #endregion
 
@@ -67,6 +68,9 @@ namespace MoneyCeeper.ViewModels
         {
             MessageBox.Show($"currentUser Login: - {CurrentUser.Login}");
             Cost newCost = new Cost();
+            newCost.Category = (int)Category_Type;
+            MessageBox.Show($"Enum thing - {newCost.Category}");
+            /*Cost newCost = new Cost();
 
             newCost.Price = Price;
             newCost.Date_Time = Date_Time;
@@ -81,7 +85,7 @@ namespace MoneyCeeper.ViewModels
             {
                 context.Cost.Add(newCost);
                 context.SaveChanges();
-            }
+            }*/
         }
 
         private bool CanAddCommand()
@@ -89,5 +93,6 @@ namespace MoneyCeeper.ViewModels
             return true;
         }
         #endregion Commands Parameters
+
     }
 }

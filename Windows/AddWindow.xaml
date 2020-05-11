@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
+        xmlns:enum="clr-namespace:MoneyCeeper.Model"
+        xmlns:App="clr-namespace:MoneyCeeper"
         mc:Ignorable="d"
         Title="Добавление расхода" 
         MinHeight="600" MinWidth="290"
@@ -42,7 +44,11 @@
 
         <Label Content="Категория"
                Grid.Row="3"></Label>
-        <ComboBox Grid.Row="3" Grid.Column="1">
+        <ComboBox Grid.Row="3" Grid.Column="1"
+                  ItemsSource="{Binding Source=
+            {enum:EnumBindingSourceExtension 
+            {x:Type App:CategoryEnum}}}"
+                  SelectedValue="{Binding Category_Type}">
         </ComboBox>
         
         <Label Content="Дата"
