@@ -2,6 +2,7 @@
 using MoneyCeeper.Password_Hash;
 using System;
 using System.Windows;
+using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -65,7 +66,12 @@ namespace MoneyCeeper.ViewModels
 
                 if(verify)
                 {
-                    _MainCodeBehind.LoadView(ViewType.COSTLIST);
+                    MainWindow currentWindow = (_MainCodeBehind as MainWindow);
+                    CostList costList = new CostList();
+                    CostListViewModel vmCost = new CostListViewModel(currentWindow, 
+                        context.User.Find(Login));
+                    currentWindow.DataContext = vmCost;
+                    currentWindow.OutputView.Content = costList;
                 }
                 else
                 {

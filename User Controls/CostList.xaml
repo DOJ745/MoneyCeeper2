@@ -129,7 +129,8 @@
 
                 <Button Content="Добавить" 
                         Grid.Row="0" Grid.Column="0"
-                        Margin="5"></Button>
+                        Margin="5"
+                        Command="{Binding AddCostCommand}"></Button>
                 
                 <Button Content="Изменить" 
                         Grid.Row="0" Grid.Column="1"

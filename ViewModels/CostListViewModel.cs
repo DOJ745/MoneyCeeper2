@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Data;
+using MoneyCeeper.Model;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -10,7 +13,7 @@ namespace MoneyCeeper.ViewModels
     {
         //Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
-        public string CurrentUser;
+        public User CurrentUser;
 
         //ctor
         public CostListViewModel(IMainWindowsCodeBehind codeBehind)
@@ -20,7 +23,7 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
         }
 
-        public CostListViewModel(IMainWindowsCodeBehind codeBehind, string currentUser)
+        public CostListViewModel(IMainWindowsCodeBehind codeBehind, User currentUser)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -36,6 +39,26 @@ namespace MoneyCeeper.ViewModels
         public int Category { get; set; }
         public string Username { get; set; }
         #endregion
+
+        private RelayCommand _AddCostCommand;
+        public RelayCommand AddCostCommand
+        {
+            get
+            {
+                return _AddCostCommand = _AddCostCommand ??
+                    new RelayCommand(OnAddCommand, CanAddCommand);
+            }
+        }
+
+        private void OnAddCommand()
+        {
+            MessageBox.Show($"currentUser login: - {CurrentUser.Login}");
+        }
+
+        private bool CanAddCommand()
+        {
+            return true;
+        }
 
         public void LoadView(ViewType typeView)
         {

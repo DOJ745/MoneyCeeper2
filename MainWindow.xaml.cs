@@ -98,12 +98,12 @@ namespace MoneyCeeper
                     this.OutputView.Content = menu;
                     break;
 
-                case ViewType.COSTLIST:
+                /*case ViewType.COSTLIST:
                     CostList costList = new CostList();
                     CostListViewModel vmCost = new CostListViewModel(this);
                     this.DataContext = vmCost;
                     this.OutputView.Content = costList;
-                    break;
+                    break;*/
             }
         }
 
