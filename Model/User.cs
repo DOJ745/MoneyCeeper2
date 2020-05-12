@@ -12,7 +12,7 @@ namespace MoneyCeeper.Model
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            Cost = new HashSet<Cost>();
+            Cost = new List<Cost>();
         }
 
         [Key]

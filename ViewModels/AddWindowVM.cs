@@ -57,10 +57,10 @@ namespace MoneyCeeper.ViewModels
                     case "Comment":
                         /*if (!this.Comment.Contains(','))
                             result = "Разделяйте ключевые слова через запятую!";*/
-                        if (this.Comment.Length > 300)
-                            result = "Максимальное колисество символов - 300";
-                        if (this.Comment == string.Empty)
-                            result = "Комментарий не должен быть пустым!";
+                        if (Comment.Length > 300 || Comment.Length < 15)
+                            result = "Диапазон символов: 15 - 300";
+                        /*if (this.Comment == string.Empty)
+                            result = "Комментарий не должен быть пустым!";*/
                         break;
                     case "Description":
                         if (this.Description.Length > 300)
