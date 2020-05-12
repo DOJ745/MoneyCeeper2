@@ -111,18 +111,40 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Button Content="Добавить" 
+                <Button Content="Изменить" 
                         Grid.Row="0" Grid.Column="0"
-                        Margin="5"
-                        Command="{Binding AddCostCommand}"></Button>
-                
-                    <Button Content="Изменить" 
+                        Style="{StaticResource ResourceKey=ButtonStyle}"/>
+
+                <Button Content="Добавить" 
                         Grid.Row="0" Grid.Column="1"
-                        Margin="5"></Button>
-                
-                    <Button Content="Удалить" 
+                        Style="{StaticResource ResourceKey=ButtonStyle}"
+                        Command="{Binding AddCostCommand}"></Button>
+
+                <Button Content="Удалить" 
                         Grid.Row="0" Grid.Column="2"
-                        Margin="5"></Button>
+                        Margin="5">
+
+                    <!--Command ="ApplicationCommands.Delete"
+                        CommandParameter="{Binding ElementName=COSTLIST, Path=SelectedItem}" 
+
+                    <Button.CommandBindings>
+                        <CommandBinding Command="Delete" Executed="DeleteCost"/>
+                    </Button.CommandBindings> -->
+                    
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding=
+                                    "{Binding SelectedItem, ElementName=COSTLIST}" 
+                                    Value="{x:Null}">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                    
+                </Button>
                 </Grid>
             </StackPanel>
 

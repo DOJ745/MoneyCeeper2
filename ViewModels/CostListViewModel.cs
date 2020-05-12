@@ -5,6 +5,7 @@ using System.Data.Entity.Core.Metadata.Edm;
 using System.Runtime.Remoting.Contexts;
 using System.Windows;
 using System.Windows.Documents;
+using System.Windows.Input;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 
@@ -58,6 +59,16 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnAddCommand, CanAddCommand);
             }
         }
+
+        private RelayCommand _DeleteCostCommand;
+        public RelayCommand DeleteCostCommand
+        {
+            get
+            {
+                return _DeleteCostCommand = _DeleteCostCommand ??
+                    new RelayCommand(OnDeleteCommand, () => true);
+            }
+        }
         #endregion
 
         #region Command Parameters
@@ -74,6 +85,10 @@ namespace MoneyCeeper.ViewModels
             return true;
         }
 
+        private void OnDeleteCommand(ExecutedRoutedEventArgs e)
+        {
+            CostCollection.Remove(e.Parameter as Cost);
+        }
         public void LoadView(ViewType typeView)
         {
             throw new System.NotImplementedException();
