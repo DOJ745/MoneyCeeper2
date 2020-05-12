@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity.Core.Metadata.Edm;
+using System.Runtime.Remoting.Contexts;
 using System.Windows;
 using System.Windows.Documents;
 using MoneyCeeper.Model;
@@ -11,10 +12,13 @@ namespace MoneyCeeper.ViewModels
 {
     class CostListViewModel : ViewModelBase, IMainWindowsCodeBehind
     {
-        #region Constructors
+        #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
         public ObservableCollection<Cost> CostCollection{ get; set; }
+        #endregion
+
+        #region Constructors
         public CostListViewModel(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
@@ -33,15 +37,14 @@ namespace MoneyCeeper.ViewModels
             CostCollection = new ObservableCollection<Cost>();
             using (MainModel context = new MainModel())
             {
-                foreach(var elem in context.Cost)
+                foreach (var elem in context.Cost)
                 {
-                    if(elem.Username == currentUser.Login)
+                    if (elem.Username == currentUser.Login)
                     {
                         CostCollection.Add(elem);
                     }
                 }
             }
-                
         }
         #endregion
 

@@ -10,7 +10,7 @@
     </Style>
 
     <Style x:Key="ListBoxBorderStyle" TargetType="Border">
-        <Setter Property="Control.BorderThickness" Value="10,2,2,2"/>
+        <Setter Property="Control.BorderThickness" Value="10,2,10,2"/>
         <Setter Property="Control.BorderBrush" Value="#FF000000"/>
         <Setter Property="Background" Value="#FFF3AF7F"/>
     </Style>
@@ -26,7 +26,7 @@
                     </Border>
 
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="true">
+                        <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="Border" Property="Background" Value="White"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
