@@ -114,7 +114,8 @@
 
                 <Button Content="Изменить" 
                         Grid.Row="0" Grid.Column="0"
-                        Style="{StaticResource ResourceKey=ButtonStyle}"/>
+                        Command="{Binding OpenChangeWindow}"
+                        Style="{StaticResource ResourceKey=ChangeButtonStyle}"/>
 
                 <Button Content="Добавить" 
                         Grid.Row="0" Grid.Column="1"
