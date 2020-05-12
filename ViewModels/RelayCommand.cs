@@ -37,8 +37,8 @@ namespace MoneyCeeper.ViewModels
         public void Execute(object parameter) => _onExecute?.Invoke(parameter);*/
 
         Action _TargetExecuteMethod;
-        Action<object> _TargetExecuteMethodObj;
-        Action<ExecutedRoutedEventArgs> _TatgetExecuteMethodArg;
+        /*Action<object> _TargetExecuteMethodObj;
+        Action<ExecutedRoutedEventArgs> _TatgetExecuteMethodArg;*/
         Func<bool> _TargetCanExecuteMethod;
 
         public RelayCommand(Action executeMethod, object p)
@@ -52,7 +52,7 @@ namespace MoneyCeeper.ViewModels
             _TargetCanExecuteMethod = canExecuteMethod;
         }
 
-        public RelayCommand(Action<object> executeMethodObj, Func<bool> canExecuteMethod)
+        /*public RelayCommand(Action<object> executeMethodObj, Func<bool> canExecuteMethod)
         {
             _TargetExecuteMethodObj = executeMethodObj;
             _TargetCanExecuteMethod = canExecuteMethod;
@@ -62,7 +62,7 @@ namespace MoneyCeeper.ViewModels
         {
             _TatgetExecuteMethodArg = executeMethodExe;
             _TargetCanExecuteMethod = canExecuteMethod;
-        }
+        }*/
 
         #region ICommand Members
 
@@ -76,14 +76,14 @@ namespace MoneyCeeper.ViewModels
             {
                 return true;
             }
-            if(_TargetExecuteMethodObj != null)
+            /*if(_TargetExecuteMethodObj != null)
             {
                 return true;
             }
             if(_TatgetExecuteMethodArg != null)
             {
                 return true;
-            }
+            }*/
             return false;
         }
 

@@ -67,6 +67,7 @@ namespace MoneyCeeper.ViewModels
                 if(verify)
                 {
                     MainWindow currentWindow = (_MainCodeBehind as MainWindow);
+
                     CostList costList = new CostList();
                     CostListViewModel vmCost = new CostListViewModel(currentWindow, 
                         context.User.Find(Login));

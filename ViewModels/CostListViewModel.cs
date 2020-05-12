@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Runtime.Remoting.Contexts;
 using System.Windows;
@@ -11,12 +12,13 @@ using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
-    class CostListViewModel : ViewModelBase, IMainWindowsCodeBehind
+    public class CostListViewModel : ViewModelBase, IMainWindowsCodeBehind
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
         public ObservableCollection<Cost> CostCollection{ get; set; }
+        public Cost SelectedCost { get; set; }
         #endregion
 
         #region Constructors
@@ -56,7 +58,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _AddCostCommand = _AddCostCommand ??
-                    new RelayCommand(OnAddCommand, CanAddCommand);
+                    new RelayCommand(OnAddCommand, ()=> true);
             }
         }
 
@@ -66,7 +68,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _DeleteCostCommand = _DeleteCostCommand ??
-                    new RelayCommand(OnDeleteCommand, () => true);
+                    new RelayCommand(OnDeleteCommand, ()=> true);
             }
         }
         #endregion
@@ -80,15 +82,28 @@ namespace MoneyCeeper.ViewModels
             addWindow.Show();
         }
 
-        private bool CanAddCommand()
-        {
-            return true;
+        private void OnDeleteCommand()
+        { 
+
+            using (MainModel context = new MainModel())
+            {
+                bool oldValidateOnSaveEnabled = context.Configuration.ValidateOnSaveEnabled;
+                try
+                {
+                    context.Configuration.ValidateOnSaveEnabled = false;
+
+                    context.Entry(SelectedCost).State = EntityState.Deleted;
+                    context.SaveChanges();
+
+                    CostCollection.Remove(SelectedCost);
+                }
+                finally
+                {
+                    context.Configuration.ValidateOnSaveEnabled = oldValidateOnSaveEnabled;
+                }
+            }
         }
 
-        private void OnDeleteCommand(ExecutedRoutedEventArgs e)
-        {
-            CostCollection.Remove(e.Parameter as Cost);
-        }
         public void LoadView(ViewType typeView)
         {
             throw new System.NotImplementedException();

@@ -32,7 +32,8 @@
                  x:Name="COSTLIST" Grid.Row="0"
                  Style="{StaticResource ResourceKey=ListBoxStyle}" 
                  ItemsSource="{Binding CostCollection}"
-                 ItemContainerStyle="{StaticResource SimpleListBoxItem}">
+                 ItemContainerStyle="{StaticResource SimpleListBoxItem}"
+                 SelectedItem="{Binding SelectedCost, Mode=TwoWay}">
             <ListBox.ItemTemplate>
                     <DataTemplate>
 
@@ -122,30 +123,9 @@
 
                 <Button Content="Удалить" 
                         Grid.Row="0" Grid.Column="2"
-                        Margin="5">
-
-                    <!--Command ="ApplicationCommands.Delete"
-                        CommandParameter="{Binding ElementName=COSTLIST, Path=SelectedItem}" 
-
-                    <Button.CommandBindings>
-                        <CommandBinding Command="Delete" Executed="DeleteCost"/>
-                    </Button.CommandBindings> -->
-                    
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="IsEnabled" Value="True" />
-                            <Style.Triggers>
-                                <DataTrigger Binding=
-                                    "{Binding SelectedItem, ElementName=COSTLIST}" 
-                                    Value="{x:Null}">
-                                    <Setter Property="IsEnabled" Value="False"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
-                    
-                </Button>
-                </Grid>
+                        Command ="{Binding DeleteCostCommand}"
+                        Style="{StaticResource ResourceKey=DeleteButtonStyle}"/>
+            </Grid>
             </StackPanel>
 
     </Grid>
