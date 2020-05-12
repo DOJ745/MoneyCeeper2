@@ -109,7 +109,7 @@ namespace MoneyCeeper.ViewModels
             newCost.Category = (int)Category_Type;
             newCost.Username = CurrentUser.Login;
 
-            newCost.User = CurrentUser;
+            //newCost.User = CurrentUser;
 
             MessageBox.Show($"Current cost:" +
                 $"\n Price - {newCost.Price}" +
@@ -123,8 +123,6 @@ namespace MoneyCeeper.ViewModels
             {
                 context.Cost.Add(newCost);
                 context.SaveChanges();
-                MessageBox.Show(
-                    Convert.ToString(context.Cost.Find(CurrentUser.Login).Id));
             }
         }
 
