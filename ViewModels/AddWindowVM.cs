@@ -10,11 +10,13 @@ using System.Windows.Markup;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 using System.ComponentModel;
+using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
     class AddWindowVM : IDataErrorInfo
     {
+        #region Constructors
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
 
@@ -32,6 +34,7 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
             CurrentUser = currentUser;
         }
+        #endregion
 
         #region Properties
         public float Price { get; set; }
@@ -109,8 +112,6 @@ namespace MoneyCeeper.ViewModels
             newCost.Category = (int)Category_Type;
             newCost.Username = CurrentUser.Login;
 
-            newCost.User = CurrentUser;
-
             MessageBox.Show($"Current cost:" +
                 $"\n Price - {newCost.Price}" +
                 $"\n Date - {newCost.Date_Time}" +
@@ -124,6 +125,8 @@ namespace MoneyCeeper.ViewModels
                 context.Cost.Add(newCost);
                 context.SaveChanges();
             }
+
+            (_MainCodeBehind as CostListViewModel).CostCollection.Add(newCost);
         }
 
         private bool CanAddCommand()

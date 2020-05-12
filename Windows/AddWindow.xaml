@@ -23,8 +23,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
@@ -97,7 +97,7 @@
                Grid.Row="4"></Label>
         <DatePicker x:Name="DateBox" Grid.Column="1" Grid.Row="4"
                     Style="{StaticResource ResourceKey=DataBox}"
-                    SelectedDate="{Binding Date_Time}" SelectedDateFormat="Long"/>
+                    SelectedDate="{Binding Date_Time}" SelectedDateFormat="Short"/>
 
         <Button x:Name="AddButton" Content="Добавить" 
                 Grid.Column="0" Grid.Row="5"
