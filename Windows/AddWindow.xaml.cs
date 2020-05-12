@@ -23,5 +23,10 @@ namespace MoneyCeeper.Windows
         {
             throw new NotImplementedException();
         }
+
+        private void TextBox_Error(object sender, System.Windows.Controls.ValidationErrorEventArgs e)
+        {
+            MessageBox.Show(e.Error.ErrorContent.ToString());
+        }
     }
 }

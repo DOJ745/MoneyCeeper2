@@ -18,7 +18,6 @@ namespace MoneyCeeper.ViewModels
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
 
-        //ctor
         public AddWindowVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
@@ -43,19 +42,32 @@ namespace MoneyCeeper.ViewModels
         public string Username { get; set; }
         #endregion
 
-        #region Validation
+        #region Validation Members
         public string this[string columnName]
         {
             get
             {
+                string result = null;
                 switch (columnName)
                 {
                     case "Price":
                         if (this.Price < 0 || this.Price > 1000000.00f)
-                            return "Цена должна быть в пределах от 0 до 1 000 000";
+                            result = "Цена должна быть в пределах от 0 до 1 000 000";
+                        break;
+                    case "Comment":
+                        /*if (!this.Comment.Contains(','))
+                            result = "Разделяйте ключевые слова через запятую!";*/
+                        if (this.Comment.Length > 300)
+                            result = "Максимальное колисество символов - 300";
+                        if (this.Comment == string.Empty)
+                            result = "Комментарий не должен быть пустым!";
+                        break;
+                    case "Description":
+                        if (this.Description.Length > 300)
+                            result = "Максимальное колисество символов - 300";
                         break;
                 }
-                return string.Empty;
+                return result;
             }
         }
 
@@ -87,7 +99,6 @@ namespace MoneyCeeper.ViewModels
         #region Commands Parameters
         private void OnAddCommand()
         {
-            //if(!( (_MainCodeBehind as AddWindow). ))
             Username = CurrentUser.Login;
             Cost newCost = new Cost();
 
@@ -108,11 +119,13 @@ namespace MoneyCeeper.ViewModels
                 $"\n Category - {newCost.Category}" +
                 $"\n Username - {newCost.Username}");
 
-            /*using (MainModel context = new MainModel())
+            using (MainModel context = new MainModel())
             {
                 context.Cost.Add(newCost);
                 context.SaveChanges();
-            }*/
+                MessageBox.Show(
+                    Convert.ToString(context.Cost.Find(CurrentUser.Login).Id));
+            }
         }
 
         private bool CanAddCommand()

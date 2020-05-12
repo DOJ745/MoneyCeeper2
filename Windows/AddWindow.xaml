@@ -35,14 +35,16 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         
-        <Label Content="Стоимость"
-               Grid.Row="0"></Label>
-        <TextBox Grid.Row="0" Grid.Column="1"
+        <TextBlock Text="Стоимость(для указания копеек используйте точку)"
+               Grid.Row="0"
+               Style="{StaticResource ResourceKey=TextBlockStyle}"></TextBlock>
+        <TextBox x:Name="PriceBox" Grid.Row="0" Grid.Column="1"
                    Style="{StaticResource ResourceKey=SimpleTextBox}"
                    TextAlignment="Center"
+                 Validation.Error="TextBox_Error"
                  Validation.ErrorTemplate="{StaticResource validationFailed}">
             <TextBox.Text>
-                <Binding Path="Price">
+                <Binding Path="Price" NotifyOnValidationError="True">
                     <Binding.ValidationRules>
                         <DataErrorValidationRule/>
                     </Binding.ValidationRules>
@@ -50,21 +52,41 @@
             </TextBox.Text>
         </TextBox>
 
-        <Label Content="Комментарий"
-               Grid.Row="1"></Label>
-        <TextBox Grid.Row="1" Grid.Column="1"
+        <TextBlock Text="Комментарий(используйте ключевые слова: Не сдержался, вынужден, случайно, было нужно)"
+               Grid.Row="1"
+               Style="{StaticResource ResourceKey=TextBlockStyle}"/>
+        <TextBox x:Name="CommentBox" Grid.Row="1" Grid.Column="1"
                    Style="{StaticResource ResourceKey=CommentTextBox}"
-                 Text="{Binding Comment}"/>
+                   Validation.Error="TextBox_Error"
+                   Validation.ErrorTemplate="{StaticResource validationFailed}">
+            <TextBox.Text>
+                <Binding Path="Comment" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
-        <Label Content="Описание"
-               Grid.Row="2"></Label>
-        <TextBox Grid.Row="2" Grid.Column="1"
+        <TextBlock Text="Описание(конкретное название того, на что вы потратили деньги)"
+               Grid.Row="2"
+               Style="{StaticResource ResourceKey=TextBlockStyle}"/>
+        <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="1"
                    Style="{StaticResource ResourceKey=DescriptionTextBox}"
-                 Text="{Binding Description}"/>
+                   Validation.Error="TextBox_Error"
+                   Validation.ErrorTemplate="{StaticResource validationFailed}">
+            <TextBox.Text>
+                <Binding Path="Description" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
 
         <Label Content="Категория"
                Grid.Row="3"></Label>
-        <ComboBox Grid.Row="3" Grid.Column="1"
+        <ComboBox x:Name="CategotyBox" Grid.Row="3" Grid.Column="1"
                   ItemsSource="{Binding Source=
             {enum:EnumBindingSourceExtension 
             {x:Type App:CategoryEnum}}}"
@@ -73,14 +95,14 @@
         
         <Label Content="Дата"
                Grid.Row="4"></Label>
-        <DatePicker Grid.Column="1" Grid.Row="4"
+        <DatePicker x:Name="DateBox" Grid.Column="1" Grid.Row="4"
                     Style="{StaticResource ResourceKey=DataBox}"
                     SelectedDate="{Binding Date_Time}"/>
 
-        <Button Content="Добавить" 
+        <Button x:Name="AddButton" Content="Добавить" 
                 Grid.Column="0" Grid.Row="5"
                 Command="{Binding AddCostCommand}"/>
-        <Button Content="Закрыть" 
+        <Button x:Name="CloseButton" Content="Закрыть" 
                 Grid.Column="1" Grid.Row="5"
                 Command="{Binding CloseWindowCommand}"/>
     </Grid>
