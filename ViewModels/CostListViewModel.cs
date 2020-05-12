@@ -64,7 +64,7 @@ namespace MoneyCeeper.ViewModels
         private void OnAddCommand()
         {
             AddWindow addWindow = new AddWindow();
-            AddWindowVM addVM = new AddWindowVM(addWindow, CurrentUser);
+            AddWindowVM addVM = new AddWindowVM(addWindow, CurrentUser, CostCollection);
             addWindow.DataContext = addVM;
             addWindow.Show();
         }

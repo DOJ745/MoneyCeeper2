@@ -11,6 +11,7 @@ using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 using System.ComponentModel;
 using MoneyCeeper.User_Controls;
+using System.Collections.ObjectModel;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -19,6 +20,7 @@ namespace MoneyCeeper.ViewModels
         #region Constructors
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
+        public ObservableCollection<Cost> CurrentCollection { get; set; }
 
         public AddWindowVM(IMainWindowsCodeBehind codeBehind)
         {
@@ -33,6 +35,16 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
             CurrentUser = currentUser;
+        }
+
+        public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser, 
+            ObservableCollection<Cost> currentCollection)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+
+            _MainCodeBehind = codeBehind;
+            CurrentUser = currentUser;
+            CurrentCollection = currentCollection;
         }
         #endregion
 
@@ -126,7 +138,7 @@ namespace MoneyCeeper.ViewModels
                 context.SaveChanges();
             }
 
-            (_MainCodeBehind as CostListViewModel).CostCollection.Add(newCost);
+            CurrentCollection.Add(newCost);
         }
 
         private bool CanAddCommand()
