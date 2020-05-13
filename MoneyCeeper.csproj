@@ -103,6 +103,7 @@
       <DependentUpon>RightPanelUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddWindowVM.cs" />
+    <Compile Include="ViewModels\ChangeWindowVM.cs" />
     <Compile Include="ViewModels\CostListViewModel.cs" />
     <Compile Include="ViewModels\LeftPanelVM.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />

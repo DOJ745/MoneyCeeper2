@@ -71,6 +71,16 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnDeleteCommand, ()=> true);
             }
         }
+
+        private RelayCommand _ChangeCostCommand;
+        public RelayCommand ChangeCostCommand
+        {
+            get
+            {
+                return _ChangeCostCommand = _ChangeCostCommand ??
+                    new RelayCommand(OnChangeCommand, () => true);
+            }
+        }
         #endregion
 
         #region Command Parameters
@@ -80,6 +90,21 @@ namespace MoneyCeeper.ViewModels
             AddWindowVM addVM = new AddWindowVM(addWindow, CurrentUser, CostCollection);
             addWindow.DataContext = addVM;
             addWindow.Show();
+        }
+
+        private void OnChangeCommand()
+        {
+            ChangeWindow changeWindow = new ChangeWindow();
+            ChangeWindowVM changeVM = new ChangeWindowVM(changeWindow, CurrentUser, CostCollection, SelectedCost);
+
+            changeVM.Price = SelectedCost.Price;
+            changeVM.Description = SelectedCost.Description;
+            changeVM.Date_Time = SelectedCost.Date_Time;
+            changeVM.Category_Type = (CategoryEnum)SelectedCost.Category;
+            changeVM.Comment = SelectedCost.Comment;
+
+            changeWindow.DataContext = changeVM;
+            changeWindow.Show();
         }
 
         private void OnDeleteCommand()

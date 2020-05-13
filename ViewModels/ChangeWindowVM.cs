@@ -57,12 +57,11 @@ namespace MoneyCeeper.ViewModels
         #endregion
 
         #region Properties
-        public float Price { get; set; }
+        public double Price { get; set; }
         public DateTime Date_Time { get; set; }
         public string Comment { get; set; }
         public string Description { get; set; }
         public CategoryEnum Category_Type { get; set; }
-        public string Username { get; set; }
         #endregion
 
         #region Validation Members
