@@ -16,7 +16,7 @@
 
         <StackPanel x:Name="MainStackPanel">
             <StackPanel x:Name="SortPannel">
-                <Grid>
+                <Grid x:Name="SortContent">
 
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -35,17 +35,21 @@
                    HorizontalContentAlignment="Center"/>
 
                     <RadioButton Content="По умолчанию" Grid.Row="1" Grid.Column="0"
+                                 GroupName="SortRadio"
                                  IsChecked="True"></RadioButton>
-                    <RadioButton Content="По цене" Grid.Row="2" Grid.Column="0"></RadioButton>
-                    <RadioButton Content="По дате" Grid.Row="3" Grid.Column="0"></RadioButton>
-                    <RadioButton Content="По описанию" Grid.Row="4" Grid.Column="0"></RadioButton>
+                    <RadioButton Content="По цене(возр.)" Grid.Row="2" Grid.Column="0"
+                                 GroupName="SortRadio"></RadioButton>
+                    <RadioButton Content="По дате(возр.)" Grid.Row="3" Grid.Column="0"
+                                 GroupName="SortRadio"></RadioButton>
+                    <RadioButton Content="По описанию" Grid.Row="4" Grid.Column="0"
+                                 GroupName="SortRadio"></RadioButton>
 
                     <Button Content="Отменить" 
                         Grid.Row="5" Grid.Column="0"
-                        Command="{Binding SortCommand}"/>
+                        Command="{Binding CancelSortCommand}"/>
                     <Button Content="Принять" 
                         Grid.Row="5" Grid.Column="1"
-                        Command="{Binding CancelSortCommand}"/>
+                        Command="{Binding SortCommand}"/>
                 </Grid>
             </StackPanel>
 

@@ -42,11 +42,9 @@ namespace MoneyCeeper.ViewModels
             CurrentUC = UC;
         }
 
-        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, List<Cost> unsortetCollection, 
-            IMainWindowsCodeBehind UC, IMainWindowsCodeBehind costVM)
+        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, IMainWindowsCodeBehind UC, IMainWindowsCodeBehind costVM)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-            SortedCollection = unsortetCollection;
             _MainCodeBehind = codeBehind;
             CurrentUC = UC;
             CostVM = costVM;
@@ -100,12 +98,32 @@ namespace MoneyCeeper.ViewModels
         #region Command Parameters
         private void OnSortCommand()
         {
-             
+            List<RadioButton> radioSort =
+               (CurrentUC as LeftPanelUC).SortContent.Children.OfType<RadioButton>().ToList();
+            SortedCollection = (CostVM as CostListViewModel).CostCollection;
+            int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
+            if(index == 1)
+            {
+                SortedCollection = SortedCollection.OrderBy(elem => elem.Price).ToList();
+            }
+            if(index == 2)
+            {
+                SortedCollection = SortedCollection.OrderBy(elem => elem.Date_Time).ToList();
+            }
+            if(index == 3)
+            {
+                SortedCollection = SortedCollection.OrderBy(elem => elem.Description).ToList(); 
+            }
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
         }
         private void OnCancelSortCommand()
         {
-            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListViewModel).CostCollection;
+            List<RadioButton> radioSort =
+               (CurrentUC as LeftPanelUC).SortContent.Children.OfType<RadioButton>().ToList();
+            radioSort.First().IsChecked = true;
         }
+
         private void OnFilterCommand()
         {
             List<RadioButton> radioSort =
@@ -113,6 +131,7 @@ namespace MoneyCeeper.ViewModels
 
             List<RadioButton> radioSort2 = (CurrentUC as LeftPanelUC).FilterButtons.Children.OfType<RadioButton>().ToList();
 
+            SortedCollection = (CostVM as CostListViewModel).CostCollection;
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             int index2 = radioSort2.FindIndex(radio => radio.IsChecked.Value);
             if (index2 >= 0)

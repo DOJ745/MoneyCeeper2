@@ -80,7 +80,7 @@ namespace MoneyCeeper.ViewModels
                     currentWindow.RightPanel.Content = rightPanel;
 
                     LeftPanelUC leftPanel = new LeftPanelUC();
-                    LeftPanelVM leftVM = new LeftPanelVM(costList, vmCost.CostCollection, leftPanel, vmCost);
+                    LeftPanelVM leftVM = new LeftPanelVM(costList, leftPanel, vmCost);
                     leftPanel.DataContext = leftVM;
                     currentWindow.LeftPanel.Content = leftPanel;
                 }
