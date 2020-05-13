@@ -101,6 +101,7 @@ namespace MoneyCeeper.ViewModels
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).SortContent.Children.OfType<RadioButton>().ToList();
             SortedCollection = (CostVM as CostListViewModel).CostCollection;
+
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             if(index == 1)
             {
