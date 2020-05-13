@@ -61,7 +61,7 @@
                              IsChecked="True"></RadioButton>
 
                 <Label Content="По дате"/>
-                <DatePicker></DatePicker>
+                <DatePicker x:Name="BeginDate"></DatePicker>
 
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -78,8 +78,8 @@
                        Grid.ColumnSpan="2"
                        HorizontalContentAlignment="Center"/>
 
-                    <TextBox Grid.Row="1" Grid.Column="0"/>
-                    <TextBox Grid.Row="1" Grid.Column="1"/>
+                    <TextBox Grid.Row="1" Grid.Column="0" x:Name="PriceFirst"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="PriceSecond"/>
                 </Grid>
 
                 <Grid x:Name="FilterButtons">

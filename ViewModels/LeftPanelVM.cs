@@ -135,9 +135,26 @@ namespace MoneyCeeper.ViewModels
             SortedCollection = (CostVM as CostListViewModel).CostCollection;
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             int index2 = radioSort2.FindIndex(radio => radio.IsChecked.Value);
+
             if (index2 >= 0)
             {
                 SortedCollection = SortedCollection.Where(elem => elem.Category == index2).ToList();
+            }
+
+            if((CurrentUC as LeftPanelUC).BeginDate.SelectedDate.HasValue)
+            {
+                SortedCollection = SortedCollection.Where(elem => elem.Date_Time ==
+                (CurrentUC as LeftPanelUC).BeginDate.SelectedDate.Value).ToList();
+            }
+
+            if((CurrentUC as LeftPanelUC).PriceFirst.Text != string.Empty
+                && (CurrentUC as LeftPanelUC).PriceSecond.Text != string.Empty)
+            {
+                SortedCollection = SortedCollection.Where(elem => (elem.Price >=
+                Convert.ToDouble((CurrentUC as LeftPanelUC).PriceFirst.Text)) &&
+                elem.Price <= Convert.ToDouble((CurrentUC as LeftPanelUC).PriceSecond.Text)).ToList();
+
+                SortedCollection = SortedCollection.OrderBy(elem => elem.Price).ToList();
             }
             (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
         }
