@@ -122,14 +122,6 @@ namespace MoneyCeeper.ViewModels
             newCost.Category = (int)Category_Type;
             newCost.Username = CurrentUser.Login;
 
-            MessageBox.Show($"Current cost:" +
-                $"\n Price - {newCost.Price}" +
-                $"\n Date - {newCost.Date_Time}" +
-                $"\n Description - {newCost.Description}" +
-                $"\n Comment - {newCost.Comment}" +
-                $"\n Category - {newCost.Category}" +
-                $"\n Username - {newCost.Username}");
-
             using (MainModel context = new MainModel())
             {
                 context.Cost.Add(newCost);
@@ -137,6 +129,7 @@ namespace MoneyCeeper.ViewModels
             }
 
             CurrentCollection.Add(newCost);
+            MessageBox.Show($"Добавление прошло успешно");
         }
 
         #endregion Commands Parameters
