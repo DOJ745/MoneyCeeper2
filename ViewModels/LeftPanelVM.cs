@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using MoneyCeeper.Model;
+using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -12,9 +15,11 @@ namespace MoneyCeeper.ViewModels
     {
         //Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
-        public User CurrentUser { get; set;}
+        public User CurrentUser { get; set; }
+        public List<Cost> UnsortedCollection { get; set; }
+        public IMainWindowsCodeBehind CurrentUC;
 
-        //ctor
+        #region Constructors
         public LeftPanelVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
@@ -28,6 +33,16 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
         }
 
+        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, List<Cost> unsortetCollection, IMainWindowsCodeBehind UC)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+            UnsortedCollection = unsortetCollection;
+            _MainCodeBehind = codeBehind;
+            CurrentUC = UC;
+        }
+        #endregion
+
+        #region Commands
         private RelayCommand _FilterCommand;
         public RelayCommand FilterCommand
         {
@@ -38,9 +53,34 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
+        private RelayCommand _SortCommand;
+        public RelayCommand SortCommand
+        {
+            get
+            {
+                return _SortCommand = _SortCommand ??
+                    new RelayCommand(OnSortCommand, () => true);
+            }
+        }
+        #endregion
+
+        #region Command Parameters
+        private void OnSortCommand()
+        {
+             
+        }
         private void OnFilterCommand()
         {
-            
+            //UnsortedCollection = (_MainCodeBehind as CostListViewModel).CostCollection;
+            List<RadioButton> radioSort =
+               (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
+
+            int index = radioSort.FindIndex(radio => radio.IsChecked.Value) - 1;
+            if (index >= 0)
+            {
+                UnsortedCollection = UnsortedCollection.Where(elem => elem.Category == index).ToList();
+            }
         }
+        #endregion
     }
 }

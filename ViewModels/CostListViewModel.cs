@@ -17,7 +17,7 @@ namespace MoneyCeeper.ViewModels
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
-        public ObservableCollection<Cost> CostCollection{ get; set; }
+        public List<Cost> CostCollection{ get; set; }
         public Cost SelectedCost { get; set; }
         #endregion
 
@@ -27,7 +27,7 @@ namespace MoneyCeeper.ViewModels
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
-            CostCollection = new ObservableCollection<Cost>();
+            CostCollection = new List<Cost>();
         }
 
         public CostListViewModel(IMainWindowsCodeBehind codeBehind, User currentUser)
@@ -37,7 +37,7 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
             CurrentUser = currentUser;
 
-            CostCollection = new ObservableCollection<Cost>();
+            CostCollection = new List<Cost>();
             using (MainModel context = new MainModel())
             {
                 foreach (var elem in context.Cost)

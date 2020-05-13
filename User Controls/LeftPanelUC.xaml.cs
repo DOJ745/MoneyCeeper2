@@ -18,11 +18,21 @@ namespace MoneyCeeper.User_Controls
     /// <summary>
     /// Логика взаимодействия для LeftPanelUC.xaml
     /// </summary>
-    public partial class LeftPanelUC : UserControl
+    public partial class LeftPanelUC : UserControl, IMainWindowsCodeBehind
     {
         public LeftPanelUC()
         {
             InitializeComponent();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
