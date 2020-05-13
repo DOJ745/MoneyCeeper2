@@ -53,8 +53,8 @@
                 <Label Content="Фильтрация"
                    HorizontalContentAlignment="Center"/>
                 <RadioButton Content="По умолчанию"
-                             GroupName="CategotyTypeRadio"
-                             IsChecked="True"/>
+                             GroupName="CategoryTypeRadio"
+                             IsChecked="True"></RadioButton>
 
                 <Label Content="По дате"/>
                 <DatePicker></DatePicker>
@@ -78,7 +78,7 @@
                     <TextBox Grid.Row="1" Grid.Column="1"/>
                 </Grid>
 
-                <Grid>
+                <Grid x:Name="FilterButtons">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -97,38 +97,38 @@
                        Grid.Row="0"
                        HorizontalContentAlignment="Center"/>
                     <RadioButton Grid.Row="1"
-                             GroupName="CategotyTypeRadio"
-                             Content="Еда"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Еда"></RadioButton>
                     <RadioButton Grid.Row="2"
-                             GroupName="CategotyTypeRadio"
-                             Content="Одежда"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Одежда"></RadioButton>
                     <RadioButton Grid.Row="3"
-                             GroupName="CategotyTypeRadio"
-                             Content="Подарки"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Подарки"></RadioButton>
                     <RadioButton Grid.Row="4"
-                             GroupName="CategotyTypeRadio"
-                             Content="Дети"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Дети"></RadioButton>
                     <RadioButton Grid.Row="5"
-                             GroupName="CategotyTypeRadio"
-                             Content="Забота о себе"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Забота о себе"></RadioButton>
                     <RadioButton Grid.Row="6"
-                             GroupName="CategotyTypeRadio"
-                             Content="Здоровье"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Здоровье"></RadioButton>
                     <RadioButton Grid.Row="7"
-                             GroupName="CategotyTypeRadio"
-                             Content="Кафе, рестораны"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Кафе, рестораны"></RadioButton>
                     <RadioButton Grid.Row="8"
-                             GroupName="CategotyTypeRadio"
-                             Content="Образование"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Образование"></RadioButton>
                     <RadioButton Grid.Row="9"
-                             GroupName="CategotyTypeRadio"
-                             Content="Развлечения"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Развлечения"></RadioButton>
                     <RadioButton Grid.Row="10"
-                             GroupName="CategotyTypeRadio"
-                             Content="Транспорт"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Транспорт"></RadioButton>
                     <RadioButton Grid.Row="11"
-                             GroupName="CategotyTypeRadio"
-                             Content="Комунальные услуги"/>
+                             GroupName="CategoryTypeRadio"
+                             Content="Комунальные услуги"></RadioButton>
                 </Grid>
 
 

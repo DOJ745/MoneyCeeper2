@@ -16,8 +16,9 @@ namespace MoneyCeeper.ViewModels
         //Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser { get; set; }
-        public List<Cost> UnsortedCollection { get; set; }
+        public List<Cost> SortedCollection { get; set; }
         public IMainWindowsCodeBehind CurrentUC;
+        public IMainWindowsCodeBehind CostVM;
 
         #region Constructors
         public LeftPanelVM(IMainWindowsCodeBehind codeBehind)
@@ -36,9 +37,19 @@ namespace MoneyCeeper.ViewModels
         public LeftPanelVM(IMainWindowsCodeBehind codeBehind, List<Cost> unsortetCollection, IMainWindowsCodeBehind UC)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-            UnsortedCollection = unsortetCollection;
+            SortedCollection = unsortetCollection;
             _MainCodeBehind = codeBehind;
             CurrentUC = UC;
+        }
+
+        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, List<Cost> unsortetCollection, 
+            IMainWindowsCodeBehind UC, IMainWindowsCodeBehind costVM)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+            SortedCollection = unsortetCollection;
+            _MainCodeBehind = codeBehind;
+            CurrentUC = UC;
+            CostVM = costVM;
         }
         #endregion
 
@@ -53,6 +64,17 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
+        private RelayCommand _CancelFilterCommand;
+        public RelayCommand CancelFilterCommand
+        {
+            get
+            {
+                return _CancelFilterCommand = _CancelFilterCommand ??
+                    new RelayCommand(OnCancelFilterCommand, () => true);
+            }
+        }
+
+
         private RelayCommand _SortCommand;
         public RelayCommand SortCommand
         {
@@ -62,6 +84,17 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnSortCommand, () => true);
             }
         }
+
+        private RelayCommand _CancelSortCommand;
+        public RelayCommand CancelSortCommand
+        {
+            get
+            {
+                return _CancelSortCommand = _CancelSortCommand ??
+                new RelayCommand(OnCancelSortCommand, () => true);
+            }
+        }
+
         #endregion
 
         #region Command Parameters
@@ -69,17 +102,32 @@ namespace MoneyCeeper.ViewModels
         {
              
         }
+        private void OnCancelSortCommand()
+        {
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
+        }
         private void OnFilterCommand()
         {
-            //UnsortedCollection = (_MainCodeBehind as CostListViewModel).CostCollection;
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
 
-            int index = radioSort.FindIndex(radio => radio.IsChecked.Value) - 1;
-            if (index >= 0)
+            List<RadioButton> radioSort2 = (CurrentUC as LeftPanelUC).FilterButtons.Children.OfType<RadioButton>().ToList();
+
+            int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
+            int index2 = radioSort2.FindIndex(radio => radio.IsChecked.Value);
+            if (index2 >= 0)
             {
-                UnsortedCollection = UnsortedCollection.Where(elem => elem.Category == index).ToList();
+                SortedCollection = SortedCollection.Where(elem => elem.Category == index2).ToList();
             }
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
+        }
+
+        private void OnCancelFilterCommand()
+        {
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListViewModel).CostCollection;
+            List<RadioButton> radioSort =
+               (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
+            radioSort.First().IsChecked = true;
         }
         #endregion
     }
