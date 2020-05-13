@@ -6,13 +6,18 @@
              xmlns:local="clr-namespace:MoneyCeeper.User_Controls"
              mc:Ignorable="d" 
              MinHeight="490" 
-             MinWidth="150">
+             MinWidth="150"
+             Width="290">
     
     <Grid Background="Bisque">
-        <StackPanel x:Name="ButtonPanel">
-            <Label Content="Фильтры"></Label>
-            <Button Content="Description"
-                    Command="{Binding FilterDescriptionCommand}"></Button>
+
+        <StackPanel x:Name="FilterButtons">
+            <Label Content="Сортировка"></Label>
+            
+            <RadioButton Content="По умолчанию"></RadioButton>
+            <RadioButton Content="По цене"></RadioButton>
+            <RadioButton Content="По дате"></RadioButton>
+            <RadioButton Content="По описанию"></RadioButton>
         </StackPanel>
     </Grid>
     

@@ -21,9 +21,11 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
         }
-        public LeftPanelVM(User currentUser)
+        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, User currentUser)
         {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
             CurrentUser = currentUser;
+            _MainCodeBehind = codeBehind;
         }
 
         private RelayCommand _FilterDescriptionCommand;

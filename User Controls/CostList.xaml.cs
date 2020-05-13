@@ -21,11 +21,21 @@ namespace MoneyCeeper.User_Controls
     /// <summary>
     /// Логика взаимодействия для CostList.xaml
     /// </summary>
-    public partial class CostList : UserControl
+    public partial class CostList : UserControl, IMainWindowsCodeBehind
     {
         public CostList()
         {
             InitializeComponent();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
