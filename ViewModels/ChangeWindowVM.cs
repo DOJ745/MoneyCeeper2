@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 
@@ -121,7 +123,48 @@ namespace MoneyCeeper.ViewModels
         #region Command Parameters
         private void OnChangeCommand()
         {
+            using (MainModel context = new MainModel())
+            {
+                bool oldValidateOnSaveEnabled = context.Configuration.ValidateOnSaveEnabled;
+                try
+                {
+                    context.Configuration.ValidateOnSaveEnabled = false;
 
+                    context.Entry(SelectedCost).State = EntityState.Deleted;
+                    context.SaveChanges();
+
+                    CurrentCollection.Remove(SelectedCost);
+                }
+                finally
+                {
+                    context.Configuration.ValidateOnSaveEnabled = oldValidateOnSaveEnabled;
+                }
+            }
+
+            Cost newCost = new Cost();
+
+            newCost.Price = Price;
+            newCost.Date_Time = Date_Time;
+            newCost.Description = Description;
+            newCost.Comment = Comment;
+            newCost.Category = (int)Category_Type;
+            newCost.Username = CurrentUser.Login;
+
+            MessageBox.Show($"Changed cost:" +
+                $"\n Price - {newCost.Price}" +
+                $"\n Date - {newCost.Date_Time}" +
+                $"\n Description - {newCost.Description}" +
+                $"\n Comment - {newCost.Comment}" +
+                $"\n Category - {newCost.Category}" +
+                $"\n Username - {newCost.Username}");
+
+            using (MainModel context = new MainModel())
+            {
+                context.Cost.Add(newCost);
+                context.SaveChanges();
+            }
+
+            CurrentCollection.Add(newCost);
         }
         #endregion
     }
