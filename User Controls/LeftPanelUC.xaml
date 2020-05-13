@@ -4,6 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MoneyCeeper.User_Controls"
+             
+             xmlns:enum="clr-namespace:MoneyCeeper.Model"
+             
              mc:Ignorable="d" 
              MinHeight="490" 
              MinWidth="150"
@@ -12,12 +15,118 @@
     <Grid Background="Bisque">
 
         <StackPanel x:Name="FilterButtons">
-            <Label Content="Сортировка"></Label>
+            <Grid>
+                
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
             
-            <RadioButton Content="По умолчанию"></RadioButton>
-            <RadioButton Content="По цене"></RadioButton>
-            <RadioButton Content="По дате"></RadioButton>
-            <RadioButton Content="По описанию"></RadioButton>
+                <Label Content="Сортировка" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                   HorizontalContentAlignment="Center"/>
+
+                <RadioButton Content="По умолчанию" Grid.Row="1" Grid.Column="0"></RadioButton>
+                <RadioButton Content="По цене" Grid.Row="2" Grid.Column="0"></RadioButton>
+                <RadioButton Content="По дате" Grid.Row="3" Grid.Column="0"></RadioButton>
+                <RadioButton Content="По описанию" Grid.Row="4" Grid.Column="0"></RadioButton>
+                
+                <Button Content="Отменить" Grid.Row="5" Grid.Column="0"/>
+                <Button Content="Принять" Grid.Row="5" Grid.Column="1"/>
+            </Grid>
+
+            <Label Content="Фильтрация"
+                   HorizontalContentAlignment="Center"/>
+            <RadioButton Content="По умолчанию"/>
+            <RadioButton Content="По категории"/>
+
+            <Label Content="По дате"/>
+            <DatePicker></DatePicker>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <Label Content="По диапазону цен" 
+                       Grid.Row="0" Grid.Column="0"
+                       Grid.ColumnSpan="2"
+                       HorizontalContentAlignment="Center"/>
+                
+                <TextBox Grid.Row="1" Grid.Column="0"/>
+                <TextBox Grid.Row="1" Grid.Column="1"/>
+            </Grid>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Content="По категории" 
+                       Grid.Row="0"
+                       HorizontalContentAlignment="Center"/>
+                <RadioButton Grid.Row="1"
+                             GroupName="CategotyType"
+                             Content="Еда"/>
+                <RadioButton Grid.Row="2"
+                             GroupName="CategotyType"
+                             Content="Одежда"/>
+                <RadioButton Grid.Row="3"
+                             GroupName="CategotyType"
+                             Content="Подарки"/>
+                <RadioButton Grid.Row="4"
+                             GroupName="CategotyType"
+                             Content="Дети"/>
+                <RadioButton Grid.Row="5"
+                             GroupName="CategotyType"
+                             Content="Забота о себе"/>
+                <RadioButton Grid.Row="6"
+                             GroupName="CategotyType"
+                             Content="Здоровье"/>
+                <RadioButton Grid.Row="7"
+                             GroupName="CategotyType"
+                             Content="Кафе, рестораны"/>
+                <RadioButton Grid.Row="8"
+                             GroupName="CategotyType"
+                             Content="Образование"/>
+                <RadioButton Grid.Row="9"
+                             GroupName="CategotyType"
+                             Content="Развлечения"/>
+                <RadioButton Grid.Row="10"
+                             GroupName="CategotyType"
+                             Content="Транспорт"/>
+                <RadioButton Grid.Row="11"
+                             GroupName="CategotyType"
+                             Content="Комунальные услуги"/>
+            </Grid>
+            
+
+            <Button Content="Принять"
+                    Command="{Binding FilterCommand}"/>
+            <Button Content="Отменить"
+                    Command="{Binding CancelFilterCommand}"/>
         </StackPanel>
     </Grid>
     

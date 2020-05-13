@@ -28,24 +28,19 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
         }
 
-        private RelayCommand _FilterDescriptionCommand;
-        public RelayCommand FilterDescriptionCommand
+        private RelayCommand _FilterCommand;
+        public RelayCommand FilterCommand
         {
             get
             {
-                return _FilterDescriptionCommand = _FilterDescriptionCommand ??
-                    new RelayCommand(OnFilterDescrCommand, CanFilterDescrCommand);
+                return _FilterCommand = _FilterCommand ??
+                    new RelayCommand(OnFilterCommand, ()=> true);
             }
         }
 
-        private void OnFilterDescrCommand()
+        private void OnFilterCommand()
         {
-            MessageBox.Show($"{CurrentUser.Login} + {CurrentUser.Password}");
-        }
-
-        private bool CanFilterDescrCommand()
-        {
-            return true;
+            
         }
     }
 }
