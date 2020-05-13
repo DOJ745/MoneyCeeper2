@@ -6,7 +6,7 @@ using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
-    class RegistrationViewModel : ViewModelBase //, IMainWindowsCodeBehind
+    class RegistrationViewModel : ViewModelBase
     {
         // Fields
         private IMainWindowsCodeBehind _MainCodeBehind;

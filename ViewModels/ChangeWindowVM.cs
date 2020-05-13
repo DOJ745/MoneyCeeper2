@@ -1,35 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Data.Entity.Core.Objects.DataClasses;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Markup;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
-using System.ComponentModel;
-using MoneyCeeper.User_Controls;
-using System.Collections.ObjectModel;
 
 namespace MoneyCeeper.ViewModels
 {
-    class AddWindowVM : ViewModelBase, IDataErrorInfo
+    public class ChangeWindowVM : ViewModelBase, IDataErrorInfo
     {
         #region Constructors
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
         public ObservableCollection<Cost> CurrentCollection { get; set; }
+        public Cost SelectedCost { get; set; }
 
-        public AddWindowVM(IMainWindowsCodeBehind codeBehind)
+        public ChangeWindowVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
         }
 
-        public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser)
+        public ChangeWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -37,7 +34,7 @@ namespace MoneyCeeper.ViewModels
             CurrentUser = currentUser;
         }
 
-        public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser, 
+        public ChangeWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser,
             ObservableCollection<Cost> currentCollection)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
@@ -45,6 +42,17 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
             CurrentUser = currentUser;
             CurrentCollection = currentCollection;
+        }
+
+        public ChangeWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser,
+            ObservableCollection<Cost> currentCollection, Cost selectedCost)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+
+            _MainCodeBehind = codeBehind;
+            CurrentUser = currentUser;
+            CurrentCollection = currentCollection;
+            SelectedCost = selectedCost;
         }
         #endregion
 
@@ -90,13 +98,13 @@ namespace MoneyCeeper.ViewModels
         #endregion
 
         #region Commands
-        private RelayCommand _AddCostCommand;
-        public RelayCommand AddCostCommand
+        private RelayCommand _ChangeCostCommand;
+        public RelayCommand ChangeCostCommand
         {
             get
             {
-                return _AddCostCommand = _AddCostCommand ??
-                    new RelayCommand(OnAddCommand, ()=> true);
+                return _ChangeCostCommand = _ChangeCostCommand ??
+                    new RelayCommand(OnChangeCommand, () => true);
             }
         }
 
@@ -106,42 +114,16 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _CloseWindowCommand = _CloseWindowCommand ??
-                    new RelayCommand(() => (_MainCodeBehind as AddWindow).Close(), () => true);
+                    new RelayCommand(() => (_MainCodeBehind as ChangeWindow).Close(), () => true);
             }
         }
         #endregion Commands 
 
-        #region Commands Parameters
-        private void OnAddCommand()
+        #region Command Parameters
+        private void OnChangeCommand()
         {
-            Username = CurrentUser.Login;
-            Cost newCost = new Cost();
 
-            newCost.Price = Price;
-            newCost.Date_Time = Date_Time;
-            newCost.Description = Description;
-            newCost.Comment = Comment;
-            newCost.Category = (int)Category_Type;
-            newCost.Username = CurrentUser.Login;
-
-            MessageBox.Show($"Current cost:" +
-                $"\n Price - {newCost.Price}" +
-                $"\n Date - {newCost.Date_Time}" +
-                $"\n Description - {newCost.Description}" +
-                $"\n Comment - {newCost.Comment}" +
-                $"\n Category - {newCost.Category}" +
-                $"\n Username - {newCost.Username}");
-
-            using (MainModel context = new MainModel())
-            {
-                context.Cost.Add(newCost);
-                context.SaveChanges();
-            }
-
-            CurrentCollection.Add(newCost);
         }
-
-        #endregion Commands Parameters
-
+        #endregion
     }
 }

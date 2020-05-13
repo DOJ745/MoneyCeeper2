@@ -4,9 +4,107 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
-        mc:Ignorable="d"
-        Title="ChangeWindow" Height="450" Width="800">
-    <Grid>
         
+        xmlns:enum="clr-namespace:MoneyCeeper.Model"
+        xmlns:App="clr-namespace:MoneyCeeper"
+        
+        mc:Ignorable="d"
+        Title="Изменение траты" 
+        MinHeight="440" 
+        MinWidth="250"
+        Width="500"
+        Height="770"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <ResourceDictionary Source="..\Styles\ChangeWindowStyle.xaml"/>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Text="Стоимость(для указания копеек используйте точку)"
+               Grid.Row="0"
+               Style="{StaticResource ResourceKey=TextBlockStyle}"></TextBlock>
+        <TextBox x:Name="PriceBox" Grid.Row="0" Grid.Column="1"
+                   Style="{StaticResource ResourceKey=SimpleTextBox}"
+                   TextAlignment="Center"
+                 Validation.Error="TextBox_Error"
+                 Validation.ErrorTemplate="{StaticResource validationFailed}">
+            <TextBox.Text>
+                <Binding Path="Price" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBlock Text="Комментарий(используйте ключевые слова: Не сдержался, вынужден, случайно, было нужно)"
+               Grid.Row="1"
+               Style="{StaticResource ResourceKey=TextBlockStyle}"/>
+        <TextBox x:Name="CommentBox" Grid.Row="1" Grid.Column="1"
+                   Style="{StaticResource ResourceKey=CommentTextBox}"
+                   Validation.Error="TextBox_Error"
+                   Validation.ErrorTemplate="{StaticResource validationFailed}">
+            <TextBox.Text>
+                <Binding Path="Comment" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <TextBlock Text="Описание(конкретное название того, на что вы потратили деньги)"
+               Grid.Row="2"
+               Style="{StaticResource ResourceKey=TextBlockStyle}"/>
+        <TextBox x:Name="DescriptionBox" Grid.Row="2" Grid.Column="1"
+                   Style="{StaticResource ResourceKey=DescriptionTextBox}"
+                   Validation.Error="TextBox_Error"
+                   Validation.ErrorTemplate="{StaticResource validationFailed}">
+            <TextBox.Text>
+                <Binding Path="Description" NotifyOnValidationError="True">
+                    <Binding.ValidationRules>
+                        <DataErrorValidationRule/>
+                    </Binding.ValidationRules>
+                </Binding>
+            </TextBox.Text>
+        </TextBox>
+
+        <Label Content="Категория"
+               Grid.Row="3"></Label>
+        <ComboBox x:Name="CategotyBox" Grid.Row="3" Grid.Column="1"
+                  ItemsSource="{Binding Source=
+            {enum:EnumBindingSourceExtension 
+            {x:Type App:CategoryEnum}}}"
+                  SelectedValue="{Binding Category_Type}">
+        </ComboBox>
+
+        <Label Content="Дата"
+               Grid.Row="4"></Label>
+        <DatePicker x:Name="DateBox" Grid.Column="1" Grid.Row="4"
+                    Style="{StaticResource ResourceKey=DataBox}"
+                    SelectedDate="{Binding Date_Time}" SelectedDateFormat="Short"/>
+
+        <Button x:Name="ChangeButton" Content="Изменить" 
+                Grid.Column="0" Grid.Row="5"
+                Command="{Binding ChangeCostCommand}"/>
+        <Button x:Name="CloseButton" Content="Закрыть" 
+                Grid.Column="1" Grid.Row="5"
+                Command="{Binding CloseWindowCommand}"/>
     </Grid>
+    
 </Window>

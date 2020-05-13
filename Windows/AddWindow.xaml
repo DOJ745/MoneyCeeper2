@@ -9,7 +9,7 @@
         xmlns:App="clr-namespace:MoneyCeeper"
         
         mc:Ignorable="d"
-        Title="Добавление расхода" 
+        Title="Добавление траты" 
         MinHeight="440" 
         MinWidth="250"
         Width="500"

@@ -17,11 +17,26 @@ namespace MoneyCeeper.Windows
     /// <summary>
     /// Логика взаимодействия для ChangeWindow.xaml
     /// </summary>
-    public partial class ChangeWindow : Window
+    public partial class ChangeWindow : Window, IMainWindowsCodeBehind
     {
         public ChangeWindow()
         {
             InitializeComponent();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void TextBox_Error(object sender, System.Windows.Controls.ValidationErrorEventArgs e)
+        {
+            MessageBox.Show(e.Error.ErrorContent.ToString());
         }
     }
 }
