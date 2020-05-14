@@ -79,7 +79,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenGraphsCommand()
         {
             GraphsWindow graphsW = new GraphsWindow();
-            GraphsVM graphsVM = new GraphsVM(graphsW, CurrentUser.Login);
+            GraphsVM graphsVM = new GraphsVM(graphsW, (_MainCodeBehind as CostListViewModel).CostCollection);
             graphsW.DataContext = graphsVM;
             graphsW.Show();
         }
