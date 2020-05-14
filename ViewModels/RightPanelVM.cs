@@ -8,10 +8,12 @@ using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
-    class RightPanelVM : ViewModelBase
+    class RightPanelVM : ViewModelBase, IMainWindowsCodeBehind
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
+        private IMainWindowsCodeBehind CurrentUC;
+        private IMainWindowsCodeBehind CostVM;
         public User CurrentUser;
         #endregion
 
@@ -29,6 +31,14 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
             CurrentUser = currentUser;
+        }
+
+        public RightPanelVM(IMainWindowsCodeBehind codeBehind, IMainWindowsCodeBehind UC, IMainWindowsCodeBehind costVM)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+            _MainCodeBehind = codeBehind;
+            CurrentUC = UC;
+            CostVM = costVM;
         }
         #endregion
 
@@ -79,7 +89,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenGraphsCommand()
         {
             GraphsWindow graphsW = new GraphsWindow();
-            GraphsVM graphsVM = new GraphsVM(graphsW, (_MainCodeBehind as CostListViewModel).CostCollection);
+            GraphsVM graphsVM = new GraphsVM(graphsW, (CostVM as CostListViewModel).CostCollection);
             graphsW.DataContext = graphsVM;
             graphsW.Show();
         }
@@ -87,7 +97,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenDiagrammCommand()
         {
             DiagrammWindow diagW = new DiagrammWindow();
-            DiagrammVM diagVM = new DiagrammVM(diagW, CurrentUser.Login);
+            DiagrammVM diagVM = new DiagrammVM(diagW, (CostVM as CostListViewModel).CostCollection);
             diagW.DataContext = diagVM;
             diagW.Show();
         }
@@ -98,6 +108,16 @@ namespace MoneyCeeper.ViewModels
             AdvicesVM advVM = new AdvicesVM(advW, CurrentUser.Login);
             advW.DataContext = advVM;
             advW.Show();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

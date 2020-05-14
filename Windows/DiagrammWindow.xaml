@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
-        Title="DiagrammWindow" Height="450" Width="800">
-    <Grid>
         
+        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
+        xmlns:enum="clr-namespace:MoneyCeeper.Model"
+        xmlns:App="clr-namespace:MoneyCeeper"
+        
+        Title="Диаграмма" 
+        MinHeight="300"
+        MinWidth="550"
+        Height="500" 
+        Width="950">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="1.15*"/>
+        </Grid.ColumnDefinitions>
+
+        <charting:Chart Name="Charts" 
+                        Margin="5" 
+                        Grid.Column="0">
+            <charting:PieSeries Name="MainDiagramm" 
+                                 DependentValuePath="CostPrice" 
+                                 IndependentValuePath="CostCategory" 
+                                 Title="Основной график">
+                <charting:PieSeries.Background>
+                    <RadialGradientBrush Center="0.075,0.015" 
+                                         GradientOrigin="-0.1,-0.1" 
+                                         RadiusY="0.9" RadiusX="1.05">
+                        <GradientStop Color="#FFB9D6F7"/>
+                        <GradientStop Color="#FF4DA1FB" Offset="1"/>
+                    </RadialGradientBrush>
+                </charting:PieSeries.Background>
+            </charting:PieSeries>
+            <charting:Chart.Axes>
+
+                <charting:LinearAxis Orientation="Y"  Title="Стоимость" />
+                <charting:DateTimeAxis Orientation="X" Title="Категория" ShowGridLines="True"/>
+
+            </charting:Chart.Axes>
+        </charting:Chart>
+
+        <StackPanel x:Name="ControlPanel" Grid.Column="1">
+            <Label Content="Категория"></Label>
+            <ComboBox x:Name="Categories"
+                ItemsSource="{Binding Source=
+                {enum:EnumBindingSourceExtension 
+                {x:Type App:CategoryEnum}}}"
+                  SelectedValue="{Binding Category_Type}"/>
+
+            <Button Content="Построить диаграмму"
+                    Command="{Binding BuildDiagramm}"/>
+        </StackPanel>
     </Grid>
 </Window>

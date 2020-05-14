@@ -18,11 +18,21 @@ namespace MoneyCeeper.User_Controls
     /// <summary>
     /// Логика взаимодействия для RightPanelUC.xaml
     /// </summary>
-    public partial class RightPanelUC : UserControl
+    public partial class RightPanelUC : UserControl, IMainWindowsCodeBehind
     {
         public RightPanelUC()
         {
             InitializeComponent();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -75,7 +75,7 @@ namespace MoneyCeeper.ViewModels
                     currentWindow.OutputView.Content = costList;
 
                     RightPanelUC rightPanel = new RightPanelUC();
-                    RightPanelVM rightVM = new RightPanelVM(costList, context.User.Find(Login));
+                    RightPanelVM rightVM = new RightPanelVM(costList, rightPanel, vmCost);
                     rightPanel.DataContext = rightVM;
                     currentWindow.RightPanel.Content = rightPanel;
 

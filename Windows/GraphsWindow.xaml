@@ -22,15 +22,24 @@
             <ColumnDefinition Width="1.15*"/>
         </Grid.ColumnDefinitions>
         
-        <charting:Chart Name="Charts" Margin="5" Grid.Column="0">
-            <charting:LineSeries Name="MainChart" 
-                                 DependentValuePath="Set X" 
-                                 IndependentValuePath="Set Y" 
-                                 Title="Основной график"/>
+        <charting:Chart Name="Charts" 
+                        Margin="5" 
+                        Grid.Column="0">
+            <charting:LineSeries Name="MainGraph" 
+                                 DependentValuePath="CostPrice" 
+                                 IndependentValuePath="CostDate" 
+                                 Title="Основной график">
+                <charting:LineSeries.Background>
+                    <RadialGradientBrush Center="0.075,0.015" GradientOrigin="-0.1,-0.1" RadiusY="0.9" RadiusX="1.05">
+                        <GradientStop Color="#FFB9D6F7"/>
+                        <GradientStop Color="#FF4DA1FB" Offset="1"/>
+                    </RadialGradientBrush>
+                </charting:LineSeries.Background>
+            </charting:LineSeries>
             <charting:Chart.Axes>
                 
-                <charting:LinearAxis Orientation="Y" Minimum="0" Maximum="50" Title="Y" />
-                <charting:DateTimeAxis Orientation="X" Title="X" ShowGridLines="True"/>
+                <charting:LinearAxis Orientation="Y"  Title="Стоимость" />
+                <charting:DateTimeAxis Orientation="X" Title="Дата" ShowGridLines="True"/>
                 
             </charting:Chart.Axes>
         </charting:Chart>
@@ -42,6 +51,11 @@
                 {enum:EnumBindingSourceExtension 
                 {x:Type App:CategoryEnum}}}"
                   SelectedValue="{Binding Category_Type}"/>
+            
+            <Button Content="Построить график(по категории)"
+                    Command="{Binding BuildGraph}"/>
+            <Button Content="Построить график(по умолчанию)"
+                    Command="{Binding BuildAllGraph}"/>
         </StackPanel>
     </Grid>
 </Window>
