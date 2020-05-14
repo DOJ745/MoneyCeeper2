@@ -31,7 +31,7 @@
                 <charting:PieSeries.Background>
                     <RadialGradientBrush Center="0.075,0.015" 
                                          GradientOrigin="-0.1,-0.1" 
-                                         RadiusY="0.9" RadiusX="1.05">
+                                         RadiusY="0.9" RadiusX="1.09">
                         <GradientStop Color="#FFB9D6F7"/>
                         <GradientStop Color="#FF4DA1FB" Offset="1"/>
                     </RadialGradientBrush>

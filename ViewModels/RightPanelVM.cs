@@ -14,6 +14,7 @@ namespace MoneyCeeper.ViewModels
         private IMainWindowsCodeBehind _MainCodeBehind;
         private IMainWindowsCodeBehind CurrentUC;
         private IMainWindowsCodeBehind CostVM;
+        private IMainWindowsCodeBehind MainWnd;
         public User CurrentUser;
         #endregion
 
@@ -40,6 +41,16 @@ namespace MoneyCeeper.ViewModels
             CurrentUC = UC;
             CostVM = costVM;
         }
+
+        public RightPanelVM(IMainWindowsCodeBehind codeBehind, IMainWindowsCodeBehind UC, 
+            IMainWindowsCodeBehind costVM, IMainWindowsCodeBehind mainWnd)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+            _MainCodeBehind = codeBehind;
+            CurrentUC = UC;
+            CostVM = costVM;
+            MainWnd = mainWnd;
+        }
         #endregion
 
         #region Commands
@@ -49,7 +60,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _CloseMainWindowCommand = _CloseMainWindowCommand ??
-                    new RelayCommand(() => (_MainCodeBehind as MainWindow).Close(), () => true);
+                    new RelayCommand(() => (MainWnd as MainWindow).Close(), () => true);
             }
         }
 
