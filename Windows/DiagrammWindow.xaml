@@ -39,22 +39,28 @@
             </charting:PieSeries>
             <charting:Chart.Axes>
 
-                <charting:LinearAxis Orientation="Y"  Title="Стоимость" />
-                <charting:DateTimeAxis Orientation="X" Title="Категория" ShowGridLines="True"/>
+                <charting:LinearAxis Orientation="Y"  Title="" />
+                <charting:LinearAxis Orientation="X" Title="" ShowGridLines="True"/>
 
             </charting:Chart.Axes>
         </charting:Chart>
 
         <StackPanel x:Name="ControlPanel" Grid.Column="1">
-            <Label Content="Категория"></Label>
-            <ComboBox x:Name="Categories"
-                ItemsSource="{Binding Source=
-                {enum:EnumBindingSourceExtension 
-                {x:Type App:CategoryEnum}}}"
-                  SelectedValue="{Binding Category_Type}"/>
-
             <Button Content="Построить диаграмму"
                     Command="{Binding BuildDiagramm}"/>
+
+            <Label Content="Обозначение категорий"/>
+            <TextBlock Text="0 - Еда"/>
+            <TextBlock Text="1 - Одежда"/>
+            <TextBlock Text="2 - Подарки"/>
+            <TextBlock Text="3 - Дети"/>
+            <TextBlock Text="4 - Забота о себе"/>
+            <TextBlock Text="5 - Здоровье(спортзал)"/>
+            <TextBlock Text="6 - Кафе, рестораны"/>
+            <TextBlock Text="7 - Образование"/>
+            <TextBlock Text="8 - Развлечения(кино, игры)"/>
+            <TextBlock Text="9 - Транспорт"/>
+            <TextBlock Text="10 - Комунальные услуги"/>
         </StackPanel>
     </Grid>
 </Window>
