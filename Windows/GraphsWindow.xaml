@@ -6,21 +6,42 @@
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
         
-        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+        xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
+        xmlns:enum="clr-namespace:MoneyCeeper.Model"
+        xmlns:App="clr-namespace:MoneyCeeper"
         
-        Title="Графики" 
-        Height="450" Width="800"
+        MinHeight="300"
+        MinWidth="550"
+        Height="500" 
+        Width="950"
+        Title="График"
         WindowStartupLocation="CenterScreen">
     <Grid>
-        <charting:Chart Name="Charts" Margin="5" Grid.RowSpan="2">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition Width="1.15*"/>
+        </Grid.ColumnDefinitions>
+        
+        <charting:Chart Name="Charts" Margin="5" Grid.Column="0">
             <charting:LineSeries Name="MainChart" 
                                  DependentValuePath="Set X" 
                                  IndependentValuePath="Set Y" 
                                  Title="Основной график"/>
             <charting:Chart.Axes>
+                
                 <charting:LinearAxis Orientation="Y" Minimum="0" Maximum="50" Title="Y" />
                 <charting:DateTimeAxis Orientation="X" Title="X" ShowGridLines="True"/>
+                
             </charting:Chart.Axes>
         </charting:Chart>
+
+        <StackPanel x:Name="ControlPanel" Grid.Column="1">
+            <Label Content="Категория"></Label>
+            <ComboBox x:Name="Categories"
+                ItemsSource="{Binding Source=
+                {enum:EnumBindingSourceExtension 
+                {x:Type App:CategoryEnum}}}"
+                  SelectedValue="{Binding Category_Type}"/>
+        </StackPanel>
     </Grid>
 </Window>
