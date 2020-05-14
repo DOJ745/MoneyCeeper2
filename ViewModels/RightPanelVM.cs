@@ -10,10 +10,12 @@ namespace MoneyCeeper.ViewModels
 {
     class RightPanelVM : ViewModelBase
     {
+        #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
+        #endregion
 
-        //ctor
+        #region Constructors
         public RightPanelVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
@@ -28,6 +30,7 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
             CurrentUser = currentUser;
         }
+        #endregion
 
         #region Commands
         private RelayCommand _CloseMainWindowCommand;
