@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              MinHeight="490" 
              MinWidth="150"
-             Width="290">
+             Width="Auto">
     
     <Grid Background="Bisque">
 

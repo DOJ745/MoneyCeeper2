@@ -88,6 +88,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Advices\Advices.cs" />
     <Compile Include="Model\CategoryEnum.cs" />
     <Compile Include="Model\Cost.cs" />
     <Compile Include="Model\EnumBindingSourceExtension.cs" />

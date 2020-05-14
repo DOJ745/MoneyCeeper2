@@ -61,6 +61,10 @@
             <TextBlock Text="8 - Развлечения(кино, игры)"/>
             <TextBlock Text="9 - Транспорт"/>
             <TextBlock Text="10 - Комунальные услуги"/>
+
+            <TextBlock Text="Если вам не удовлетворяет текущая цветовая палитра, вы можете ещё раз нажать на кнопку 'Построить диаграмму', чтобы сменить её"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"/>
         </StackPanel>
     </Grid>
 </Window>

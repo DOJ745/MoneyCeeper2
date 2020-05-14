@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:MoneyCeeper.User_Controls"
              mc:Ignorable="d" 
              MinHeight="490"
-             MinWidth="150">
+             MinWidth="150"
+             
+             Width="Auto">
     
     <Grid Background="Bisque">
 
@@ -17,6 +19,26 @@
                     Command="{Binding OpenDiagrammWCommand}"/>
             <Button Content="Советы"
                     Command="{Binding OpenAdvicesWCommand}"/>
+
+            <Grid Background="White">
+                
+                <Grid.Resources>
+                    <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+                </Grid.Resources>
+                
+                <TextBlock x:Name="textBlock" Margin="5,2" Text="Тут потом появится совет..." 
+                           Foreground="{Binding BorderBrush, ElementName=txtUserEntry}"
+                           Visibility="{Binding Text.Empty, 
+                    Converter={StaticResource BooleanToVisibilityConverter}, 
+                    ElementName=txtUserEntry}"
+                           Height="300"/>
+                
+                <TextBox Name="txtUserEntry" Background="{x:Null}"/>
+            </Grid>
+            
+            <Button Content="Дать совет?"
+                    Command="{Binding GiveAdviceCommand}"/>
+            
             <Button Content="Выход"
                     Command="{Binding CloseMainWindowCommand}"></Button>
         </StackPanel>
