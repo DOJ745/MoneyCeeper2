@@ -17,11 +17,21 @@ namespace MoneyCeeper.Windows
     /// <summary>
     /// Логика взаимодействия для DiagrammWindow.xaml
     /// </summary>
-    public partial class DiagrammWindow : Window
+    public partial class DiagrammWindow : Window, IMainWindowsCodeBehind
     {
         public DiagrammWindow()
         {
             InitializeComponent();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

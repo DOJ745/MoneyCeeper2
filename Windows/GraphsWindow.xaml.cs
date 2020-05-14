@@ -17,11 +17,21 @@ namespace MoneyCeeper.Windows
     /// <summary>
     /// Логика взаимодействия для GraphsWindow.xaml
     /// </summary>
-    public partial class GraphsWindow : Window
+    public partial class GraphsWindow : Window, IMainWindowsCodeBehind
     {
         public GraphsWindow()
         {
             InitializeComponent();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }

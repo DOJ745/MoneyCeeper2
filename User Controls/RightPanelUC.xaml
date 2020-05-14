@@ -11,9 +11,12 @@
     <Grid Background="Bisque">
 
         <StackPanel>
-            <Button Content="График"></Button>
-            <Button Content="Диаграмма"></Button>
-            <Button Content="Советы"></Button>
+            <Button Content="График"
+                    Command="{Binding OpenGraphsWCommand}"/>
+            <Button Content="Диаграмма"
+                    Command="{Binding OpenDiagrammWCommand}"/>
+            <Button Content="Советы"
+                    Command="{Binding OpenAdvicesWCommand}"/>
             <Button Content="Выход"
                     Command="{Binding CloseMainWindowCommand}"></Button>
         </StackPanel>

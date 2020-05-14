@@ -103,8 +103,11 @@
       <DependentUpon>RightPanelUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\AddWindowVM.cs" />
+    <Compile Include="ViewModels\AdvicesVM.cs" />
     <Compile Include="ViewModels\ChangeWindowVM.cs" />
     <Compile Include="ViewModels\CostListViewModel.cs" />
+    <Compile Include="ViewModels\DiagrammVM.cs" />
+    <Compile Include="ViewModels\GraphsVM.cs" />
     <Compile Include="ViewModels\LeftPanelVM.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MagicAttribute.cs" />
@@ -116,8 +119,17 @@
     <Compile Include="Windows\AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AdvicesWindow.xaml.cs">
+      <DependentUpon>AdvicesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\ChangeWindow.xaml.cs">
       <DependentUpon>ChangeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\DiagrammWindow.xaml.cs">
+      <DependentUpon>DiagrammWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\GraphsWindow.xaml.cs">
+      <DependentUpon>GraphsWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -187,7 +199,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Windows\AdvicesWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\ChangeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\DiagrammWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\GraphsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

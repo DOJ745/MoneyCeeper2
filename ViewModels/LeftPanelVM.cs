@@ -13,12 +13,13 @@ namespace MoneyCeeper.ViewModels
 {
     class LeftPanelVM : ViewModelBase
     {
-        //Fields
+        #region Properies
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser { get; set; }
         public List<Cost> SortedCollection { get; set; }
         public IMainWindowsCodeBehind CurrentUC;
         public IMainWindowsCodeBehind CostVM;
+        #endregion
 
         #region Constructors
         public LeftPanelVM(IMainWindowsCodeBehind codeBehind)

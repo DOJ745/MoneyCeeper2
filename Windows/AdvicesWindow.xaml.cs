@@ -17,11 +17,21 @@ namespace MoneyCeeper.Windows
     /// <summary>
     /// Логика взаимодействия для AdvicesWindow.xaml
     /// </summary>
-    public partial class AdvicesWindow : Window
+    public partial class AdvicesWindow : Window, IMainWindowsCodeBehind
     {
         public AdvicesWindow()
         {
             InitializeComponent();
+        }
+
+        public void LoadView(ViewType typeView)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessage(string message)
+        {
+            throw new NotImplementedException();
         }
     }
 }
