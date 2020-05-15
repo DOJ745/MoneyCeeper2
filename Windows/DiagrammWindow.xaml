@@ -65,6 +65,7 @@
             <TextBlock Text="Если вам не удовлетворяет текущая цветовая палитра, вы можете ещё раз нажать на кнопку 'Построить диаграмму', чтобы сменить её"
                        TextWrapping="Wrap"
                        TextAlignment="Center"/>
+            <Button Content="Закрыть" Command="{Binding CloseWindow}"/>
         </StackPanel>
     </Grid>
 </Window>

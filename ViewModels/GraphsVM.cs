@@ -51,6 +51,16 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnBuildAllGraph, () => true);
             }
         }
+
+        private RelayCommand _CloseWindow;
+        public RelayCommand CloseWindow
+        {
+            get
+            {
+                return _CloseWindow = _CloseWindow ??
+                    new RelayCommand(() => (_MainCodeBehind as GraphsWindow).Close(), () => true);
+            }
+        }
         #endregion
 
         #region Command Parameters

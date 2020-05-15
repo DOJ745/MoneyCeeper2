@@ -56,6 +56,7 @@
                     Command="{Binding BuildGraph}"/>
             <Button Content="Построить график(по умолчанию)"
                     Command="{Binding BuildAllGraph}"/>
+            <Button Content="Закрыть" Command="{Binding CloseWindow}"/>
         </StackPanel>
     </Grid>
 </Window>

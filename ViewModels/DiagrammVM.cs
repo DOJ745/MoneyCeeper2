@@ -35,6 +35,16 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
+        private RelayCommand _CloseWindow;
+        public RelayCommand CloseWindow 
+        {
+            get
+            {
+                return _CloseWindow = _CloseWindow ??
+                    new RelayCommand(() => (_MainCodeBehind as DiagrammWindow).Close(), () => true);
+            }
+        }
+
         private void OnBuildDiagramm()
         {
             var Parts = from elem in CostList
