@@ -13,6 +13,7 @@ namespace MoneyCeeper.ViewModels
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         private ObservableCollection<Cost> CurrentCollection;
+        public string InfoText { get; set; }
         #endregion
 
         #region Constructors

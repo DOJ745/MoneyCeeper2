@@ -41,8 +41,8 @@
                 <TextBlock Text="Сходил в магазин" Grid.Row="2" Grid.Column="3"/>
             </Grid>
         
-        <Grid x:Name="InfoGrid">
-            
+        <Grid x:Name="InfoGrid" Grid.Row="1">
+            <TextBlock Text="{Binding InfoText}"/>
         </Grid>
     </Grid>
 </Window>
