@@ -166,10 +166,12 @@ namespace MoneyCeeper.ViewModels
                 SortedCollection = UnsortedCollection.Where(elem => elem.Category == index2).ToList();
             }
 
-            if((CurrentUC as LeftPanelUC).BeginDate.SelectedDate.HasValue)
+            if((CurrentUC as LeftPanelUC).BeginDate.SelectedDate.HasValue &&
+                (CurrentUC as LeftPanelUC).EndDate.SelectedDate.HasValue)
             {
-                SortedCollection = UnsortedCollection.Where(elem => elem.Date_Time ==
-                (CurrentUC as LeftPanelUC).BeginDate.SelectedDate.Value).ToList();
+                SortedCollection = UnsortedCollection.Where(elem => (elem.Date_Time >=
+                (CurrentUC as LeftPanelUC).BeginDate.SelectedDate.Value) &&
+                (elem.Date_Time <= (CurrentUC as LeftPanelUC).EndDate.SelectedDate.Value) ).ToList();
             }
 
             if((CurrentUC as LeftPanelUC).PriceFirst.Text != string.Empty
@@ -190,6 +192,12 @@ namespace MoneyCeeper.ViewModels
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
             radioSort.First().IsChecked = true;
+
+            (CurrentUC as LeftPanelUC).PriceFirst.Text = string.Empty;
+            (CurrentUC as LeftPanelUC).PriceSecond.Text = string.Empty;
+
+            (CurrentUC as LeftPanelUC).BeginDate.SelectedDate = DateTime.Now;
+            (CurrentUC as LeftPanelUC).EndDate.SelectedDate = DateTime.Now;
         }
 
         private void OnSearchDescrCommand()
