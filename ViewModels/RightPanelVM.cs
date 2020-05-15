@@ -1,9 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Data.Entity.Core;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows;
 using MoneyCeeper.Model;
+using MoneyCeeper.User_Controls;
 using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
@@ -94,6 +99,15 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
+        private RelayCommand _GiveAdviceCommand;
+        public RelayCommand GiveAdviceCommand
+        {
+            get
+            {
+                return _GiveAdviceCommand = _GiveAdviceCommand ??
+                    new RelayCommand(OnAdviceCommand, () => true);
+            }
+        }
         #endregion
 
         #region Command Parameters
@@ -121,6 +135,17 @@ namespace MoneyCeeper.ViewModels
             advW.Show();
         }
 
+        private void OnAdviceCommand()
+        {
+            List<Cost> tempCollection = new List<Cost>();
+            DateTime currentDate = DateTime.Now;
+            for(int i = 0; i < Advices.AdvicesList.Length; i++)
+            {
+                AdviceAnalyzer(tempCollection, currentDate, i);
+            }
+            
+        }
+
         public void ShowMessage(string message)
         {
             throw new NotImplementedException();
@@ -129,6 +154,36 @@ namespace MoneyCeeper.ViewModels
         public void LoadView(ViewType typeView)
         {
             throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Local Func
+        public void AdviceAnalyzer(List<Cost> tempCollection, DateTime currentDate, int keyIndex)
+        {
+            tempCollection = (CostVM as CostListViewModel).CostCollection.Where(elem =>
+            elem.Date_Time.DayOfWeek <= currentDate.DayOfWeek
+            && elem.Date_Time.Year == currentDate.Year
+            && elem.Date_Time.Month == currentDate.Month).ToList();
+
+            Regex keyWord = new Regex(Advices.KeyWords[keyIndex], RegexOptions.IgnoreCase);
+            tempCollection = tempCollection.FindAll(elem =>
+            {
+                if (elem.Comment.Length != 0)
+                {
+                    return keyWord.IsMatch(elem.Comment);
+                }
+                return keyWord.IsMatch(elem.Comment);
+            });
+            if (tempCollection.Count < 5)
+            {
+                (CurrentUC as RightPanelUC).TextTemplate.Text = string.Empty;
+                (CurrentUC as RightPanelUC).EnterAdvice.Text = "Пока что всё хорошо";
+            }
+            else
+            {
+                (CurrentUC as RightPanelUC).TextTemplate.Text = string.Empty;
+                (CurrentUC as RightPanelUC).EnterAdvice.Text = Advices.AdvicesList[keyIndex];
+            }
         }
         #endregion
 

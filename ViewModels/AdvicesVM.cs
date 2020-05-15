@@ -1,4 +1,5 @@
 ﻿using MoneyCeeper.Model;
+using MoneyCeeper.Windows;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +14,6 @@ namespace MoneyCeeper.ViewModels
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         private ObservableCollection<Cost> CurrentCollection;
-        public string InfoText { get; set; }
         #endregion
 
         #region Constructors
@@ -23,6 +23,18 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
             CurrentCollection = currentCollection;
+        }
+        #endregion
+
+        #region Commands
+        private RelayCommand _CloseCommand;
+        public RelayCommand CloseCommand
+        {
+            get
+            {
+                return _CloseCommand = _CloseCommand ??
+                    new RelayCommand(() => (_MainCodeBehind as AdvicesWindow).Close(), () => true);
+            }
         }
         #endregion
     }

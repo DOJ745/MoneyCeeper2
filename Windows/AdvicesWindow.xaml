@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
         Title="Советы и информация о них" 
-        Height="450" 
+        Height="600" 
         Width="700">
     <Grid>
         <Grid.RowDefinitions>
@@ -31,18 +31,40 @@
                        Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
                        HorizontalAlignment="Center"/>
                 
-                <TextBlock Text="Как обычно" Grid.Row="1" Grid.Column="0"/>
-                <TextBlock Text="По привычке" Grid.Row="1" Grid.Column="1"/>
-                <TextBlock Text="По нужде" Grid.Row="1" Grid.Column="2"/>
-                <TextBlock Text="Случайно" Grid.Row="1" Grid.Column="3"/>
-                <TextBlock Text="Не сдержался" Grid.Row="2" Grid.Column="0"/>
-                <TextBlock Text="Было нужно" Grid.Row="2" Grid.Column="1"/>
-                <TextBlock Text="Проголодался" Grid.Row="2" Grid.Column="2"/>
-                <TextBlock Text="Сходил в магазин" Grid.Row="2" Grid.Column="3"/>
+                <TextBlock Text="Как обычно" Grid.Row="1" Grid.Column="0"
+                           TextAlignment="Center"/>
+                <TextBlock Text="По привычке" Grid.Row="1" Grid.Column="1"
+                           TextAlignment="Center"/>
+                <TextBlock Text="По нужде" Grid.Row="1" Grid.Column="2"
+                           TextAlignment="Center"/>
+                <TextBlock Text="Случайно" Grid.Row="1" Grid.Column="3"
+                           TextAlignment="Center"/>
+                <TextBlock Text="Не сдержался" Grid.Row="2" Grid.Column="0"
+                           TextAlignment="Center"/>
+                <TextBlock Text="Было нужно" Grid.Row="2" Grid.Column="1"
+                           TextAlignment="Center"/>
+                <TextBlock Text="Проголодался" Grid.Row="2" Grid.Column="2"
+                           TextAlignment="Center"/>
+                <TextBlock Text="Сходил в магазин" Grid.Row="2" Grid.Column="3"
+                           TextAlignment="Center"/>
             </Grid>
         
         <Grid x:Name="InfoGrid" Grid.Row="1">
-            <TextBlock Text="{Binding InfoText}"/>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="0.25*"/>
+            </Grid.RowDefinitions>
+            
+            <TextBlock x:Name="MainInfo" Text="" Grid.Row="0"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"/>
+            
+            <Button Content="Закрыть" Grid.Row="1"
+                    Command="{Binding CloseCommand}"
+                    Width="100"
+                    Height="30"
+                    Margin="5"/>
         </Grid>
+        
     </Grid>
 </Window>

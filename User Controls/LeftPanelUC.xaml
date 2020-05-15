@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              MinHeight="490" 
              MinWidth="150"
-             Width="Auto">
+             Width="Auto" d:DesignHeight="546">
     
     <Grid Background="Bisque">
 
@@ -135,13 +135,32 @@
                              Content="Комунальные услуги"></RadioButton>
                 </Grid>
 
-
                 <Button Content="Принять"
                     Command="{Binding FilterCommand}"/>
                 <Button Content="Отменить"
                     Command="{Binding CancelFilterCommand}"/>
             </StackPanel>
-       
+            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Поиск по описанию" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <TextBox x:Name="DescriptionSearch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                             Text="{Binding DescSearch}"/>
+                <Button Content="Поиск" Grid.Row="2" Grid.Column="1"
+                        Command="{Binding SearchDescrCommand}"/>
+                <Button Content="Отмена" Grid.Row="2" Grid.Column="0"
+                        Command="{Binding CancelSearchCommand}"/>
+            </Grid>
+            
         </StackPanel>
     </Grid>
     

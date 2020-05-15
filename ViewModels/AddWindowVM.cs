@@ -81,7 +81,8 @@ namespace MoneyCeeper.ViewModels
                         break;
 
                     case "Date_Time":
-                        if( (this.Date_Time.Day < 0 || this.Date_Time.Day > 31) 
+                        if( (this.Date_Time.Day < 0 || 
+                            this.Date_Time.Day > DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)) 
                             || (this.Date_Time.Month < 0 || this.Date_Time.Month > 12)
                             || (this.Date_Time.Year < 1920 || this.Date_Time.Year > 2100) )
                         {

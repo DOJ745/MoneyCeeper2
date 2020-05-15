@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,18 @@ namespace MoneyCeeper.Windows
         public AdvicesWindow()
         {
             InitializeComponent();
+            string path = "AdviceInfo.txt";
+            try
+            {
+                using (StreamReader sr = new StreamReader(path))
+                {
+                    this.MainInfo.Text = sr.ReadToEnd();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         public void LoadView(ViewType typeView)

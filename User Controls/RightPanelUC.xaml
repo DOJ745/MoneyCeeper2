@@ -26,14 +26,14 @@
                     <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
                 </Grid.Resources>
                 
-                <TextBlock x:Name="textBlock" Margin="5,2" Text="Тут потом появится совет..." 
+                <TextBlock x:Name="TextTemplate" Margin="5,2" Text="Тут потом появится совет..." 
                            Foreground="{Binding BorderBrush, ElementName=txtUserEntry}"
                            Visibility="{Binding Text.Empty, 
                     Converter={StaticResource BooleanToVisibilityConverter}, 
                     ElementName=txtUserEntry}"
                            Height="300"/>
                 
-                <TextBox Name="txtUserEntry" Background="{x:Null}"/>
+                <TextBox x:Name="EnterAdvice" Background="{x:Null}"/>
             </Grid>
             
             <Button Content="Дать совет?"

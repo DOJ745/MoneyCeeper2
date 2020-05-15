@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -19,6 +20,8 @@ namespace MoneyCeeper.ViewModels
         public ObservableCollection<Cost> UnsortedCollection { get; set; }
         public IMainWindowsCodeBehind CurrentUC;
         public IMainWindowsCodeBehind CostVM;
+
+        public string DescSearch { get; set; }
         #endregion
 
         #region Constructors
@@ -35,7 +38,8 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
         }
 
-        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> unsortetCollection, IMainWindowsCodeBehind UC)
+        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> unsortetCollection, 
+            IMainWindowsCodeBehind UC)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
             UnsortedCollection = unsortetCollection;
@@ -94,6 +98,25 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
+        private RelayCommand _SearchDescrCommand;
+        public RelayCommand SearchDescrCommand
+        {
+            get
+            {
+                return _SearchDescrCommand = _SearchDescrCommand ??
+                new RelayCommand(OnSearchDescrCommand, () => true);
+            }
+        }
+
+        private RelayCommand _CancelSearchCommand;
+        public RelayCommand CancelSearchCommand
+        {
+            get
+            {
+                return _CancelSearchCommand = _CancelSearchCommand ??
+                new RelayCommand(OnCancelSearchCommand, () => true);
+            }
+        }
         #endregion
 
         #region Command Parameters
@@ -167,6 +190,36 @@ namespace MoneyCeeper.ViewModels
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
             radioSort.First().IsChecked = true;
+        }
+
+        private void OnSearchDescrCommand()
+        {
+            List<Cost> SortedCollection = new List<Cost>();
+            UnsortedCollection = (CostVM as CostListViewModel).CostCollection;
+            SortedCollection = UnsortedCollection.Where(elem => elem.Price > 0).ToList();
+            Regex regex = new Regex(DescSearch, RegexOptions.IgnoreCase);
+            SortedCollection = SortedCollection.FindAll(elem =>
+            {
+                if (elem.Description.Length != 0)
+                {
+                    return regex.IsMatch(elem.Description);
+                }
+                return regex.IsMatch(elem.Description);
+            });
+            if (SortedCollection.Count == 0)
+            {
+                MessageBox.Show("Ничего не найдено!");
+            }
+            else
+            {
+               (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
+            }
+        }
+
+        private void OnCancelSearchCommand()
+        {
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListViewModel).CostCollection;
+            (CurrentUC as LeftPanelUC).DescriptionSearch.Text = string.Empty;
         }
         #endregion
     }
