@@ -116,7 +116,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenAdvicesCommand()
         {
             AdvicesWindow advW = new AdvicesWindow();
-            AdvicesVM advVM = new AdvicesVM(advW, CurrentUser.Login);
+            AdvicesVM advVM = new AdvicesVM(advW, (CostVM as CostListViewModel).CostCollection);
             advW.DataContext = advVM;
             advW.Show();
         }

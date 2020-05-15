@@ -5,8 +5,44 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
-        Title="AdvicesWindow" Height="450" Width="800">
+        Title="Советы и информация о них" 
+        Height="450" 
+        Width="700">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+            <Grid x:Name="GoldWords" Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <Label Content="Ключевые слова" 
+                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"
+                       HorizontalAlignment="Center"/>
+                
+                <TextBlock Text="Как обычно" Grid.Row="1" Grid.Column="0"/>
+                <TextBlock Text="По привычке" Grid.Row="1" Grid.Column="1"/>
+                <TextBlock Text="По нужде" Grid.Row="1" Grid.Column="2"/>
+                <TextBlock Text="Случайно" Grid.Row="1" Grid.Column="3"/>
+                <TextBlock Text="Не сдержался" Grid.Row="2" Grid.Column="0"/>
+                <TextBlock Text="Было нужно" Grid.Row="2" Grid.Column="1"/>
+                <TextBlock Text="Проголодался" Grid.Row="2" Grid.Column="2"/>
+                <TextBlock Text="Сходил в магазин" Grid.Row="2" Grid.Column="3"/>
+            </Grid>
         
+        <Grid x:Name="InfoGrid">
+            
+        </Grid>
     </Grid>
 </Window>

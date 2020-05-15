@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MoneyCeeper.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +12,16 @@ namespace MoneyCeeper.ViewModels
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
-        private string CurrentUser;
+        private ObservableCollection<Cost> CurrentCollection;
         #endregion
 
         #region Constructors
-        public AdvicesVM(IMainWindowsCodeBehind codeBehind, string currentUser)
+        public AdvicesVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> currentCollection)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
-            CurrentUser = currentUser;
+            CurrentCollection = currentCollection;
         }
         #endregion
     }
