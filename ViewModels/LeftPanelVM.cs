@@ -16,7 +16,7 @@ namespace MoneyCeeper.ViewModels
         #region Properies
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser { get; set; }
-        public ObservableCollection<Cost> SortedCollection { get; set; }
+        public ObservableCollection<Cost> UnsortedCollection { get; set; }
         public IMainWindowsCodeBehind CurrentUC;
         public IMainWindowsCodeBehind CostVM;
         #endregion
@@ -38,7 +38,7 @@ namespace MoneyCeeper.ViewModels
         public LeftPanelVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> unsortetCollection, IMainWindowsCodeBehind UC)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-            SortedCollection = unsortetCollection;
+            UnsortedCollection = unsortetCollection;
             _MainCodeBehind = codeBehind;
             CurrentUC = UC;
         }
@@ -101,21 +101,21 @@ namespace MoneyCeeper.ViewModels
         {
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).SortContent.Children.OfType<RadioButton>().ToList();
-            SortedCollection = (CostVM as CostListViewModel).CostCollection;
-
+            UnsortedCollection = (CostVM as CostListViewModel).CostCollection;
+            List<Cost> SortedCollection = new List<Cost>();
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
-            /*if(index == 1)
+            if(index == 1)
             {
-                SortedCollection = SortedCollection.OrderBy(elem => elem.Price).ToList();
+                SortedCollection = UnsortedCollection.OrderBy(elem => elem.Price).ToList();
             }
             if(index == 2)
             {
-                SortedCollection = SortedCollection.OrderBy(elem => elem.Date_Time).ToList();
+                SortedCollection = UnsortedCollection.OrderBy(elem => elem.Date_Time).ToList();
             }
             if(index == 3)
             {
-                SortedCollection = SortedCollection.OrderBy(elem => elem.Description).ToList(); 
-            }*/
+                SortedCollection = UnsortedCollection.OrderBy(elem => elem.Description).ToList(); 
+            }
             (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
         }
         private void OnCancelSortCommand()
@@ -132,31 +132,32 @@ namespace MoneyCeeper.ViewModels
                (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
 
             List<RadioButton> radioSort2 = (CurrentUC as LeftPanelUC).FilterButtons.Children.OfType<RadioButton>().ToList();
+            List<Cost> SortedCollection = new List<Cost>();
 
-            SortedCollection = (CostVM as CostListViewModel).CostCollection;
+            UnsortedCollection = (CostVM as CostListViewModel).CostCollection;
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             int index2 = radioSort2.FindIndex(radio => radio.IsChecked.Value);
 
-           /* if (index2 >= 0)
+            if (index2 >= 0)
             {
-                SortedCollection = SortedCollection.Where(elem => elem.Category == index2).ToList();
+                SortedCollection = UnsortedCollection.Where(elem => elem.Category == index2).ToList();
             }
 
             if((CurrentUC as LeftPanelUC).BeginDate.SelectedDate.HasValue)
             {
-                SortedCollection = SortedCollection.Where(elem => elem.Date_Time ==
+                SortedCollection = UnsortedCollection.Where(elem => elem.Date_Time ==
                 (CurrentUC as LeftPanelUC).BeginDate.SelectedDate.Value).ToList();
             }
 
             if((CurrentUC as LeftPanelUC).PriceFirst.Text != string.Empty
                 && (CurrentUC as LeftPanelUC).PriceSecond.Text != string.Empty)
             {
-                SortedCollection = SortedCollection.Where(elem => (elem.Price >=
-                Convert.ToDouble((CurrentUC as LeftPanelUC).PriceFirst.Text)) &&
+                SortedCollection = UnsortedCollection.Where(elem => 
+                (elem.Price >= Convert.ToDouble((CurrentUC as LeftPanelUC).PriceFirst.Text)) &&
                 elem.Price <= Convert.ToDouble((CurrentUC as LeftPanelUC).PriceSecond.Text)).ToList();
 
                 SortedCollection = SortedCollection.OrderBy(elem => elem.Price).ToList();
-            }*/
+            }
             (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
         }
 
