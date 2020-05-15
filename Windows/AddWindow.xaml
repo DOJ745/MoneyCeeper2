@@ -84,17 +84,15 @@
             </TextBox.Text>
         </TextBox>
 
-        <Label Content="Категория"
-               Grid.Row="3"></Label>
+        <Label Content="Категория" Grid.Row="3"/>
         <ComboBox x:Name="CategotyBox" Grid.Row="3" Grid.Column="1"
                   ItemsSource="{Binding Source=
             {enum:EnumBindingSourceExtension 
             {x:Type App:CategoryEnum}}}"
                   SelectedValue="{Binding Category_Type}">
         </ComboBox>
-        
-        <Label Content="Дата"
-               Grid.Row="4"></Label>
+
+        <Label Content="Дата(ДД.ММ.ГГГГ)" Grid.Row="4"/>
         <DatePicker x:Name="DateBox" Grid.Column="1" Grid.Row="4"
                     Style="{StaticResource ResourceKey=DataBox}"
                     SelectedDate="{Binding Date_Time}" SelectedDateFormat="Short"/>

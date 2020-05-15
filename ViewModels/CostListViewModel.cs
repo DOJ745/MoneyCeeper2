@@ -109,26 +109,19 @@ namespace MoneyCeeper.ViewModels
 
         private void OnDeleteCommand()
         {
-            int result = (int)MessageBox.Show("Вы точно хотите удалить выбранное?",
-                null, MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if(result == (int)MessageBoxResult.Yes)
+            using (MainModel context = new MainModel())
             {
-                using (MainModel context = new MainModel())
+                bool oldValidateOnSaveEnabled = context.Configuration.ValidateOnSaveEnabled;
+                try
                 {
-                    bool oldValidateOnSaveEnabled = context.Configuration.ValidateOnSaveEnabled;
-                    try
-                    {
-                        context.Configuration.ValidateOnSaveEnabled = false;
-
-                        context.Entry(SelectedCost).State = EntityState.Deleted;
-                        context.SaveChanges();
-
-                        CostCollection.Remove(SelectedCost);
-                    }
-                    finally
-                    {
-                        context.Configuration.ValidateOnSaveEnabled = oldValidateOnSaveEnabled;
-                    }
+                   context.Configuration.ValidateOnSaveEnabled = false;
+                   context.Entry(SelectedCost).State = EntityState.Deleted;
+                   context.SaveChanges();
+                   CostCollection.Remove(SelectedCost);
+                }
+                finally
+                {
+                   context.Configuration.ValidateOnSaveEnabled = oldValidateOnSaveEnabled;
                 }
             }
         }

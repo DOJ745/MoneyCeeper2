@@ -30,7 +30,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _LoginCommand = _LoginCommand ??
-                    new RelayCommand(OnLoginCommand, CanLoginCommand);
+                    new RelayCommand(OnLoginCommand, () => true);
             }
         }
 
@@ -41,18 +41,13 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _OpenMenuUCCommand = _OpenMenuUCCommand ??
-                    new RelayCommand(OnMenuUCCommand, CanMenuUCCommand);
+                    new RelayCommand(OnMenuUCCommand, () => true);
             }
         }
 
         private void OnMenuUCCommand()
         {
             _MainCodeBehind.LoadView(ViewType.Menu);
-        }
-
-        private bool CanMenuUCCommand()
-        {
-            return true;
         }
 
         private void OnLoginCommand()
@@ -89,11 +84,6 @@ namespace MoneyCeeper.ViewModels
                     MessageBox.Show("Неправильный логин или пароль!");
                 }
             }
-        }
-
-        private bool CanLoginCommand()
-        {
-            return true;
         }
 
         public void LoadView(ViewType typeView)

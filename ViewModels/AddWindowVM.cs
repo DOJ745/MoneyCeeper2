@@ -12,6 +12,7 @@ using MoneyCeeper.Windows;
 using System.ComponentModel;
 using MoneyCeeper.User_Controls;
 using System.Collections.ObjectModel;
+using System.Text.RegularExpressions;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -65,20 +66,27 @@ namespace MoneyCeeper.ViewModels
                 switch (columnName)
                 {
                     case "Price":
-                        if (this.Price < 0 || this.Price > 1000000.00f)
+                        if (this.Price < 0 || this.Price > 1000000.00)
                             result = "Цена должна быть в пределах от 0 до 1 000 000";
                         break;
+
                     case "Comment":
-                        /*if (!this.Comment.Contains(','))
-                            result = "Разделяйте ключевые слова через запятую!";*/
-                        if (Comment.Length > 300 || Comment.Length < 15)
+                        if (this.Comment.Length > 300 || this.Comment.Length < 15)
                             result = "Диапазон символов: 15 - 300";
-                        /*if (this.Comment == string.Empty)
-                            result = "Комментарий не должен быть пустым!";*/
                         break;
+
                     case "Description":
                         if (this.Description.Length > 300)
-                            result = "Максимальное колисество символов - 300";
+                             result = "Максимальное колисество символов - 300";
+                        break;
+
+                    case "Date_Time":
+                        if( (this.Date_Time.Day < 0 || this.Date_Time.Day > 31) 
+                            || (this.Date_Time.Month < 0 || this.Date_Time.Month > 12)
+                            || (this.Date_Time.Year < 1920 || this.Date_Time.Year > 2100) )
+                        {
+                            result = "Неверный формат даты!";
+                        }
                         break;
                 }
                 return result;
@@ -118,7 +126,7 @@ namespace MoneyCeeper.ViewModels
             newCost.Price = Price;
             newCost.Date_Time = Date_Time;
             newCost.Description = Description;
-            newCost.Comment = Comment;
+            newCost.Comment = Comment;  
             newCost.Category = (int)Category_Type;
             newCost.Username = CurrentUser.Login;
 
@@ -129,6 +137,7 @@ namespace MoneyCeeper.ViewModels
             }
 
             CurrentCollection.Add(newCost);
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = CurrentCollection;
             MessageBox.Show($"Добавление прошло успешно");
         }
 
