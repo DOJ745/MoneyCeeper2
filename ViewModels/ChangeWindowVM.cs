@@ -18,7 +18,7 @@ namespace MoneyCeeper.ViewModels
         #region Constructors
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
-        public List<Cost> CurrentCollection { get; set; }
+        public ObservableCollection<Cost> CurrentCollection { get; set; }
         public Cost SelectedCost { get; set; }
 
         public ChangeWindowVM(IMainWindowsCodeBehind codeBehind)
@@ -37,7 +37,7 @@ namespace MoneyCeeper.ViewModels
         }
 
         public ChangeWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser,
-            List<Cost> currentCollection)
+            ObservableCollection<Cost> currentCollection)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -47,7 +47,7 @@ namespace MoneyCeeper.ViewModels
         }
 
         public ChangeWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser,
-            List<Cost> currentCollection, Cost selectedCost)
+            ObservableCollection<Cost> currentCollection, Cost selectedCost)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 

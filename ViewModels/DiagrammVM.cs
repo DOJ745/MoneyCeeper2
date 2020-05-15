@@ -2,6 +2,7 @@
 using MoneyCeeper.Windows;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,11 +13,11 @@ namespace MoneyCeeper.ViewModels
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
-        private List<Cost> CostList { get; set; }
+        private ObservableCollection<Cost> CostList { get; set; }
 
         public CategoryEnum Category_Type { get; set; }
         #endregion
-        public DiagrammVM(IMainWindowsCodeBehind codeBehind, List<Cost> costList)
+        public DiagrammVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> costList)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 

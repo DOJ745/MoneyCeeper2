@@ -16,7 +16,7 @@ namespace MoneyCeeper.ViewModels
         #region Properies
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser { get; set; }
-        public List<Cost> SortedCollection { get; set; }
+        public ObservableCollection<Cost> SortedCollection { get; set; }
         public IMainWindowsCodeBehind CurrentUC;
         public IMainWindowsCodeBehind CostVM;
         #endregion
@@ -35,7 +35,7 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
         }
 
-        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, List<Cost> unsortetCollection, IMainWindowsCodeBehind UC)
+        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> unsortetCollection, IMainWindowsCodeBehind UC)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
             SortedCollection = unsortetCollection;
@@ -104,7 +104,7 @@ namespace MoneyCeeper.ViewModels
             SortedCollection = (CostVM as CostListViewModel).CostCollection;
 
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
-            if(index == 1)
+            /*if(index == 1)
             {
                 SortedCollection = SortedCollection.OrderBy(elem => elem.Price).ToList();
             }
@@ -115,7 +115,7 @@ namespace MoneyCeeper.ViewModels
             if(index == 3)
             {
                 SortedCollection = SortedCollection.OrderBy(elem => elem.Description).ToList(); 
-            }
+            }*/
             (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
         }
         private void OnCancelSortCommand()
@@ -137,7 +137,7 @@ namespace MoneyCeeper.ViewModels
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             int index2 = radioSort2.FindIndex(radio => radio.IsChecked.Value);
 
-            if (index2 >= 0)
+           /* if (index2 >= 0)
             {
                 SortedCollection = SortedCollection.Where(elem => elem.Category == index2).ToList();
             }
@@ -156,7 +156,7 @@ namespace MoneyCeeper.ViewModels
                 elem.Price <= Convert.ToDouble((CurrentUC as LeftPanelUC).PriceSecond.Text)).ToList();
 
                 SortedCollection = SortedCollection.OrderBy(elem => elem.Price).ToList();
-            }
+            }*/
             (_MainCodeBehind as CostList).COSTLIST.ItemsSource = SortedCollection;
         }
 

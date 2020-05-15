@@ -21,7 +21,7 @@ namespace MoneyCeeper.ViewModels
         #region Constructors
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
-        public List<Cost> CurrentCollection { get; set; }
+        public ObservableCollection<Cost> CurrentCollection { get; set; }
 
         public AddWindowVM(IMainWindowsCodeBehind codeBehind)
         {
@@ -39,7 +39,7 @@ namespace MoneyCeeper.ViewModels
         }
 
         public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser, 
-            List<Cost> currentCollection)
+            ObservableCollection<Cost> currentCollection)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -137,7 +137,6 @@ namespace MoneyCeeper.ViewModels
             }
 
             CurrentCollection.Add(newCost);
-            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = CurrentCollection;
             MessageBox.Show($"Добавление прошло успешно");
         }
 
