@@ -10,10 +10,16 @@
              mc:Ignorable="d" 
              MinHeight="490" 
              MinWidth="150"
-             Width="Auto" d:DesignHeight="546">
+             Width="Auto">
 
-    <Grid Background="#FFDC4B" Margin="0,0,0,-74">
+    <UserControl.Resources>
+        <ResourceDictionary Source="..\Styles\LeftPanelStyle.xaml"/>
+    </UserControl.Resources>
 
+    <Grid Background="#FFDC4B" Margin="0,0,0,0">
+        
+        <ScrollViewer CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+            
         <StackPanel x:Name="MainStackPanel">
             <StackPanel x:Name="SortPannel">
                 <Grid x:Name="SortContent">
@@ -37,19 +43,25 @@
                     <RadioButton Content="По умолчанию" Grid.Row="1" Grid.Column="0"
                                  GroupName="SortRadio"
                                  IsChecked="True"></RadioButton>
+                    
                     <RadioButton Content="По цене(возр.)" Grid.Row="2" Grid.Column="0"
                                  GroupName="SortRadio"></RadioButton>
+                    
                     <RadioButton Content="По дате(возр.)" Grid.Row="3" Grid.Column="0"
                                  GroupName="SortRadio"></RadioButton>
+                    
                     <RadioButton Content="По описанию" Grid.Row="4" Grid.Column="0"
                                  GroupName="SortRadio"></RadioButton>
 
                     <Button Content="Отменить" 
                         Grid.Row="5" Grid.Column="0"
-                        Command="{Binding CancelSortCommand}"/>
+                        Command="{Binding CancelSortCommand}"
+                            Template="{StaticResource ResourceKey=RoundButonDeny}"/>
+
                     <Button Content="Принять" 
                         Grid.Row="5" Grid.Column="1"
-                        Command="{Binding SortCommand}"/>
+                        Command="{Binding SortCommand}"
+                            Template="{StaticResource ResourceKey=RoundButonAccept}"/>
                 </Grid>
             </StackPanel>
 
@@ -81,8 +93,10 @@
                        Grid.ColumnSpan="2"
                        HorizontalContentAlignment="Center"/>
 
-                    <TextBox Grid.Row="1" Grid.Column="0" x:Name="PriceFirst"/>
-                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="PriceSecond"/>
+                    <TextBox Grid.Row="1" Grid.Column="0" x:Name="PriceFirst"
+                             Margin="3" TextAlignment="Center"/>
+                    <TextBox Grid.Row="1" Grid.Column="1" x:Name="PriceSecond"
+                             Margin="3" TextAlignment="Center"/>
                 </Grid>
 
                 <Grid x:Name="FilterButtons">
@@ -138,10 +152,21 @@
                              Content="Комунальные услуги"></RadioButton>
                 </Grid>
 
-                <Button Content="Принять"
-                    Command="{Binding FilterCommand}"/>
-                <Button Content="Отменить"
-                    Command="{Binding CancelFilterCommand}"/>
+                <Grid x:Name="ControlButtons">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Content="Принять" Grid.Column="1"
+                    Command="{Binding FilterCommand}"
+                            Template="{StaticResource ResourceKey=RoundButonAccept}"/>
+                    
+                    <Button Content="Отменить" Grid.Column="0"
+                    Command="{Binding CancelFilterCommand}"
+                            Template="{StaticResource ResourceKey=RoundButonDeny}"/>
+                </Grid>
+                
             </StackPanel>
             
             <Grid>
@@ -155,16 +180,23 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Поиск по описанию" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
+                <Label Content="Поиск по описанию" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+                       HorizontalAlignment="Center"/>
                 <TextBox x:Name="DescriptionSearch" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                              Text="{Binding DescSearch}"/>
+                
                 <Button Content="Поиск" Grid.Row="2" Grid.Column="1"
-                        Command="{Binding SearchDescrCommand}"/>
+                        Command="{Binding SearchDescrCommand}"
+                        Template="{StaticResource ResourceKey=RoundButonAccept}"/>
+                
                 <Button Content="Отмена" Grid.Row="2" Grid.Column="0"
-                        Command="{Binding CancelSearchCommand}"/>
+                        Command="{Binding CancelSearchCommand}"
+                        Template="{StaticResource ResourceKey=RoundButonCancel}"/>
             </Grid>
             
         </StackPanel>
+        </ScrollViewer>
     </Grid>
     
+
 </UserControl>

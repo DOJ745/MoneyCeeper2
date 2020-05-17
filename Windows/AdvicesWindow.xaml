@@ -6,18 +6,25 @@
         xmlns:local="clr-namespace:MoneyCeeper.Windows"
         mc:Ignorable="d"
         Title="Советы и информация о них" 
-        Height="600" 
-        Width="700">
-    <Grid>
+        Height="849" 
+        Width="700"
+        
+        WindowStartupLocation="CenterScreen" >
+   
+    <Window.Resources>
+        <ResourceDictionary Source="..\Styles\AdviceWindowStyle.xaml"/>
+    </Window.Resources>
+
+    <Grid Background="#7A3DB2">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
             <Grid x:Name="GoldWords" Grid.Row="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
+                    <RowDefinition Height="0.05*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
@@ -56,14 +63,11 @@
             </Grid.RowDefinitions>
             
             <TextBlock x:Name="MainInfo" Text="" Grid.Row="0"
-                       TextWrapping="Wrap"
-                       TextAlignment="Center"/>
+                       Style="{StaticResource ResourceKey=MainText}"/>
             
             <Button Content="Закрыть" Grid.Row="1"
                     Command="{Binding CloseCommand}"
-                    Width="100"
-                    Height="30"
-                    Margin="5"/>
+                    Template="{StaticResource ResourceKey=RoundButonCancel}"/>
         </Grid>
         
     </Grid>

@@ -1,0 +1,90 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MoneyCeeper.Styles">
+
+    <Style TargetType="Button">
+        <Setter Property="Width" Value="75"/>
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style TargetType="Label">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style TargetType="TextBox">
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style TargetType="DatePicker">
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="FontSize" Value="14"/>
+    </Style>
+
+    <Style TargetType="RadioButton">
+        <Setter Property="Height" Value="17"/>
+        <Setter Property="Margin" Value="2"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <ControlTemplate x:Key="RoundButonAccept" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Принять"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonDeny" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Отменить"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonCancel" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Отмена"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+
+</ResourceDictionary>

@@ -10,15 +10,27 @@
              
              Width="Auto">
 
+    <UserControl.Resources>
+        <ResourceDictionary Source="..\Styles\RightPanelStyle.xaml"/>
+    </UserControl.Resources>
+
     <Grid Background="#FFDC4B">
 
-        <StackPanel>
+        <StackPanel Height="Auto">
             <Button Content="График"
-                    Command="{Binding OpenGraphsWCommand}"/>
+                    Command="{Binding OpenGraphsWCommand}"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonGraph}"/>
+            
             <Button Content="Диаграмма"
-                    Command="{Binding OpenDiagrammWCommand}"/>
+                    Command="{Binding OpenDiagrammWCommand}"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonDiag}"/>
+            
             <Button Content="Советы"
-                    Command="{Binding OpenAdvicesWCommand}"/>
+                    Command="{Binding OpenAdvicesWCommand}"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonAdvice}"/>
 
             <Grid Background="White">
                 
@@ -37,10 +49,15 @@
             </Grid>
             
             <Button Content="Дать совет?"
-                    Command="{Binding GiveAdviceCommand}"/>
-            
+                    Command="{Binding GiveAdviceCommand}"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonGiveAdvice}"/>
+
             <Button Content="Выход"
-                    Command="{Binding CloseMainWindowCommand}"></Button>
+                    Command="{Binding CloseMainWindowCommand}"
+                    VerticalAlignment="Bottom"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonExit}"/>
         </StackPanel>
             
     </Grid>
