@@ -15,11 +15,11 @@
         MinHeight="300"
         MinWidth="550"
         Height="500" 
-        Width="950">
+        Width="1050">
 
     <Window.Resources>
-        <convert:ConverterValue x:Key="Convert"/>
-        <ResourceDictionary x:Key="styles" Source="..\Styles\DiagrammStyle.xaml"/>
+       <!-- <convert:ConverterValue x:Key="Convert"/> -->
+        <ResourceDictionary Source="..\Styles\DiagrammStyle.xaml"/>
     </Window.Resources>
 
     <Grid Background="#FFDC4B">
@@ -54,7 +54,8 @@
 
         <StackPanel x:Name="ControlPanel" Grid.Column="1">
             <Button Content="Построить диаграмму"
-                    Command="{Binding BuildDiagramm}"/>
+                    Command="{Binding BuildDiagramm}"
+                    Template="{StaticResource ResourceKey=RoundButonBuild}"/>
 
             <Label Content="Обозначение категорий"/>
             <TextBlock Text="0 - Еда"/>
@@ -69,15 +70,26 @@
             <TextBlock Text="9 - Транспорт"/>
             <TextBlock Text="10 - Комунальные услуги"/>
 
-            <TextBlock x:Name="TotalCost" 
-                       Text="{Binding Converter={StaticResource ResourceKey=Convert}, 
-                StringFormat='Всего потрачено: \{0\}'}"
-                       Margin="5"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
 
+                <TextBlock Text ="Всего расходов" Grid.Column="0"
+                           Margin="5"/>
+
+                <TextBlock x:Name="TotalCost"  Grid.Column="1"
+                       Text="{Binding TotalCost, Mode=TwoWay}"
+                       Margin="5"/>
+            </Grid>
+ 
             <TextBlock Text="Если вам не удовлетворяет текущая цветовая палитра, вы можете ещё раз нажать на кнопку 'Построить диаграмму', чтобы сменить её"
                        TextWrapping="Wrap"
                        TextAlignment="Center"/>
-            <Button Content="Закрыть" Command="{Binding CloseWindow}"/>
+            
+            <Button Content="Закрыть" Command="{Binding CloseWindow}"
+                    Template="{StaticResource ResourceKey=RoundButonCancel}"/>
         </StackPanel>
     </Grid>
 </Window>

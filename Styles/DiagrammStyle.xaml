@@ -6,5 +6,51 @@
         <Setter Property="FontSize" Value="18"/>
         <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
-    
+
+    <Style TargetType="TextBlock">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <ControlTemplate x:Key="RoundButonCancel" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Закрыть"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonBuild" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Построить диаграмму"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
 </ResourceDictionary>

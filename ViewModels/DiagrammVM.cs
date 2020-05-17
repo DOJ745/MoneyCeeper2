@@ -15,7 +15,7 @@ namespace MoneyCeeper.ViewModels
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         public ObservableCollection<Cost> CostList { get; set; }
-
+        public double TotalCost { get; set; }
         public CategoryEnum Category_Type { get; set; }
         #endregion
 
@@ -26,6 +26,7 @@ namespace MoneyCeeper.ViewModels
 
             _MainCodeBehind = codeBehind;
             CostList = costList;
+            TotalCost = CostList.Sum(elem => elem.Price);
         }
         #endregion
         #region Commands
