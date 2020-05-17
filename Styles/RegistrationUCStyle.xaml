@@ -3,30 +3,107 @@
                     xmlns:local="clr-namespace:MoneyCeeper">
 
     <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox">
-        <Setter Property="Width" Value="330"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Width" Value="230"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontSize" Value="22"/>
+
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                    Path=(Validation.Errors)[0].ErrorContent}" />
+                <Setter Property="Foreground" Value="Black" />
+            </Trigger>
+        </Style.Triggers>
+        
     </Style>
 
     <Style x:Key="TextBoxStyle" TargetType="TextBox">
-        <Setter Property="Width" Value="330"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Width" Value="230"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                    Path=(Validation.Errors)[0].ErrorContent}" />
+                <Setter Property="Foreground" Value="Black" />
+            </Trigger>
+        </Style.Triggers>
+        
     </Style>
 
     <Style x:Key="LabelStyle" TargetType="Label">
         <Setter Property="Width" Value="150"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Margin" Value="3"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="VerticalAlignment" Value="Bottom"/>
     </Style>
 
     <Style x:Key="ButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="200"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="10"/>
-        <Setter Property="TextBlock.FontSize" Value="18"/>
-        <Setter Property="TextBlock.FontFamily" Value="Times New Roman"/>
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
+
+    <ControlTemplate x:Key="RoundButonReg" TargetType="Button">
+
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Зарегестрироваться"/>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonMenu" TargetType="Button">
+
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="На главную"/>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="validationFailed">
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Purple" BorderThickness="2">
+                <AdornedElementPlaceholder />
+            </Border>
+            <TextBlock Foreground="Red" FontSize="26" FontWeight="Bold">!</TextBlock>
+        </StackPanel>
+    </ControlTemplate>
 
 </ResourceDictionary>

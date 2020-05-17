@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 
 namespace MoneyCeeper.User_Controls_Pages_
 {
@@ -10,6 +11,11 @@ namespace MoneyCeeper.User_Controls_Pages_
         public RegistrationUCStyle()
         {
             InitializeComponent();
+        }
+
+        private void UsernameTextBox_Error(object sender, ValidationErrorEventArgs e)
+        {
+            MessageBox.Show(e.Error.ErrorContent.ToString());
         }
     }
 }

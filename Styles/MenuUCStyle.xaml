@@ -40,7 +40,7 @@
             <ContentControl Margin="5"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="Войти"/>
+                        Content="Вход"/>
         </Border>
 
         <ControlTemplate.Triggers>
@@ -60,7 +60,7 @@
             <ContentControl Margin="5"
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
-                        Content="Зарегестрироваться"/>
+                        Content="Регистрация"/>
         </Border>
 
         <ControlTemplate.Triggers>
@@ -72,7 +72,7 @@
     </ControlTemplate>
 
     <Style x:Key="UCStyle" TargetType="Grid">
-        <Setter Property="Background" Value="#79E042"/>
+        <Setter Property="Background" Value="#7A3DB2"/>
     </Style>
 
 

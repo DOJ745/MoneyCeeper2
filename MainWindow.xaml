@@ -9,7 +9,7 @@
         MinHeight="600" 
         MinWidth="800"
         WindowStartupLocation="CenterScreen" 
-        Background="#79E042">
+        Background="#7A3DB2">
     
     <Window.Resources>
         <ResourceDictionary Source="Styles\MainWindowStyle.xaml"/>

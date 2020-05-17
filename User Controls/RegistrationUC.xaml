@@ -17,45 +17,91 @@
         <StackPanel Margin="10" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
-
-            <Label x:Name="UsernameLabel"
+            
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.35*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                
+                
+                <Label x:Name="UsernameLabel" Grid.Row="0"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Имя пользователя"/>
 
-            <TextBox x:Name="UsernameTextBox" 
-                Style="{StaticResource ResourceKey=TextBoxStyle}"
-                Text="{Binding Login}"/>
+                    <TextBox x:Name="UsernameTextBox" Grid.Row="1"
+                    Style="{StaticResource ResourceKey=TextBoxStyle}"
+                    Validation.Error="UsernameTextBox_Error"
+                    Validation.ErrorTemplate="{StaticResource validationFailed}">
+                        <TextBox.Text>
+                            <Binding Path="Login" NotifyOnValidationError="True">
+                                <Binding.ValidationRules>
+                                    <DataErrorValidationRule/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </TextBox.Text>
+                    </TextBox>
+                </Grid>
+            </StackPanel>
 
-            <Label x:Name="PasswordLabel1"
+
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                
+                
+                <Label x:Name="PasswordLabel1" Grid.Row="0"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Пароль"/>
-            <PasswordBox x:Name="PasswordBox1" Style="{StaticResource ResourceKey=PasswordBoxStyle}"
+                
+                <PasswordBox x:Name="PasswordBox1" Grid.Row="1"
+                             Style="{StaticResource ResourceKey=PasswordBoxStyle}"
                          pba:PasswordBoxAssistant.BindPassword="true"  
                          pba:PasswordBoxAssistant.BoundPassword=
                          "{Binding Path=PasswordOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          MaxLength="16">
-                
-            </PasswordBox>
 
-            <Label x:Name="PasswordLabel2"
+                </PasswordBox>
+                </Grid>
+            </StackPanel>
+
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                
+                
+                <Label x:Name="PasswordLabel2" Grid.Row="0"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Повторите пароль"/>
 
-            <PasswordBox x:Name="PasswordBox2" Style="{StaticResource ResourceKey=PasswordBoxStyle}"
+                <PasswordBox x:Name="PasswordBox2" Grid.Row="1"
+                             Style="{StaticResource ResourceKey=PasswordBoxStyle}"
                          pba:PasswordBoxAssistant.BindPassword="true"  
                          pba:PasswordBoxAssistant.BoundPassword=
                          "{Binding Path=PasswordTwo, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          MaxLength="16">
-                
-            </PasswordBox>
+
+                </PasswordBox>
+                </Grid>
+            </StackPanel>
+            
 
             <Button x:Name="RegisterButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonReg}"
                     Command="{Binding RegisterUserCommand, Mode=OneTime}"
                     Content="Зарегестрироваться"/>
 
             <Button x:Name="ToMainButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonMenu}"
                     Content="На главную"
                     Command="{Binding OpenMenuUCCommand}"/>
 

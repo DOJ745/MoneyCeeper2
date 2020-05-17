@@ -34,10 +34,11 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <TextBlock Text="Стоимость(для указания копеек используйте точку)"
                Grid.Row="0"
-               Style="{StaticResource ResourceKey=TextBlockStyle}"></TextBlock>
+               Style="{StaticResource ResourceKey=TextBlockStyle}"/>
+        
         <TextBox x:Name="PriceBox" Grid.Row="0" Grid.Column="1"
                    Style="{StaticResource ResourceKey=SimpleTextBox}"
                    TextAlignment="Center"

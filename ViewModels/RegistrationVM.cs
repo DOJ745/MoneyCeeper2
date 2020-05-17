@@ -8,8 +8,42 @@ namespace MoneyCeeper.ViewModels
 {
     class RegistrationVM : ViewModelBase
     {
-        // Fields
+        #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
+        public string Login { get; set; }
+        public string PasswordOne { get; set; }
+        public string PasswordTwo { get; set; }
+        #endregion
+
+        #region Validation Members
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = null;
+                switch (columnName)
+                {
+                    case "Login":
+                        if (this.Login.Length < 4 || this.Login.Length > 32)
+                            result = "Минимальная длина логина - 4. Максимальная - 32";
+                        break;
+
+                    case "PasswordOne":
+                        if (this.PasswordOne.Length < 3 || this.PasswordOne.Length > 16)
+                            result = "Минимальная длина пароля - 3. Максимальная - 16";
+                        break;
+
+                    case "PasswordTwo":
+                        if (this.PasswordTwo.Length < 3 || this.PasswordTwo.Length > 16)
+                            result = "Минимальная длина пароля - 3. Максимальная - 16";
+                        break;
+                }
+                return result;
+            }
+        }
+
+        public string Error => throw new NotImplementedException();
+        #endregion
 
         // ctor
         public RegistrationVM(IMainWindowsCodeBehind codeBehind)
@@ -45,12 +79,6 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnMenuUCCommand, CanMenuUCCommand);
             }
         }
-        #endregion
-
-        #region Properties
-        public string Login { get; set; }
-        public string PasswordOne { get; set; }
-        public string PasswordTwo { get; set; }
         #endregion
 
         #region Command Methods

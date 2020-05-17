@@ -40,12 +40,12 @@
 
             <Button x:Name="LoginButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
-                    Content="Войти"
+                    Template="{StaticResource ResourceKey=RoundButonLog}"
                     Command="{Binding LoginCommand}"/>
             
             <Button x:Name="ToMainButton"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
-                    Content="На главную"
+                    Template="{StaticResource ResourceKey=RoundButonMenu}"
                     Command="{Binding OpenMenuUCCommand}"/>
 
         </StackPanel>
