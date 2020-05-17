@@ -9,16 +9,14 @@
         xmlns:charting="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit" 
         xmlns:enum="clr-namespace:MoneyCeeper.Model"
         xmlns:App="clr-namespace:MoneyCeeper"
-        xmlns:convert ="clr-namespace:MoneyCeeper.Model.Converter"
         
         Title="Диаграмма" 
         MinHeight="300"
         MinWidth="550"
         Height="500" 
-        Width="1050">
+        Width="1050" Icon="PieChart.png">
 
     <Window.Resources>
-       <!-- <convert:ConverterValue x:Key="Convert"/> -->
         <ResourceDictionary Source="..\Styles\DiagrammStyle.xaml"/>
     </Window.Resources>
 

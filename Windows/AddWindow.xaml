@@ -14,7 +14,7 @@
         MinWidth="250"
         Width="500"
         Height="770"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="AddCost.png">
 
     <Window.Resources>
         <ResourceDictionary Source="..\Styles\AddWindowStyle.xaml"/>

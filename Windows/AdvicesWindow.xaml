@@ -9,7 +9,7 @@
         Height="849" 
         Width="700"
         
-        WindowStartupLocation="CenterScreen" >
+        WindowStartupLocation="CenterScreen" Icon="AdviceMark.png" >
    
     <Window.Resources>
         <ResourceDictionary Source="..\Styles\AdviceWindowStyle.xaml"/>

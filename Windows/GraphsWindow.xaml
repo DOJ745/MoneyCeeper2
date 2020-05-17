@@ -15,7 +15,7 @@
         Height="500" 
         Width="1050"
         Title="График"
-        WindowStartupLocation="CenterScreen">
+        WindowStartupLocation="CenterScreen" Icon="LineChart.png">
 
     <Window.Resources>
         <ResourceDictionary Source="..\Styles\GraphStyle.xaml"/>
