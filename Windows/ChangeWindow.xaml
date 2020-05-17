@@ -20,7 +20,7 @@
         <ResourceDictionary Source="..\Styles\ChangeWindowStyle.xaml"/>
     </Window.Resources>
 
-    <Grid>
+    <Grid Background="#7A3DB2">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="1.5*"/>
@@ -99,12 +99,15 @@
                     Style="{StaticResource ResourceKey=DataBox}"
                     SelectedDate="{Binding Date_Time}" SelectedDateFormat="Short"/>
 
-        <Button x:Name="ChangeButton" Content="Изменить" 
+        <Button x:Name="ChangeButton"
                 Grid.Column="0" Grid.Row="5"
-                Command="{Binding ChangeCostCommand}"/>
-        <Button x:Name="CloseButton" Content="Закрыть" 
+                Command="{Binding ChangeCostCommand}"
+                Template="{StaticResource ResourceKey=RoundButonChange}"/>
+        
+        <Button x:Name="CloseButton"
                 Grid.Column="1" Grid.Row="5"
-                Command="{Binding CloseWindowCommand}"/>
+                Command="{Binding CloseWindowCommand}"
+                Template="{StaticResource ResourceKey=RoundButonClose}"/>
     </Grid>
     
 </Window>
