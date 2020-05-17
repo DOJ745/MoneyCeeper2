@@ -90,6 +90,7 @@
     </ApplicationDefinition>
     <Compile Include="Advices\Advices.cs" />
     <Compile Include="Model\CategoryEnum.cs" />
+    <Compile Include="Model\Converter\ConverterValue.cs" />
     <Compile Include="Model\Cost.cs" />
     <Compile Include="Model\EnumBindingSourceExtension.cs" />
     <Compile Include="Model\EnumDescriptionTypeConverter.cs" />

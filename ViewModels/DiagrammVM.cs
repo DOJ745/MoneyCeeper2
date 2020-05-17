@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -13,10 +14,12 @@ namespace MoneyCeeper.ViewModels
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
-        private ObservableCollection<Cost> CostList { get; set; }
+        public ObservableCollection<Cost> CostList { get; set; }
 
         public CategoryEnum Category_Type { get; set; }
         #endregion
+
+        #region Constructors
         public DiagrammVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> costList)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
@@ -24,7 +27,8 @@ namespace MoneyCeeper.ViewModels
             _MainCodeBehind = codeBehind;
             CostList = costList;
         }
-
+        #endregion
+        #region Commands
         private RelayCommand _BuildDiagramm;
         public RelayCommand BuildDiagramm
         {
@@ -36,7 +40,7 @@ namespace MoneyCeeper.ViewModels
         }
 
         private RelayCommand _CloseWindow;
-        public RelayCommand CloseWindow 
+        public RelayCommand CloseWindow
         {
             get
             {
@@ -44,16 +48,34 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(() => (_MainCodeBehind as DiagrammWindow).Close(), () => true);
             }
         }
-
+        #endregion
+        #region Command Parameters
         private void OnBuildDiagramm()
         {
-            var Parts = from elem in CostList
-                       select new
-                       {
-                           CostPrice = elem.Price,
-                           CostCategory = elem.Category
-                       };
+            List<CostDiag> Parts = new List<CostDiag>();
+            for(int i = 0; i < 11; i++)
+            {
+                double sum = CategoryTotalPrice(i);
+                CostDiag tempCost = new CostDiag { CostPrice = sum, CostCategory = i };
+                Parts.Add(tempCost);
+            }
             (_MainCodeBehind as DiagrammWindow).MainDiagramm.ItemsSource = Parts;
         }
+        #endregion
+
+        #region Diagramm Things
+        public double CategoryTotalPrice(int categoryNumber)
+        {
+            return CostList.Where(item => item.Category == categoryNumber).Sum(sum => sum.Price);
+        }
+
+        public class CostDiag
+        {
+            public double CostPrice { get; set; }
+            public int CostCategory { get; set; }
+        }
+        #endregion
     }
 }
+        
+

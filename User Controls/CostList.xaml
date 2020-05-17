@@ -6,14 +6,18 @@
              xmlns:local="clr-namespace:MoneyCeeper.User_Controls"
              
              xmlns:enum="clr-namespace:MoneyCeeper.Model"
-             xmlns:App="clr-namespace:MoneyCeeper"
+             xmlns:App="clr-namespace:MoneyCeeper"  
              
              mc:Ignorable="d" 
              MinHeight="500" 
              MinWidth="360">
 
     <UserControl.Resources>
-        <ResourceDictionary Source="..\Styles\CostListStyle.xaml"/>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\Styles\CostListStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
@@ -101,7 +105,7 @@
                     VerticalAlignment="Bottom"
                     Margin="15"
                         Grid.Row="1">
-                <Grid>
+            <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
