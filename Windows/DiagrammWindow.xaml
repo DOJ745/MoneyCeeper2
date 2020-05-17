@@ -68,8 +68,10 @@
             <TextBlock Text="9 - Транспорт"/>
             <TextBlock Text="10 - Комунальные услуги"/>
 
-            <TextBlock x:Name="TotalCost" Text="{Binding Converter={StaticResource ResourceKey=Convert}, 
-                StringFormat='Всего потрачено: \{0\}'}"/>
+            <TextBlock x:Name="TotalCost" 
+                       Text="{Binding Converter={StaticResource ResourceKey=Convert}, 
+                StringFormat='Всего потрачено: \{0\}'}"
+                       Margin="5"/>
 
             <TextBlock Text="Если вам не удовлетворяет текущая цветовая палитра, вы можете ещё раз нажать на кнопку 'Построить диаграмму', чтобы сменить её"
                        TextWrapping="Wrap"

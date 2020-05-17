@@ -36,11 +36,12 @@
                     </RadialGradientBrush>
                 </charting:LineSeries.Background>
             </charting:LineSeries>
+            
             <charting:Chart.Axes>
                 
                 <charting:LinearAxis Orientation="Y"  Title="Стоимость" />
                 <charting:DateTimeAxis Orientation="X" Title="Дата" ShowGridLines="True"/>
-                
+
             </charting:Chart.Axes>
         </charting:Chart>
 
