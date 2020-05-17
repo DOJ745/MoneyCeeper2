@@ -11,16 +11,26 @@
     <UserControl.Resources>
         <ResourceDictionary Source="..\Styles\MenuUCStyle.xaml"/>
     </UserControl.Resources>
-    
-    <Grid>
 
-        <StackPanel x:Name="MenuStackPanel" Margin="5" 
+    <Grid Style="{StaticResource ResourceKey=UCStyle}">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row ="0" Content="Куда деваются мои деньги?"
+                   Style="{StaticResource ResourceKey=LabelStyle}"/>
+        
+        <StackPanel Grid.Row ="1" x:Name="MenuStackPanel" Margin="5" 
                     HorizontalAlignment="Center" 
                     VerticalAlignment="Center">
             <Button Style="{StaticResource ResourceKey=ButtonStyle}"
-                    Content="Войти"
+                    Template="{StaticResource ResourceKey=RoundButonEnter}"
                     Command="{Binding LoadLoginUCCommand}"/>
+            
             <Button Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonReg}"
                     Content="Зарегестрироваться"
                     Command="{Binding LoadRegistrationUCCommand}"/>
         </StackPanel>

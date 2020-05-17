@@ -9,18 +9,70 @@
     </Style>
 
     <Style x:Key="LabelStyle" TargetType="Label">
-        <Setter Property="Width" Value="150"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="70"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
 
     <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="Width" Value="200"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="TextBlock.FontSize" Value="18"/>
-        <Setter Property="TextBlock.FontFamily" Value="Times New Roman"/>
+
+        <Style.Setters>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="40"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="FontSize" Value="22"/>
+            <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+            <Setter Property="Background" Value="#FF814B"/>
+        </Style.Setters>
+        
+    </Style>
+
+    <ControlTemplate x:Key="RoundButonEnter" TargetType="Button">
+        
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Войти"/>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonReg" TargetType="Button">
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Зарегестрироваться"/>
+        </Border>
+
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+        
+    </ControlTemplate>
+
+    <Style x:Key="UCStyle" TargetType="Grid">
+        <Setter Property="Background" Value="#79E042"/>
     </Style>
 
 
