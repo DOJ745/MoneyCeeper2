@@ -13,10 +13,15 @@
         MinHeight="300"
         MinWidth="550"
         Height="500" 
-        Width="950"
+        Width="1050"
         Title="График"
         WindowStartupLocation="CenterScreen">
-    <Grid>
+
+    <Window.Resources>
+        <ResourceDictionary Source="..\Styles\GraphStyle.xaml"/>
+    </Window.Resources>
+    
+    <Grid Background="#FFDC4B">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3.5*"/>
             <ColumnDefinition Width="1.15*"/>
@@ -53,11 +58,16 @@
                 {x:Type App:CategoryEnum}}}"
                   SelectedValue="{Binding Category_Type}"/>
             
-            <Button Content="Построить график(по категории)"
-                    Command="{Binding BuildGraph}"/>
-            <Button Content="Построить график(по умолчанию)"
-                    Command="{Binding BuildAllGraph}"/>
-            <Button Content="Закрыть" Command="{Binding CloseWindow}"/>
+            <Button Command="{Binding BuildGraph}"
+                    Template="{StaticResource ResourceKey=RoundButonBuild1}"/>
+            
+            <Button Command="{Binding BuildAllGraph}"
+                    Template="{StaticResource ResourceKey=RoundButonBuild2}"/>
+            
+            <Button Command="{Binding CloseWindow}"
+                    VerticalAlignment="Bottom"
+                    Template="{StaticResource ResourceKey=RoundButonCancel}"/>
+            
         </StackPanel>
     </Grid>
 </Window>

@@ -1,0 +1,86 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:MoneyCeeper.Styles">
+
+    <Style TargetType="Label">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style TargetType="Button">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Width" Value="240"/>
+    </Style>
+
+    <Style TargetType="ComboBox">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="Margin" Value="10"/>
+    </Style>
+
+    <Style TargetType="ComboBoxItem">
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+
+    <ControlTemplate x:Key="RoundButonCancel" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Закрыть"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonBuild1" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Построить график(по категории)"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonBuild2" TargetType="Button">
+        <Border CornerRadius="10"
+                BorderBrush="Black"
+                BorderThickness="2"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Построить график(по умолчанию)"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+</ResourceDictionary>

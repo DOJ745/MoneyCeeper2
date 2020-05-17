@@ -16,12 +16,13 @@
         MinWidth="550"
         Height="500" 
         Width="950">
-    
+
     <Window.Resources>
         <convert:ConverterValue x:Key="Convert"/>
+        <ResourceDictionary x:Key="styles" Source="..\Styles\DiagrammStyle.xaml"/>
     </Window.Resources>
-    
-    <Grid>
+
+    <Grid Background="#FFDC4B">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="3.5*"/>
             <ColumnDefinition Width="1.15*"/>
