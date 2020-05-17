@@ -14,8 +14,11 @@
         <Setter Property="Control.BorderBrush" Value="#FF000000"/>
         <Setter Property="Background" Value="#FFF3AF7F"/>
     </Style>
-    
+
     <Style x:Key="SimpleListBoxItem" TargetType="ListBoxItem">
+        <Setter Property="FontSize" Value="22"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+        <Setter Property="Height" Value="Auto"/>
 
         <Setter Property="Template">
             <Setter.Value>
@@ -37,15 +40,12 @@
 
     </Style>
 
-    <Style x:Key="ButtonPannelStyle" TargetType="StackPanel">
-        <Setter Property="Width" Value="150"/>
-        <Setter Property="Height" Value="75"/>
-    </Style>
-
-    <Style x:Key="ButtonStyle" TargetType="Button">
+    <Style x:Key="AddButtonStyle" TargetType="Button">
         <Setter Property="Width" Value="100"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="5"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
 
     <Style x:Key="DeleteButtonStyle" TargetType="Button">
@@ -53,13 +53,8 @@
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="IsEnabled" Value="True" />
-        <Style.Triggers>
-            <DataTrigger Binding=
-                "{Binding SelectedItem, ElementName=COSTLIST}" 
-                Value="{x:Null}">
-                <Setter Property="IsEnabled" Value="False"/>
-            </DataTrigger>
-        </Style.Triggers>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
 
     <Style x:Key="ChangeButtonStyle" TargetType="Button">
@@ -67,13 +62,80 @@
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="IsEnabled" Value="True" />
-        <Style.Triggers>
+        <Setter Property="FontSize" Value="23"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
+    </Style>
+
+    <ControlTemplate x:Key="RoundButonDelete" TargetType="Button">
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Удалить"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
             <DataTrigger Binding=
                 "{Binding SelectedItem, ElementName=COSTLIST}" 
                 Value="{x:Null}">
                 <Setter Property="IsEnabled" Value="False"/>
+                <Setter TargetName="border" Property="Background" Value="Gray"/>
             </DataTrigger>
-        </Style.Triggers>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonAdd" TargetType="Button">
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Добавить"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="RoundButonChange" TargetType="Button">
+        <Border CornerRadius="20"
+                BorderBrush="Black"
+                BorderThickness="3"
+                Background="#FF814B"
+                Name="border">
+            <ContentControl Margin="1"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Content="Изменить"/>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter TargetName="border" Property="Background" Value="White" />
+            </Trigger>
+            <DataTrigger Binding=
+                "{Binding SelectedItem, ElementName=COSTLIST}" 
+                Value="{x:Null}">
+                <Setter Property="IsEnabled" Value="False"/>
+                <Setter TargetName="border" Property="Background" Value="Gray"/>
+            </DataTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="PriceStyle" TargetType="TextBlock">
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontFamily" Value="Bahnschrift Condensed"/>
     </Style>
 
 </ResourceDictionary>

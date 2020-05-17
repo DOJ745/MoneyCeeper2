@@ -70,10 +70,14 @@
                                                     TextAlignment="Center"/>
                                     </Border>
 
-                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Категория" />
-                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Комментарий"/>
-                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Дата"/>
-                                    <TextBlock Grid.Row="3" Grid.Column="0" Text="Цена(руб.)"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="Категория" 
+                                               TextAlignment="Center"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="2" Text="Комментарий"
+                                               TextAlignment="Center"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="0" Text="Дата"
+                                               TextAlignment="Center"/>
+                                    <TextBlock Grid.Row="3" Grid.Column="1" Text="Цена(руб.)"
+                                               FontSize="25"/>
 
                                     <ComboBox Grid.Row="1" Grid.Column="1" 
                                                ItemsSource="{Binding Source=
@@ -86,13 +90,13 @@
                                     <TextBlock Grid.Row="2" Grid.Column="1" 
                                                Text="{Binding Path=Date_Time, StringFormat=d}"/>
 
-                                    <TextBlock Grid.Row="2" Grid.Column="2" 
-                                               Text="{Binding Path=Comment}"/>
+                                    <TextBlock Grid.Row="2" Grid.Column="2" Grid.RowSpan="2" 
+                                               Text="{Binding Path=Comment}"
+                                               TextWrapping="Wrap"/>
 
                                     <TextBlock Grid.Row="3" Grid.Column="1"
-                                               Grid.ColumnSpan="2"
                                                Text="{Binding Path=Price}"
-                                               TextAlignment="Center"/>
+                                               Style="{StaticResource ResourceKey=PriceStyle}"/>
                             </Grid>
                             </Border>
                         </Grid>
@@ -119,17 +123,20 @@
                 <Button Content="Изменить" 
                         Grid.Row="0" Grid.Column="0"
                         Command="{Binding ChangeCostCommand}"
-                        Style="{StaticResource ResourceKey=ChangeButtonStyle}"/>
+                        Style="{StaticResource ResourceKey=ChangeButtonStyle}"
+                        Template="{StaticResource ResourceKey=RoundButonChange}"/>
 
                 <Button Content="Добавить" 
                         Grid.Row="0" Grid.Column="1"
-                        Style="{StaticResource ResourceKey=ButtonStyle}"
-                        Command="{Binding AddCostCommand}"></Button>
+                        Style="{StaticResource ResourceKey=AddButtonStyle}"
+                        Command="{Binding AddCostCommand}"
+                        Template="{StaticResource ResourceKey=RoundButonAdd}"></Button>
 
                 <Button Content="Удалить" 
                         Grid.Row="0" Grid.Column="2"
                         Command ="{Binding DeleteCostCommand}"
-                        Style="{StaticResource ResourceKey=DeleteButtonStyle}"/>
+                        Style="{StaticResource ResourceKey=DeleteButtonStyle}"
+                        Template="{StaticResource ResourceKey=RoundButonDelete}"/>
             </Grid>
             </StackPanel>
 

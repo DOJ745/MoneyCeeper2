@@ -11,8 +11,8 @@
              MinHeight="490" 
              MinWidth="150"
              Width="Auto" d:DesignHeight="546">
-    
-    <Grid Background="Bisque" Margin="0,0,0,-74">
+
+    <Grid Background="#FFDC4B" Margin="0,0,0,-74">
 
         <StackPanel x:Name="MainStackPanel">
             <StackPanel x:Name="SortPannel">

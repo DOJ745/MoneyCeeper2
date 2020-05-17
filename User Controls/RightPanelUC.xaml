@@ -9,8 +9,8 @@
              MinWidth="150"
              
              Width="Auto">
-    
-    <Grid Background="Bisque">
+
+    <Grid Background="#FFDC4B">
 
         <StackPanel>
             <Button Content="График"
