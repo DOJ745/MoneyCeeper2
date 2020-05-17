@@ -124,7 +124,7 @@ namespace MoneyCeeper.ViewModels
         {
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).SortContent.Children.OfType<RadioButton>().ToList();
-            UnsortedCollection = (CostVM as CostListViewModel).CostCollection;
+            UnsortedCollection = (CostVM as CostListVM).CostCollection;
             List<Cost> SortedCollection = new List<Cost>();
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             if(index == 1)
@@ -143,7 +143,7 @@ namespace MoneyCeeper.ViewModels
         }
         private void OnCancelSortCommand()
         {
-            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListViewModel).CostCollection;
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListVM).CostCollection;
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).SortContent.Children.OfType<RadioButton>().ToList();
             radioSort.First().IsChecked = true;
@@ -157,7 +157,7 @@ namespace MoneyCeeper.ViewModels
             List<RadioButton> radioSort2 = (CurrentUC as LeftPanelUC).FilterButtons.Children.OfType<RadioButton>().ToList();
             List<Cost> SortedCollection = new List<Cost>();
 
-            UnsortedCollection = (CostVM as CostListViewModel).CostCollection;
+            UnsortedCollection = (CostVM as CostListVM).CostCollection;
             int index = radioSort.FindIndex(radio => radio.IsChecked.Value);
             int index2 = radioSort2.FindIndex(radio => radio.IsChecked.Value);
 
@@ -188,7 +188,7 @@ namespace MoneyCeeper.ViewModels
 
         private void OnCancelFilterCommand()
         {
-            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListViewModel).CostCollection;
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListVM).CostCollection;
             List<RadioButton> radioSort =
                (CurrentUC as LeftPanelUC).FilterPannel.Children.OfType<RadioButton>().ToList();
             radioSort.First().IsChecked = true;
@@ -203,7 +203,7 @@ namespace MoneyCeeper.ViewModels
         private void OnSearchDescrCommand()
         {
             List<Cost> SortedCollection = new List<Cost>();
-            UnsortedCollection = (CostVM as CostListViewModel).CostCollection;
+            UnsortedCollection = (CostVM as CostListVM).CostCollection;
             SortedCollection = UnsortedCollection.Where(elem => elem.Price > 0).ToList();
             Regex regex = new Regex(DescSearch, RegexOptions.IgnoreCase);
             SortedCollection = SortedCollection.FindAll(elem =>
@@ -226,7 +226,7 @@ namespace MoneyCeeper.ViewModels
 
         private void OnCancelSearchCommand()
         {
-            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListViewModel).CostCollection;
+            (_MainCodeBehind as CostList).COSTLIST.ItemsSource = (CostVM as CostListVM).CostCollection;
             (CurrentUC as LeftPanelUC).DescriptionSearch.Text = string.Empty;
         }
         #endregion

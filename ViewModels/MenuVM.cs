@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace MoneyCeeper.ViewModels
 {
-    public class MenuViewModel : ViewModelBase
+    public class MenuVM : ViewModelBase
     {
-        public MenuViewModel()
+        public MenuVM()
         {
 
         }

@@ -22,12 +22,14 @@
         <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <ContentPresenter x:Name="LeftPanel" Grid.Column="0" Margin="5"/>
+        <ContentPresenter x:Name="LeftPanel" Grid.Column="0" 
+                          Style="{StaticResource ResourceKey=WindowStyle}"/>
 
-        <ContentPresenter  Grid.Column="1" Margin="0,5,0,0"
-            x:Name="OutputView"/>
+        <ContentPresenter  Grid.Column="1" x:Name="OutputView"
+                           Style="{StaticResource ResourceKey=WindowStyle}"/>
 
-        <ContentPresenter x:Name="RightPanel" Grid.Column="2" Margin="5"/>
+        <ContentPresenter x:Name="RightPanel" Grid.Column="2"
+                          Style="{StaticResource ResourceKey=WindowStyle}"/>
 
     </Grid>
 </Window>

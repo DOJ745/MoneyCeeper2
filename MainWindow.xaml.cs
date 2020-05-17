@@ -54,7 +54,7 @@ namespace MoneyCeeper
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
             MenuUC menu = new MenuUC();
-            MenuViewModel vmMenu = new MenuViewModel();
+            MenuVM vmMenu = new MenuVM();
             vmMenu.CodeBehind = this;
             this.DataContext = vmMenu;
             this.OutputView.Content = menu;
@@ -72,21 +72,21 @@ namespace MoneyCeeper
             {
                 case ViewType.Login:
                     LoginUC log = new LoginUC();
-                    LoginViewModel vmLog = new LoginViewModel(this);
+                    LoginVM vmLog = new LoginVM(this);
                     this.DataContext = vmLog;
                     this.OutputView.Content = log;
                     break;
 
                 case ViewType.Register:
                     RegistrationUCStyle reg = new RegistrationUCStyle();
-                    RegistrationViewModel vmReg = new RegistrationViewModel(this);
+                    RegistrationVM vmReg = new RegistrationVM(this);
                     this.DataContext = vmReg;
                     this.OutputView.Content = reg;
                     break;
 
                 case ViewType.Menu:
                     MenuUC menu = new MenuUC();
-                    MenuViewModel vmMenu = new MenuViewModel();
+                    MenuVM vmMenu = new MenuVM();
                     vmMenu.CodeBehind = this;
                     this.DataContext = vmMenu;
                     this.OutputView.Content = menu;

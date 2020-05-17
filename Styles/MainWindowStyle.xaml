@@ -2,12 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:MoneyCeeper">
 
-    <Style x:Key="ButtonStyle" TargetType="Button">
-        <Setter Property="Width" Value="200"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Margin" Value="10"/>
-        <Setter Property="TextBlock.FontSize" Value="18"/>
-        <Setter Property="TextBlock.FontFamily" Value="Times New Roman"/>
+    <Style x:Key="WindowStyle" TargetType="ContentPresenter">
+        <Setter Property="Margin" Value="0,5,0,0"/>
     </Style>
     
 </ResourceDictionary>

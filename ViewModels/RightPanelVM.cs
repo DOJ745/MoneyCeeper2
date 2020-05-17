@@ -114,7 +114,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenGraphsCommand()
         {
             GraphsWindow graphsW = new GraphsWindow();
-            GraphsVM graphsVM = new GraphsVM(graphsW, (CostVM as CostListViewModel).CostCollection);
+            GraphsVM graphsVM = new GraphsVM(graphsW, (CostVM as CostListVM).CostCollection);
             graphsW.DataContext = graphsVM;
             graphsW.Show();
         }
@@ -122,7 +122,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenDiagrammCommand()
         {
             DiagrammWindow diagW = new DiagrammWindow();
-            DiagrammVM diagVM = new DiagrammVM(diagW, (CostVM as CostListViewModel).CostCollection);
+            DiagrammVM diagVM = new DiagrammVM(diagW, (CostVM as CostListVM).CostCollection);
             diagW.DataContext = diagVM;
             diagW.Show();
         }
@@ -130,7 +130,7 @@ namespace MoneyCeeper.ViewModels
         private void OnOpenAdvicesCommand()
         {
             AdvicesWindow advW = new AdvicesWindow();
-            AdvicesVM advVM = new AdvicesVM(advW, (CostVM as CostListViewModel).CostCollection);
+            AdvicesVM advVM = new AdvicesVM(advW, (CostVM as CostListVM).CostCollection);
             advW.DataContext = advVM;
             advW.Show();
         }
@@ -160,7 +160,7 @@ namespace MoneyCeeper.ViewModels
         #region Local Func
         public void AdviceAnalyzer(List<Cost> tempCollection, DateTime currentDate, int keyIndex)
         {
-            tempCollection = (CostVM as CostListViewModel).CostCollection.Where(elem =>
+            tempCollection = (CostVM as CostListVM).CostCollection.Where(elem =>
             elem.Date_Time.DayOfWeek <= currentDate.DayOfWeek
             && elem.Date_Time.Year == currentDate.Year
             && elem.Date_Time.Month == currentDate.Month).ToList();

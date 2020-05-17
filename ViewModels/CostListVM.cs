@@ -12,7 +12,7 @@ using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
-    public class CostListViewModel : ViewModelBase, IMainWindowsCodeBehind
+    public class CostListVM : ViewModelBase, IMainWindowsCodeBehind
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
@@ -22,7 +22,7 @@ namespace MoneyCeeper.ViewModels
         #endregion
 
         #region Constructors
-        public CostListViewModel(IMainWindowsCodeBehind codeBehind)
+        public CostListVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -30,7 +30,7 @@ namespace MoneyCeeper.ViewModels
             CostCollection = new ObservableCollection<Cost>();
         }
 
-        public CostListViewModel(IMainWindowsCodeBehind codeBehind, User currentUser)
+        public CostListVM(IMainWindowsCodeBehind codeBehind, User currentUser)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 

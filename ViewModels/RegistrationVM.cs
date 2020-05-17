@@ -6,20 +6,20 @@ using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
-    class RegistrationViewModel : ViewModelBase
+    class RegistrationVM : ViewModelBase
     {
         // Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
 
         // ctor
-        public RegistrationViewModel(IMainWindowsCodeBehind codeBehind)
+        public RegistrationVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
         }
 
-        public RegistrationViewModel(Action<object> navigate)
+        public RegistrationVM(Action<object> navigate)
         {
 
         }

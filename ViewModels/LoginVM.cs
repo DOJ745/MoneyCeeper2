@@ -6,13 +6,13 @@ using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
-    public class LoginViewModel : ViewModelBase, IMainWindowsCodeBehind
+    public class LoginVM : ViewModelBase, IMainWindowsCodeBehind
     {
         //Fields
         private IMainWindowsCodeBehind _MainCodeBehind;
 
         //ctor
-        public LoginViewModel(IMainWindowsCodeBehind codeBehind)
+        public LoginVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
@@ -64,7 +64,7 @@ namespace MoneyCeeper.ViewModels
                     MainWindow currentWindow = (_MainCodeBehind as MainWindow);
 
                     CostList costList = new CostList();
-                    CostListViewModel vmCost = new CostListViewModel(currentWindow, 
+                    CostListVM vmCost = new CostListVM(currentWindow, 
                         context.User.Find(Login));
                     currentWindow.DataContext = vmCost;
                     currentWindow.OutputView.Content = costList;
