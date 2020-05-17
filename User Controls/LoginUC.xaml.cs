@@ -24,5 +24,10 @@ namespace MoneyCeeper.User_Controls_Pages_
         {
             InitializeComponent();
         }
+
+        private void UsernameTextBox_Error(object sender, ValidationErrorEventArgs e)
+        {
+            MessageBox.Show(e.Error.ErrorContent.ToString());
+        }
     }
 }

@@ -1,18 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Markup;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 using System.ComponentModel;
-using MoneyCeeper.User_Controls;
 using System.Collections.ObjectModel;
-using System.Text.RegularExpressions;
 
 namespace MoneyCeeper.ViewModels
 {

@@ -57,15 +57,15 @@
                 <Label x:Name="PasswordLabel1" Grid.Row="0"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Пароль"/>
-                
-                <PasswordBox x:Name="PasswordBox1" Grid.Row="1"
+
+                    <PasswordBox x:Name="PasswordBox1" Grid.Row="1"
                              Style="{StaticResource ResourceKey=PasswordBoxStyle}"
                          pba:PasswordBoxAssistant.BindPassword="true"  
                          pba:PasswordBoxAssistant.BoundPassword=
                          "{Binding Path=PasswordOne, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                          MaxLength="16">
 
-                </PasswordBox>
+                    </PasswordBox>
                 </Grid>
             </StackPanel>
 

@@ -21,11 +21,20 @@
             <Label x:Name="UsernameLabel"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Имя пользователя"/>
-            
+
             <TextBox x:Name="UsernameTextBox" 
                 Style="{StaticResource ResourceKey=TextBoxStyle}"
-                Text="{Binding Login}"/>
-            
+                Validation.Error="UsernameTextBox_Error"
+                Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Login" NotifyOnValidationError="True">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule/>
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <Label x:Name="PasswordLabel"
                    Style="{StaticResource ResourceKey=LabelStyle}"
                    Content="Пароль"/>

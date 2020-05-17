@@ -98,4 +98,13 @@
 
     </ControlTemplate>
 
+    <ControlTemplate x:Key="validationFailed">
+        <StackPanel Orientation="Horizontal">
+            <Border BorderBrush="Red" BorderThickness="2">
+                <AdornedElementPlaceholder />
+            </Border>
+            <TextBlock Foreground="Red" FontSize="26" FontWeight="Bold">!</TextBlock>
+        </StackPanel>
+    </ControlTemplate>
+
 </ResourceDictionary>

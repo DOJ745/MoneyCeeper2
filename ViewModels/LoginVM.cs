@@ -3,26 +3,48 @@ using MoneyCeeper.Password_Hash;
 using System;
 using System.Windows;
 using MoneyCeeper.User_Controls;
+using System.ComponentModel;
 
 namespace MoneyCeeper.ViewModels
 {
-    public class LoginVM : ViewModelBase, IMainWindowsCodeBehind
+    public class LoginVM : ViewModelBase, IMainWindowsCodeBehind, IDataErrorInfo
     {
-        //Fields
+        #region Properties
+        public string Login { get; set; }
+        public string Password { get; set; }
         private IMainWindowsCodeBehind _MainCodeBehind;
+        #endregion
 
-        //ctor
+        #region Constructors
         public LoginVM(IMainWindowsCodeBehind codeBehind)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
 
             _MainCodeBehind = codeBehind;
         }
+        #endregion
 
-        public string Login { get; set; }
-        public string Password { get; set; }
+        #region Validation Members
+        public string this[string columnName]
+        {
+            get
+            {
+                string result = null;
+                switch (columnName)
+                {
+                    case "Login":
+                        if (this.Login.Length < 4 || this.Login.Length > 32)
+                            result = "Минимальная длина логина - 4. Максимальная - 32";
+                        break;
+                }
+                return result;
+            }
+        }
 
+        public string Error => throw new NotImplementedException();
+        #endregion
 
+        #region Commands
         private RelayCommand _LoginCommand;
 
         public RelayCommand LoginCommand
@@ -44,7 +66,9 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnMenuUCCommand, () => true);
             }
         }
+        #endregion
 
+        #region Command Parameters
         private void OnMenuUCCommand()
         {
             _MainCodeBehind.LoadView(ViewType.Menu);
@@ -85,7 +109,7 @@ namespace MoneyCeeper.ViewModels
                 }
             }
         }
-
+        #endregion
         public void LoadView(ViewType typeView)
         {
             throw new System.NotImplementedException();

@@ -3,16 +3,26 @@ using System.Windows;
 using MoneyCeeper.Password_Hash;
 using MoneyCeeper.Model;
 using MoneyCeeper.User_Controls;
+using System.ComponentModel;
 
 namespace MoneyCeeper.ViewModels
 {
-    class RegistrationVM : ViewModelBase
+    class RegistrationVM : ViewModelBase, IDataErrorInfo
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         public string Login { get; set; }
         public string PasswordOne { get; set; }
         public string PasswordTwo { get; set; }
+        #endregion
+
+        #region Constructors
+        public RegistrationVM(IMainWindowsCodeBehind codeBehind)
+        {
+            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
+
+            _MainCodeBehind = codeBehind;
+        }
         #endregion
 
         #region Validation Members
@@ -27,36 +37,13 @@ namespace MoneyCeeper.ViewModels
                         if (this.Login.Length < 4 || this.Login.Length > 32)
                             result = "Минимальная длина логина - 4. Максимальная - 32";
                         break;
-
-                    case "PasswordOne":
-                        if (this.PasswordOne.Length < 3 || this.PasswordOne.Length > 16)
-                            result = "Минимальная длина пароля - 3. Максимальная - 16";
-                        break;
-
-                    case "PasswordTwo":
-                        if (this.PasswordTwo.Length < 3 || this.PasswordTwo.Length > 16)
-                            result = "Минимальная длина пароля - 3. Максимальная - 16";
-                        break;
                 }
                 return result;
             }
         }
 
         public string Error => throw new NotImplementedException();
-        #endregion
-
-        // ctor
-        public RegistrationVM(IMainWindowsCodeBehind codeBehind)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-        }
-
-        public RegistrationVM(Action<object> navigate)
-        {
-
-        }
+        #endregion 
 
         #region Commands
         private RelayCommand _RegisterUserCommand;
