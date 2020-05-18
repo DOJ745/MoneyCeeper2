@@ -20,7 +20,7 @@
         <ResourceDictionary Source="..\Styles\ChangeWindowStyle.xaml"/>
     </Window.Resources>
 
-    <Grid Background="#7A3DB2">
+    <Grid Background="#FFA567DE">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="1.5*"/>
@@ -84,8 +84,8 @@
             </TextBox.Text>
         </TextBox>
 
-        <Label Content="Категория"
-               Grid.Row="3"></Label>
+        <TextBlock Text="Категория"
+               Grid.Row="3" Style="{StaticResource ResourceKey=TextBlockStyle}"/>
         <ComboBox x:Name="CategotyBox" Grid.Row="3" Grid.Column="1"
                   ItemsSource="{Binding Source=
             {enum:EnumBindingSourceExtension 
@@ -93,8 +93,8 @@
                   SelectedValue="{Binding Category_Type}">
         </ComboBox>
 
-        <Label Content="Дата"
-               Grid.Row="4"></Label>
+        <TextBlock Text="Дата"
+               Grid.Row="4" Style="{StaticResource ResourceKey=TextBlockStyle}"/>
         <DatePicker x:Name="DateBox" Grid.Column="1" Grid.Row="4"
                     Style="{StaticResource ResourceKey=DataBox}"
                     SelectedDate="{Binding Date_Time}" SelectedDateFormat="Short"/>

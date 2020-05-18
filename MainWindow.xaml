@@ -9,7 +9,7 @@
         MinHeight="600" 
         MinWidth="800"
         WindowStartupLocation="CenterScreen" 
-        Background="#7A3DB2" Icon="MoneyIcon.png">
+        Background="#FFA567DE" Icon="MoneyIcon.png">
     
     <Window.Resources>
         <ResourceDictionary Source="Styles\MainWindowStyle.xaml"/>

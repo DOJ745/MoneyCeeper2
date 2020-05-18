@@ -20,7 +20,7 @@
         <ResourceDictionary Source="..\Styles\AddWindowStyle.xaml"/>
     </Window.Resources>
 
-    <Grid Background="#7A3DB2">
+    <Grid Background="#FFA567DE">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition Height="1.5*"/>

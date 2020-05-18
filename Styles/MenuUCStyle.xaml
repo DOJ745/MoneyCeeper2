@@ -72,7 +72,7 @@
     </ControlTemplate>
 
     <Style x:Key="UCStyle" TargetType="Grid">
-        <Setter Property="Background" Value="#7A3DB2"/>
+        <Setter Property="Background" Value="#FFA567DE"/>
     </Style>
 
 

@@ -15,7 +15,7 @@
         <ResourceDictionary Source="..\Styles\AdviceWindowStyle.xaml"/>
     </Window.Resources>
 
-    <Grid Background="#7A3DB2">
+    <Grid Background="#FFA567DE">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
