@@ -4,6 +4,7 @@ using System;
 using System.Windows;
 using MoneyCeeper.User_Controls;
 using System.ComponentModel;
+using System.Text.RegularExpressions;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -82,8 +83,18 @@ namespace MoneyCeeper.ViewModels
                     (context.User.Find(Login).Salt,
                     context.User.Find(Login).Password,
                     Password);
+                Regex passwRegex = new Regex("\\W");
+                MatchCollection matches;
+                if (Password != null)
+                {
+                    matches = passwRegex.Matches(Password);
+                }
+                else 
+                {
+                    matches = passwRegex.Matches(Password);
+                }
 
-                if(verify)
+                if (verify && matches.Count == 0)
                 {
                     MainWindow currentWindow = (_MainCodeBehind as MainWindow);
 
@@ -102,6 +113,11 @@ namespace MoneyCeeper.ViewModels
                     LeftPanelVM leftVM = new LeftPanelVM(costList, leftPanel, vmCost);
                     leftPanel.DataContext = leftVM;
                     currentWindow.LeftPanel.Content = leftPanel;
+                }
+                else if(matches.Count > 0)
+                {
+                    MessageBox.Show("В пароле присутствуют запрещённые символы( %, ^, '(', ')', * )", null,
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
                 }
                 else
                 {

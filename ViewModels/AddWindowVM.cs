@@ -62,12 +62,12 @@ namespace MoneyCeeper.ViewModels
                         break;
 
                     case "Comment":
-                        if (this.Comment.Length > 300 || this.Comment.Length < 15)
+                        if ((this.Comment.Length > 300 || this.Comment.Length < 15) && (this.Comment != null))
                             result = "Диапазон символов: 15 - 300";
                         break;
 
                     case "Description":
-                        if (this.Description.Length > 300)
+                        if (this.Description.Length > 300 && this.Description != null)
                              result = "Максимальное колисество символов - 300";
                         break;
 

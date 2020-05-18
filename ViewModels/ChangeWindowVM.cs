@@ -79,11 +79,11 @@ namespace MoneyCeeper.ViewModels
                             result = "Цена должна быть в пределах от 0 до 1 000 000";
                         break;
                     case "Comment":
-                        if (Comment.Length > 300 || Comment.Length < 15)
+                        if ((Comment.Length > 300 || Comment.Length < 15) && (this.Comment != null))
                             result = "Диапазон символов: 15 - 300";
                         break;
                     case "Description":
-                        if (this.Description.Length > 300)
+                        if (this.Description.Length > 300 && this.Description != null)
                             result = "Максимальное колисество символов - 300";
                         break;
                     case "Date_Time":
