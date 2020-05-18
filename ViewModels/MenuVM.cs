@@ -8,8 +8,11 @@ namespace MoneyCeeper.ViewModels
 {
     public class MenuVM : ViewModelBase
     {
+        #region Properies
         public IMainWindowsCodeBehind CodeBehind { get; set; }
+        #endregion
 
+        #region Commands
         /// <summary>
         /// Переход к Login
         /// </summary>
@@ -22,11 +25,6 @@ namespace MoneyCeeper.ViewModels
                   new RelayCommand(OnLoadLoginUC, ()=> true);
             }
         }
-        private void OnLoadLoginUC()
-        {
-            CodeBehind.LoadView(ViewType.Login);
-        }
-
 
         /// <summary>
         /// Переход ко Registration
@@ -37,12 +35,21 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _LoadRegistrationUCCommand = _LoadRegistrationUCCommand ??
-                  new RelayCommand(OnLoadSecondUC, ()=> true);
+                  new RelayCommand(OnLoadSecondUC, () => true);
             }
         }
+        #endregion
+
+        #region Command Parameters
+        private void OnLoadLoginUC()
+        {
+            CodeBehind.LoadView(ViewType.Login);
+        }
+
         private void OnLoadSecondUC()
         {
             CodeBehind.LoadView(ViewType.Register);
         }
+        #endregion
     }
 }
