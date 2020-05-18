@@ -19,15 +19,6 @@ using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper
 {
-    public interface IMainWindowsCodeBehind
-    {
-        /// <summary>
-        /// Загрузка нужной View
-        /// </summary>
-        /// <param name="view">экземпляр UserControl</param>
-        void LoadView(ViewType typeView);
-    }
-
     /// <summary>
     /// Типы View для загрузки
     /// </summary>
