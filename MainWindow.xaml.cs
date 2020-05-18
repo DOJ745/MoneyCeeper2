@@ -20,15 +20,6 @@ using MoneyCeeper.User_Controls;
 namespace MoneyCeeper
 {
     /// <summary>
-    /// Типы View для загрузки
-    /// </summary>
-    public enum ViewType
-    {
-        Login,
-        Register,
-        Menu
-    }
-    /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, IMainWindowsCodeBehind
