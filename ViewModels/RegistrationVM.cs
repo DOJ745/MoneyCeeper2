@@ -53,7 +53,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _RegisterUserCommand = _RegisterUserCommand ??
-                    new RelayCommand(OnRegisterCommand, CanRegisterCommand);
+                    new RelayCommand(OnRegisterCommand, () => true);
             }
              
         }
@@ -64,7 +64,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _OpenMenuUCCommand = _OpenMenuUCCommand ??
-                    new RelayCommand(OnMenuUCCommand, CanMenuUCCommand);
+                    new RelayCommand(OnMenuUCCommand, () => true);
             }
         }
         #endregion
@@ -115,30 +115,10 @@ namespace MoneyCeeper.ViewModels
             }
         }
 
-        private bool CanRegisterCommand()
-        {
-            return true;
-        }
-
         private void OnMenuUCCommand()
         {
             _MainCodeBehind.LoadView(ViewType.Menu);
         }
-
-        private bool CanMenuUCCommand()
-        {
-            return true;
-        }
         #endregion
-
-        public void LoadView(ViewType typeView)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void ShowMessage(string message)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
