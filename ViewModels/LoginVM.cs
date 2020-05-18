@@ -77,8 +77,6 @@ namespace MoneyCeeper.ViewModels
 
         private void OnLoginCommand()
         {
-
-
             try
             {
                 using (MainModel context = new MainModel())
