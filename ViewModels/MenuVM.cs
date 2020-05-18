@@ -35,7 +35,7 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _LoadRegistrationUCCommand = _LoadRegistrationUCCommand ??
-                  new RelayCommand(OnLoadSecondUC, () => true);
+                  new RelayCommand(OnLoadRegUC, () => true);
             }
         }
         #endregion
@@ -46,7 +46,7 @@ namespace MoneyCeeper.ViewModels
             CodeBehind.LoadView(ViewType.Login);
         }
 
-        private void OnLoadSecondUC()
+        private void OnLoadRegUC()
         {
             CodeBehind.LoadView(ViewType.Register);
         }
