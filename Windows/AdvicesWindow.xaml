@@ -42,7 +42,7 @@
                            TextAlignment="Center"/>
                 <TextBlock Text="По привычке" Grid.Row="1" Grid.Column="1"
                            TextAlignment="Center"/>
-                <TextBlock Text="По нужде" Grid.Row="1" Grid.Column="2"
+                <TextBlock Text="По необходимости" Grid.Row="1" Grid.Column="2"
                            TextAlignment="Center"/>
                 <TextBlock Text="Случайно" Grid.Row="1" Grid.Column="3"
                            TextAlignment="Center"/>
