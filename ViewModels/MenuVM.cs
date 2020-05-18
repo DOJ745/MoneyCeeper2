@@ -8,16 +8,10 @@ namespace MoneyCeeper.ViewModels
 {
     public class MenuVM : ViewModelBase
     {
-        public MenuVM()
-        {
-
-        }
-
         public IMainWindowsCodeBehind CodeBehind { get; set; }
 
-
         /// <summary>
-        /// Переход к первой вьюшке
+        /// Переход к Login
         /// </summary>
         private RelayCommand _LoadLoginUCCommand;
         public RelayCommand LoadLoginUCCommand
@@ -25,12 +19,8 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _LoadLoginUCCommand = _LoadLoginUCCommand ??
-                  new RelayCommand(OnLoadLoginUC, CanLoadLoginUC);
+                  new RelayCommand(OnLoadLoginUC, ()=> true);
             }
-        }
-        private bool CanLoadLoginUC()
-        {
-            return true;
         }
         private void OnLoadLoginUC()
         {
@@ -39,7 +29,7 @@ namespace MoneyCeeper.ViewModels
 
 
         /// <summary>
-        /// Переход ко Второй вьюшке
+        /// Переход ко Registration
         /// </summary>
         private RelayCommand _LoadRegistrationUCCommand;
         public RelayCommand LoadRegistrationUCCommand
@@ -47,12 +37,8 @@ namespace MoneyCeeper.ViewModels
             get
             {
                 return _LoadRegistrationUCCommand = _LoadRegistrationUCCommand ??
-                  new RelayCommand(OnLoadSecondUC, CanLoadSecondUC);
+                  new RelayCommand(OnLoadSecondUC, ()=> true);
             }
-        }
-        private bool CanLoadSecondUC()
-        {
-            return true;
         }
         private void OnLoadSecondUC()
         {

@@ -137,10 +137,5 @@ namespace MoneyCeeper.ViewModels
         {
             throw new System.NotImplementedException();
         }
-
-        public void ShowMessage(string message)
-        {
-            throw new System.NotImplementedException();
-        }
     }
 }
