@@ -157,6 +157,5 @@ namespace MoneyCeeper.ViewModels
             }
         }
         #endregion
-
     }
 }
