@@ -104,10 +104,10 @@ namespace MoneyCeeper.ViewModels
                     {
                         context.User.Add(newUser);
                         context.SaveChanges();
+                        MessageBox.Show("Регистрация прошла успешно!", null,
+                        MessageBoxButton.OK, MessageBoxImage.Information);
                     }
-                }
-                MessageBox.Show("Регистрация прошла успешно!", null,
-                    MessageBoxButton.OK, MessageBoxImage.Information);
+                }   
             }
             else if(!(PasswordOne == PasswordTwo))
             {
