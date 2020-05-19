@@ -12,41 +12,17 @@ using MoneyCeeper.User_Controls;
 
 namespace MoneyCeeper.ViewModels
 {
-    class LeftPanelVM : ViewModelBase
+    public class LeftPanelVM : ViewModelBase
     {
         #region Properies
         private IMainWindowsCodeBehind _MainCodeBehind;
-        public User CurrentUser { get; set; }
         public ObservableCollection<Cost> UnsortedCollection { get; set; }
         public IMainWindowsCodeBehind CurrentUC;
         public IMainWindowsCodeBehind CostVM;
-
         public string DescSearch { get; set; }
         #endregion
 
         #region Constructors
-        public LeftPanelVM(IMainWindowsCodeBehind codeBehind)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-        }
-        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, User currentUser)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-            CurrentUser = currentUser;
-            _MainCodeBehind = codeBehind;
-        }
-
-        public LeftPanelVM(IMainWindowsCodeBehind codeBehind, ObservableCollection<Cost> unsortetCollection, 
-            IMainWindowsCodeBehind UC)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-            UnsortedCollection = unsortetCollection;
-            _MainCodeBehind = codeBehind;
-            CurrentUC = UC;
-        }
-
         public LeftPanelVM(IMainWindowsCodeBehind codeBehind, IMainWindowsCodeBehind UC, IMainWindowsCodeBehind costVM)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));

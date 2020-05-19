@@ -13,40 +13,16 @@ using MoneyCeeper.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
-    class RightPanelVM : ViewModelBase, IMainWindowsCodeBehind
+    public class RightPanelVM : ViewModelBase, IMainWindowsCodeBehind
     {
         #region Properties
         private IMainWindowsCodeBehind _MainCodeBehind;
         private IMainWindowsCodeBehind CurrentUC;
         private IMainWindowsCodeBehind CostVM;
         private IMainWindowsCodeBehind MainWnd;
-        public User CurrentUser;
         #endregion
 
         #region Constructors
-        public RightPanelVM(IMainWindowsCodeBehind codeBehind)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-        }
-
-        public RightPanelVM(IMainWindowsCodeBehind codeBehind, User currentUser)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-            CurrentUser = currentUser;
-        }
-
-        public RightPanelVM(IMainWindowsCodeBehind codeBehind, IMainWindowsCodeBehind UC, IMainWindowsCodeBehind costVM)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-            _MainCodeBehind = codeBehind;
-            CurrentUC = UC;
-            CostVM = costVM;
-        }
-
         public RightPanelVM(IMainWindowsCodeBehind codeBehind, IMainWindowsCodeBehind UC, 
             IMainWindowsCodeBehind costVM, IMainWindowsCodeBehind mainWnd)
         {
@@ -144,11 +120,6 @@ namespace MoneyCeeper.ViewModels
                 AdviceAnalyzer(tempCollection, currentDate, i);
             }
             
-        }
-
-        public void ShowMessage(string message)
-        {
-            throw new NotImplementedException();
         }
 
         public void LoadView(ViewType typeView)

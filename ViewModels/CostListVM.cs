@@ -22,14 +22,6 @@ namespace MoneyCeeper.ViewModels
         #endregion
 
         #region Constructors
-        public CostListVM(IMainWindowsCodeBehind codeBehind)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-            CostCollection = new ObservableCollection<Cost>();
-        }
-
         public CostListVM(IMainWindowsCodeBehind codeBehind, User currentUser)
         {
             if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
