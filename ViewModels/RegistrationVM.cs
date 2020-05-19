@@ -95,10 +95,16 @@ namespace MoneyCeeper.ViewModels
 
                 using (MainModel context = new MainModel())
                 {
-                    context.User.Add(newUser);
-                    context.SaveChanges();
-
-                    User currentUser = context.User.Find(Login);
+                    if(context.User.Find(Login).Login == newUser.Login)
+                    {
+                        MessageBox.Show("Пользователь с данным именем уже существует!", null,
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+                    }
+                    else
+                    {
+                        context.User.Add(newUser);
+                        context.SaveChanges();
+                    }
                 }
                 MessageBox.Show("Регистрация прошла успешно!", null,
                     MessageBoxButton.OK, MessageBoxImage.Information);

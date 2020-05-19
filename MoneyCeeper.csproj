@@ -103,6 +103,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Advices\Advices.cs" />
+    <Compile Include="IMainWindowsCodeBehind.cs" />
     <Compile Include="Model\CategoryEnum.cs" />
     <Compile Include="Model\Cost.cs" />
     <Compile Include="Model\EnumBindingSourceExtension.cs" />
@@ -137,6 +138,7 @@
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\RightPanelVM.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewType.cs" />
     <Compile Include="Windows\AddWindow.xaml.cs">
       <DependentUpon>AddWindow.xaml</DependentUpon>
     </Compile>
