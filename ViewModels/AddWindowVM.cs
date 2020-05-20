@@ -9,26 +9,18 @@ namespace MoneyCeeper.ViewModels
 {
     class AddWindowVM : ViewModelBase, IDataErrorInfo
     {
-        #region Constructors
+        #region Properties
+        public double Price { get; set; }
+        public DateTime Date_Time { get; set; }
+        public string Comment { get; set; }
+        public string Description { get; set; }
+        public CategoryEnum Category_Type { get; set; }
         private IMainWindowsCodeBehind _MainCodeBehind;
         public User CurrentUser;
         public ObservableCollection<Cost> CurrentCollection { get; set; }
+        #endregion
 
-        public AddWindowVM(IMainWindowsCodeBehind codeBehind)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-        }
-
-        public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser)
-        {
-            if (codeBehind == null) throw new ArgumentNullException(nameof(codeBehind));
-
-            _MainCodeBehind = codeBehind;
-            CurrentUser = currentUser;
-        }
-
+        #region Constructors
         public AddWindowVM(IMainWindowsCodeBehind codeBehind, User currentUser, 
             ObservableCollection<Cost> currentCollection)
         {
@@ -39,15 +31,7 @@ namespace MoneyCeeper.ViewModels
             CurrentCollection = currentCollection;
         }
         #endregion
-
-        #region Properties
-        public double Price { get; set; }
-        public DateTime Date_Time { get; set; }
-        public string Comment { get; set; }
-        public string Description { get; set; }
-        public CategoryEnum Category_Type { get; set; }
-        #endregion
-
+  
         #region Validation Members
         public string this[string columnName]
         {
@@ -133,6 +117,5 @@ namespace MoneyCeeper.ViewModels
         }
 
         #endregion Commands Parameters
-
     }
 }
