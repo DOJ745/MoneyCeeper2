@@ -6,6 +6,7 @@ namespace MoneyCeeper.Model
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
+
     [Table("Cost")]
     public partial class Cost
     {

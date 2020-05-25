@@ -130,18 +130,6 @@ namespace MoneyCeeper.ViewModels
             }
             
         }
-
-        private void OnSaveCommand()
-        {
-            XmlSerializer formatter = new XmlSerializer(typeof(ObservableCollection<Cost>));
-
-            using (FileStream fs = new FileStream("DB.xml", FileMode.OpenOrCreate))
-            {
-                formatter.Serialize(fs, (CostVM as CostListVM).CostCollection);
-
-                MessageBox.Show("Список трат сохранён в DB.xml в папке с программой");
-            }
-        }
         public void LoadView(ViewType typeView)
         {
             throw new NotImplementedException();

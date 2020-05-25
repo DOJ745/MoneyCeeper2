@@ -101,22 +101,4 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="RoundButonSave" TargetType="Button">
-        <Border CornerRadius="10"
-                BorderBrush="Black"
-                BorderThickness="2"
-                Background="#FF814B"
-                Name="border">
-            <ContentControl Margin="1"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Content="Сохранить в XML"/>
-        </Border>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter TargetName="border" Property="Background" Value="White" />
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
 </ResourceDictionary>
