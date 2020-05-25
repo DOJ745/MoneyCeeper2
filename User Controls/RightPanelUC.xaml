@@ -58,6 +58,12 @@
                     VerticalAlignment="Bottom"
                     Style="{StaticResource ResourceKey=ButtonStyle}"
                     Template="{StaticResource ResourceKey=RoundButonExit}"/>
+
+            <Button Content="Сохранить в JSON"
+                    Command="{Binding SaveDbCommand}"
+                    VerticalAlignment="Bottom"
+                    Style="{StaticResource ResourceKey=ButtonStyle}"
+                    Template="{StaticResource ResourceKey=RoundButonSave}"/>
         </StackPanel>
             
     </Grid>

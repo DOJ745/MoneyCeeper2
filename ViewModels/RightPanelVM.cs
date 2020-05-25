@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Data.Entity.Core;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows;
 using MoneyCeeper.Model;
 using MoneyCeeper.User_Controls;
 using MoneyCeeper.Windows;
+using System.Xml.Serialization;
+using System.Collections.ObjectModel;
+using System.IO;
+using System.Windows;
 
 namespace MoneyCeeper.ViewModels
 {
@@ -84,6 +83,16 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnAdviceCommand, () => true);
             }
         }
+
+        private RelayCommand _SaveDbCommand;
+        public RelayCommand SaveDbCommand
+        {
+            get
+            {
+                return _SaveDbCommand = _SaveDbCommand ??
+                    new RelayCommand(OnSaveCommand, () => true);
+            }
+        }
         #endregion
 
         #region Command Parameters
@@ -122,6 +131,17 @@ namespace MoneyCeeper.ViewModels
             
         }
 
+        private void OnSaveCommand()
+        {
+            XmlSerializer formatter = new XmlSerializer(typeof(ObservableCollection<Cost>));
+
+            using (FileStream fs = new FileStream("DB.xml", FileMode.OpenOrCreate))
+            {
+                formatter.Serialize(fs, (CostVM as CostListVM).CostCollection);
+
+                MessageBox.Show("Список трат сохранён в DB.xml в папке с программой");
+            }
+        }
         public void LoadView(ViewType typeView)
         {
             throw new NotImplementedException();

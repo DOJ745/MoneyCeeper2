@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Data.Entity;
-using System.Data.Entity.Core.Metadata.Edm;
-using System.Runtime.Remoting.Contexts;
 using System.Windows;
-using System.Windows.Documents;
-using System.Windows.Input;
 using MoneyCeeper.Model;
 using MoneyCeeper.Windows;
 
