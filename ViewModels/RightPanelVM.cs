@@ -83,16 +83,6 @@ namespace MoneyCeeper.ViewModels
                     new RelayCommand(OnAdviceCommand, () => true);
             }
         }
-
-        private RelayCommand _SaveDbCommand;
-        public RelayCommand SaveDbCommand
-        {
-            get
-            {
-                return _SaveDbCommand = _SaveDbCommand ??
-                    new RelayCommand(OnSaveCommand, () => true);
-            }
-        }
         #endregion
 
         #region Command Parameters
