@@ -110,33 +110,33 @@
     <Compile Include="Model\EnumDescriptionTypeConverter.cs" />
     <Compile Include="Model\MainModel.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="User Controls\CostList.xaml.cs">
+    <Compile Include="User Controls\Panels\CostList.xaml.cs">
       <DependentUpon>CostList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\LeftPanelUC.xaml.cs">
+    <Compile Include="User Controls\Panels\LeftPanelUC.xaml.cs">
       <DependentUpon>LeftPanelUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\LoginUC.xaml.cs" />
-    <Compile Include="User Controls\MenuUC.xaml.cs">
+    <Compile Include="User Controls\Login and Register things\LoginUC.xaml.cs" />
+    <Compile Include="User Controls\Login and Register things\MenuUC.xaml.cs">
       <DependentUpon>MenuUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User Controls\RegistrationUC.xaml.cs" />
-    <Compile Include="User Controls\RightPanelUC.xaml.cs">
+    <Compile Include="User Controls\Login and Register things\RegistrationUC.xaml.cs" />
+    <Compile Include="User Controls\Panels\RightPanelUC.xaml.cs">
       <DependentUpon>RightPanelUC.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\AddWindowVM.cs" />
+    <Compile Include="ViewModels\Create and Change\AddWindowVM.cs" />
     <Compile Include="ViewModels\AdvicesVM.cs" />
-    <Compile Include="ViewModels\ChangeWindowVM.cs" />
-    <Compile Include="ViewModels\CostListVM.cs" />
-    <Compile Include="ViewModels\DiagrammVM.cs" />
-    <Compile Include="ViewModels\GraphsVM.cs" />
-    <Compile Include="ViewModels\LeftPanelVM.cs" />
-    <Compile Include="ViewModels\LoginVM.cs" />
+    <Compile Include="ViewModels\Create and Change\ChangeWindowVM.cs" />
+    <Compile Include="ViewModels\Panels\CostListVM.cs" />
+    <Compile Include="ViewModels\Graphs and Diagramm\DiagrammVM.cs" />
+    <Compile Include="ViewModels\Graphs and Diagramm\GraphsVM.cs" />
+    <Compile Include="ViewModels\Panels\LeftPanelVM.cs" />
+    <Compile Include="ViewModels\Login and Register things\LoginVM.cs" />
     <Compile Include="ViewModels\MagicAttribute.cs" />
-    <Compile Include="ViewModels\MenuVM.cs" />
-    <Compile Include="ViewModels\RegistrationVM.cs" />
+    <Compile Include="ViewModels\Login and Register things\MenuVM.cs" />
+    <Compile Include="ViewModels\Login and Register things\RegistrationVM.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="ViewModels\RightPanelVM.cs" />
+    <Compile Include="ViewModels\Panels\RightPanelVM.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="ViewType.cs" />
     <Compile Include="Windows\AddWindow.xaml.cs">
@@ -214,27 +214,27 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User Controls\CostList.xaml">
+    <Page Include="User Controls\Panels\CostList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User Controls\LeftPanelUC.xaml">
+    <Page Include="User Controls\Panels\LeftPanelUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User Controls\LoginUC.xaml">
+    <Page Include="User Controls\Login and Register things\LoginUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="User Controls\MenuUC.xaml">
+    <Page Include="User Controls\Login and Register things\MenuUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="User Controls\RegistrationUC.xaml">
+    <Page Include="User Controls\Login and Register things\RegistrationUC.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="User Controls\RightPanelUC.xaml">
+    <Page Include="User Controls\Panels\RightPanelUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -326,6 +326,7 @@
     <Resource Include="Windows\PieChart.png" />
     <Resource Include="MoneyIcon.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
